@@ -68,26 +68,29 @@ function initMap() {
 
 // Fetch Pipeline Execution JSON Data
 async function fetchPipelineData() {
-  try {
-    const res = await fetch('/api/data');
-    if (!res.ok) throw new Error('Data payload not found');
-    pipelineData = await res.json();
-    renderAllComponents();
-  } catch (err) {
-    console.warn('Backend API offline, falling back to local client execution:', err);
-    // Client fallback if server endpoint delayed
-    setTimeout(async () => {
-      try {
-        const res = await fetch('/api/data');
-        if (res.ok) {
-          pipelineData = await res.json();
-          renderAllComponents();
-        }
-      } catch (e) {
-        console.error('Failed to load data:', e);
-      }
-    }, 1000);
+  const dataSources = [
+    '/api/data',
+    '/data/karnal_gee_output.json',
+    '/data/karnal_pipeline_output.json'
+  ];
+
+  for (const source of dataSources) {
+    try {
+      const res = await fetch(source, { cache: 'no-store' });
+      if (!res.ok) continue;
+      const payload = await res.json();
+      if (!payload.summary || !payload.geojson) continue;
+
+      pipelineData = payload;
+      renderAllComponents();
+      console.info(`AgriSense data loaded from ${source}`);
+      return;
+    } catch (err) {
+      console.warn(`Unable to load ${source}:`, err.message);
+    }
   }
+
+  console.error('No compatible pipeline data source was found.');
 }
 
 // Render All Components after Data Load
