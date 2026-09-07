@@ -1,0 +1,14 @@
+{
+  "name": "karnal-agrisense-pipeline",
+  "version": "1.0.0",
+  "description": "Satellite Remote Sensing & AI/ML Crop Intelligence and Irrigation Advisory Platform for Karnal Region, Haryana, India",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "pipeline": "python pipeline/run_pipeline.py"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}

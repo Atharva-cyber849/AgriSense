@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriSense Karnal | Satellite AI Crop & Irrigation Advisory Platform</title>
+  <meta name="description" content="End-to-End Satellite Remote Sensing & AI/ML Crop Intelligence and Water Deficit Advisory Platform for Karnal Region, Haryana, India.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+
+  <!-- Top Header Navigation -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="brand-logo">
+        <i data-lucide="sprout" class="brand-icon"></i>
+        <div class="brand-text">
+          <span class="brand-title">AgriSense <span class="badge-region">KARNAL, IN</span></span>
+          <span class="brand-subtitle">Satellite Remote Sensing & AI Crop Water Deficit Advisory</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Metrics Header Stats -->
+    <div class="header-center">
+      <div class="stat-pill">
+        <span class="stat-label">Monitored Area</span>
+        <span class="stat-value" id="header-total-area">-- ha</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Weekly Water Deficit</span>
+        <span class="stat-value text-amber" id="header-water-deficit">-- m³</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Irrigation Needed</span>
+        <span class="stat-value text-emerald" id="header-irrigation-needed">-- ha</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Latest Weather (IMD)</span>
+        <span class="stat-value" id="header-weather">30.5°C | 0mm</span>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <!-- Persona Switcher -->
+      <div class="persona-selector">
+        <i data-lucide="user-check" class="selector-icon"></i>
+        <select id="persona-select" title="Switch User Role Persona">
+          <option value="officer">👨‍💼 Agriculture Officer</option>
+          <option value="irrigation">🌊 Irrigation Officer</option>
+          <option value="wua">🚜 Water User Association (WUA)</option>
+          <option value="farmer">🌾 Farmer View</option>
+          <option value="policy">🏛️ Policy Maker</option>
+        </select>
+      </div>
+
+      <!-- Action Buttons -->
+      <button class="btn btn-outline" id="btn-pipeline-modal">
+        <i data-lucide="cpu"></i> Pipeline Architecture
+      </button>
+      <button class="btn btn-primary" id="btn-run-pipeline">
+        <i data-lucide="play"></i> Run AI Pipeline
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Workspace Layout -->
+  <main class="main-layout">
+
+    <!-- Map Viewport Section -->
+    <section class="map-section">
+      
+      <!-- Layer Switcher Bar -->
+      <div class="layer-bar">
+        <span class="layer-bar-title"><i data-lucide="layers"></i> Output Layers:</span>
+        <button class="layer-btn active" data-layer="crop">
+          <i data-lucide="grid"></i> Crop Type
+        </button>
+        <button class="layer-btn" data-layer="stage">
+          <i data-lucide="trending-up"></i> Growth Stage
+        </button>
+        <button class="layer-btn" data-layer="stress">
+          <i data-lucide="activity"></i> Moisture Stress
+        </button>
+        <button class="layer-btn" data-layer="deficit">
+          <i data-lucide="droplets"></i> Water Deficit
+        </button>
+        <button class="layer-btn" data-layer="advisory">
+          <i data-lucide="compass"></i> Irrigation Advisory
+        </button>
+      </div>
+
+      <!-- Leaflet Map Container -->
+      <div id="map"></div>
+
+      <!-- Map Legend Overlay -->
+      <div class="map-legend-card" id="map-legend">
+        <h4 id="legend-title">Crop Type Legend</h4>
+        <div id="legend-items" class="legend-items"></div>
+      </div>
+
+      <!-- Karnal Region Information Banner -->
+      <div class="map-info-badge">
+        <i data-lucide="map-pin"></i> <span>Karnal District, Haryana (Lat: 29.6857° N, Lon: 76.9905° E)</span>
+      </div>
+    </section>
+
+    <!-- Side Analytical Dashboard Drawer -->
+    <aside class="dashboard-sidebar">
+      
+      <!-- Panel Header & View Tabs -->
+      <div class="sidebar-header">
+        <h3 id="panel-title">Regional Crop & Water Analytics</h3>
+        <span class="badge badge-live"><span class="pulse"></span> LIVE SATELLITE CUBE</span>
+      </div>
+
+      <div class="sidebar-scrollable">
+        
+        <!-- Persona Dynamic Content Container -->
+        <div id="persona-view-container" class="persona-card">
+          <!-- Populated by app.js based on role -->
+        </div>
+
+        <!-- Analytical Charts Section -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <h4><i data-lucide="pie-chart"></i> Crop Type Distribution (Karnal)</h4>
+          </div>
+          <div class="chart-container">
+            <canvas id="cropChart"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <h4><i data-lucide="bar-chart-3"></i> Moisture Stress Classification</h4>
+          </div>
+          <div class="chart-container">
+            <canvas id="stressChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Tehsil Water Deficit & Canal Priority Table -->
+        <div class="data-table-card">
+          <div class="table-header">
+            <h4><i data-lucide="git-branch"></i> Tehsil Water Deficit & Canal Schedule</h4>
+          </div>
+          <div class="table-responsive">
+            <table class="custom-table" id="tehsil-table">
+              <thead>
+                <tr>
+                  <th>Tehsil</th>
+                  <th>Canal Branch</th>
+                  <th>Deficit (m³)</th>
+                  <th>Priority</th>
+                </tr>
+              </thead>
+              <tbody id="tehsil-table-body">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+  </main>
+
+  <section class="design-poster-section">
+    <div class="poster-header">
+      <h2>AI-DRIVEN CROP, MOISTURE &amp; IRRIGATION ADVISORY SYSTEM</h2>
+      <p>UI DESIGN MESH FOR ALL END USERS</p>
+    </div>
+
+    <div class="architecture-panel">
+      <div class="activity-title-wrap">
+        <h3>ACTIVITY DIAGRAM - COMPLETE PIPELINE</h3>
+        <span>From Raw Satellite Images to AI-Ready Outputs and Irrigation Advisory</span>
+      </div>
+
+      <div class="diagram-grid">
+        <div class="diagram-box start-box">
+          <div class="box-title">1. DATA ACQUISITION</div>
+          <ul>
+            <li>Optical Data</li>
+            <li>SAR Data</li>
+            <li>Ancillary Data</li>
+            <li>Ground Truth</li>
+          </ul>
+        </div>
+
+        <div class="diagram-box">
+          <div class="box-title">2. RADIOMETRIC CALIBRATION</div>
+          <ul>
+            <li>Optical Calibration</li>
+            <li>SAR Calibration</li>
+          </ul>
+        </div>
+
+        <div class="diagram-box">
+          <div class="box-title">3. PREPROCESSING</div>
+          <ul>
+            <li>Atmospheric Correction</li>
+            <li>Cloud &amp; Shadow Masking</li>
+            <li>Terrain Correction</li>
+          </ul>
+        </div>
+
+        <div class="diagram-box">
+          <div class="box-title">4. TEMPORAL &amp; SPATIAL COMPOSITING</div>
+          <ul>
+            <li>Multi-date Collection</li>
+            <li>Cloud-free composite</li>
+            <li>Time-series stacking</li>
+          </ul>
+        </div>
+
+        <div class="diagram-box">
+          <div class="box-title">5. FEATURE EXTRACTION</div>
+          <ul>
+            <li>Spectral indices</li>
+            <li>SAR features</li>
+            <li>Phenology metrics</li>
+          </ul>
+        </div>
+
+        <div class="diagram-box">
+          <div class="box-title">6. FEATURE CUBE</div>
+          <ul>
+            <li>Field &amp; season features</li>
+            <li>Stacked data cube</li>
+          </ul>
+        </div>
+
+        <div class="diagram-box accent-box">
+          <div class="box-title">7. AI / ML MODELLING</div>
+          <ul>
+            <li>Crop type</li>
+            <li>Growth stage</li>
+            <li>Moisture stress</li>
+            <li>Irrigation advisory</li>
+          </ul>
+        </div>
+
+        <div class="diagram-box">
+          <div class="box-title">8. POST-PROCESSING &amp; SPATIAL ANALYSIS</div>
+          <ul>
+            <li>Field-level map layer</li>
+            <li>Canal water deficit</li>
+            <li>Decision support</li>
+          </ul>
+        </div>
+
+        <div class="diagram-box">
+          <div class="box-title">9. OUTPUT PRODUCTS &amp; DELIVERY</div>
+          <ul>
+            <li>Crop map</li>
+            <li>Stress map</li>
+            <li>Advisory reports</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="user-dashboard-grid">
+      <article class="persona-panel officer-panel" data-poster-role="farmer">
+        <div class="panel-head">
+          <span class="panel-title">1. FARMER (MOBILE APP)</span>
+        </div>
+        <div class="mini-grid">
+          <div class="mini-card">
+            <span>Field Health</span>
+            <strong data-poster-field="farmer-health">Good</strong>
+          </div>
+          <div class="mini-card warning">
+            <span>Moisture Stress</span>
+            <strong data-poster-field="farmer-stress">Moderate</strong>
+          </div>
+          <div class="mini-card alert">
+            <span>Irrigation</span>
+            <strong data-poster-field="farmer-irrigation">18 mm</strong>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li>Field-level advisories</li>
+          <li>Crop &amp; growth stage</li>
+          <li>Water deficit</li>
+          <li>Notifications</li>
+        </ul>
+      </article>
+
+      <article class="persona-panel wua-panel" data-poster-role="wua">
+        <div class="panel-head">
+          <span class="panel-title">2. WATER USER ASSOCIATION (WUA)</span>
+        </div>
+        <div class="mini-grid">
+          <div class="mini-card"><span>Water Demand</span><strong data-poster-field="wua-demand">428 m³</strong></div>
+          <div class="mini-card"><span>Available</span><strong data-poster-field="wua-available">67 m³</strong></div>
+          <div class="mini-card warning"><span>Status</span><strong data-poster-field="wua-status">Critical</strong></div>
+        </div>
+        <ul class="feature-list">
+          <li>Water release schedule</li>
+          <li>Outlet monitoring</li>
+          <li>Warabandi planning</li>
+        </ul>
+      </article>
+
+      <article class="persona-panel officer-panel" data-poster-role="officer">
+        <div class="panel-head">
+          <span class="panel-title">3. AGRICULTURE / EXTENSION OFFICER</span>
+        </div>
+        <div class="mini-grid">
+          <div class="mini-card"><span>Crop</span><strong data-poster-field="officer-crop">Wheat</strong></div>
+          <div class="mini-card"><span>Growth</span><strong data-poster-field="officer-stage">Flowering</strong></div>
+          <div class="mini-card alert"><span>Alerts</span><strong data-poster-field="officer-alerts">High</strong></div>
+        </div>
+        <ul class="feature-list">
+          <li>Field visits</li>
+          <li>Intervention tracking</li>
+          <li>Crop advisories</li>
+        </ul>
+      </article>
+
+      <article class="persona-panel irrigation-panel" data-poster-role="irrigation">
+        <div class="panel-head">
+          <span class="panel-title">4. WATER RESOURCES / IRRIGATION OFFICER</span>
+        </div>
+        <div class="mini-grid">
+          <div class="mini-card"><span>Demand</span><strong data-poster-field="irrigation-demand">2,400 m³</strong></div>
+          <div class="mini-card"><span>Supply</span><strong data-poster-field="irrigation-supply">1,850 m³</strong></div>
+          <div class="mini-card alert"><span>Gap</span><strong data-poster-field="irrigation-gap">550 m³</strong></div>
+        </div>
+        <ul class="feature-list">
+          <li>Canal command view</li>
+          <li>Water balance</li>
+          <li>Release decisions</li>
+        </ul>
+      </article>
+
+      <article class="persona-panel researcher-panel" data-poster-role="researcher">
+        <div class="panel-head">
+          <span class="panel-title">5. GIS / REMOTE SENSING ANALYST</span>
+        </div>
+        <div class="mini-grid">
+          <div class="mini-card"><span>NDVI</span><strong data-poster-field="researcher-ndvi">0.74</strong></div>
+          <div class="mini-card"><span>NDWI</span><strong data-poster-field="researcher-ndwi">0.22</strong></div>
+          <div class="mini-card"><span>Stress</span><strong data-poster-field="researcher-stress">Moderate</strong></div>
+        </div>
+        <ul class="feature-list">
+          <li>Time series analysis</li>
+          <li>Validation dashboard</li>
+          <li>Map generation</li>
+        </ul>
+      </article>
+
+      <article class="persona-panel policy-panel" data-poster-role="policy">
+        <div class="panel-head">
+          <span class="panel-title">6. RESEARCHER / POLICY MAKER</span>
+        </div>
+        <div class="mini-grid">
+          <div class="mini-card"><span>Water Risk</span><strong data-poster-field="policy-risk">Moderate</strong></div>
+          <div class="mini-card"><span>Coverage</span><strong data-poster-field="policy-coverage">34%</strong></div>
+          <div class="mini-card"><span>Priority</span><strong data-poster-field="policy-priority">High</strong></div>
+        </div>
+        <ul class="feature-list">
+          <li>Regional analytics</li>
+          <li>Drought planning</li>
+          <li>Investment guidance</li>
+        </ul>
+      </article>
+
+      <article class="persona-panel admin-panel" data-poster-role="admin">
+        <div class="panel-head">
+          <span class="panel-title">7. SYSTEM ADMINISTRATOR</span>
+        </div>
+        <div class="mini-grid">
+          <div class="mini-card"><span>Users</span><strong data-poster-field="admin-users">1245</strong></div>
+          <div class="mini-card"><span>Health</span><strong data-poster-field="admin-health">99%</strong></div>
+          <div class="mini-card"><span>Alerts</span><strong data-poster-field="admin-alerts">Low</strong></div>
+        </div>
+        <ul class="feature-list">
+          <li>System monitoring</li>
+          <li>Security &amp; uptime</li>
+          <li>Data management</li>
+        </ul>
+      </article>
+
+      <article class="persona-panel all-users-panel" data-poster-role="mobile">
+        <div class="panel-head">
+          <span class="panel-title">ALL USERS - COMMON MOBILE NAVIGATION PATTERN</span>
+        </div>
+        <div class="phone-mockup">
+          <div class="phone-screen">
+            <div class="phone-header"></div>
+            <div class="phone-body"></div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="poster-live-map-wrap">
+      <div class="poster-live-map-header">
+        <h4>Live field map</h4>
+        <span>Field polygons from pipeline JSON</span>
+      </div>
+      <div id="poster-field-map"></div>
+    </div>
+
+    <div class="design-summary-row">
+      <div class="summary-card">
+        <h4>Responsive Design</h4>
+        <div class="summary-icons">
+          <span>Mobile</span>
+          <span>Tablet</span>
+          <span>Laptop</span>
+          <span>Desktop</span>
+        </div>
+      </div>
+      <div class="summary-card">
+        <h4>UI/UX Guidelines</h4>
+        <div class="summary-icons">
+          <span>Consistency</span>
+          <span>Clarity</span>
+          <span>Feedback</span>
+          <span>Accessibility</span>
+        </div>
+      </div>
+      <div class="summary-card">
+        <h4>Data Flow Across Users</h4>
+        <div class="summary-icons">
+          <span>Input</span>
+          <span>AI Models</span>
+          <span>Insights</span>
+          <span>Reports</span>
+        </div>
+      </div>
+      <div class="summary-card">
+        <h4>Legend</h4>
+        <div class="summary-icons small">
+          <span class="indicator input">Input</span>
+          <span class="indicator ai">AI</span>
+          <span class="indicator output">Output</span>
+          <span class="indicator alert">Alert</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Field Detail Modal / Drawer -->
+  <div class="modal-backdrop" id="field-modal-backdrop">
+    <div class="modal-card modal-large">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 id="field-modal-title">Field Inspection: KRN-FLD-101</h3>
+          <span class="badge badge-emerald" id="field-modal-crop">Paddy (Rice)</span>
+          <span class="badge badge-info" id="field-modal-tehsil">Nilokheri Tehsil</span>
+        </div>
+        <button class="modal-close" id="btn-close-field-modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-grid">
+          
+          <!-- Column 1: Indices & Satellite Metrics -->
+          <div class="modal-col">
+            <div class="metric-group">
+              <h4>Optical Spectral Indices (Sentinel-2 10m)</h4>
+              <div class="metric-row">
+                <span class="metric-label">NDVI (Vegetation Index)</span>
+                <span class="metric-val text-emerald" id="m-ndvi">0.74</span>
+              </div>
+              <div class="metric-row">
+                <span class="metric-label">NDWI (Water Index)</span>
+                <span class="metric-val text-cyan" id="m-ndwi">0.22</span>
+              </div>
+              <div class="metric-row">
+                <span class="metric-label">NDMI (Moisture Index)</span>
+                <span class="metric-val text-blue" id="m-ndmi">0.31</span>
+              </div>
+            </div>
+
+            <div class="metric-group mt-3">
+              <h4>SAR Radar Features (Sentinel-1 C-Band)</h4>
+              <div class="metric-row">
+                <span class="metric-label">VV Backscatter (dB)</span>
+                <span class="metric-val" id="m-vv">-11.4 dB</span>
+              </div>
+              <div class="metric-row">
+                <span class="metric-label">VH Backscatter (dB)</span>
+                <span class="metric-val" id="m-vh">-16.8 dB</span>
+              </div>
+              <div class="metric-row">
+                <span class="metric-label">VV/VH Ratio</span>
+                <span class="metric-val" id="m-ratio">5.4 dB</span>
+              </div>
+            </div>
+
+            <div class="metric-group mt-3">
+              <h4>Soil & Field Info</h4>
+              <div class="metric-row">
+                <span class="metric-label">Area (Acres / Ha)</span>
+                <span class="metric-val" id="m-area">4.5 acres (1.82 ha)</span>
+              </div>
+              <div class="metric-row">
+                <span class="metric-label">Soil Profile</span>
+                <span class="metric-val" id="m-soil">Alluvial Loam</span>
+              </div>
+              <div class="metric-row">
+                <span class="metric-label">Canal Feeder</span>
+                <span class="metric-val text-amber" id="m-canal">Indri Distributary</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Temporal Curve & FAO-56 Irrigation Engine -->
+          <div class="modal-col">
+            <div class="chart-card">
+              <h4><i data-lucide="line-chart"></i> Multi-Temporal Profile (NDVI & SAR VV)</h4>
+              <div class="chart-container-modal">
+                <canvas id="fieldTemporalChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Advisory Box -->
+            <div class="advisory-card mt-3">
+              <div class="advisory-header">
+                <h4><i data-lucide="droplet"></i> FAO-56 Crop Water Balance & Advisory</h4>
+                <span class="badge badge-danger" id="m-priority-badge">Priority 8/10</span>
+              </div>
+              <div class="advisory-body">
+                <div class="water-calc-grid">
+                  <div class="calc-item">
+                    <span class="c-label">Crop Kc Factor</span>
+                    <span class="c-val" id="m-kc">1.05</span>
+                  </div>
+                  <div class="calc-item">
+                    <span class="c-label">Weekly ETc Demand</span>
+                    <span class="c-val" id="m-etc">33.2 mm</span>
+                  </div>
+                  <div class="calc-item">
+                    <span class="c-label">Effective Rain (Peff)</span>
+                    <span class="c-val text-cyan" id="m-peff">0.0 mm</span>
+                  </div>
+                  <div class="calc-item">
+                    <span class="c-label">Net Water Deficit</span>
+                    <span class="c-val text-amber" id="m-deficit">33.2 mm</span>
+                  </div>
+                </div>
+
+                <div class="recommendation-box mt-2">
+                  <span class="rec-title">Irrigation Recommendation:</span>
+                  <p class="rec-text" id="m-advisory-text">Apply standard irrigation (50 mm) within 48 hours. Canal supply release requested.</p>
+                  <div class="rec-meta mt-1">
+                    <span><strong>Recommended Depth:</strong> <span id="m-rec-depth">50 mm</span></span>
+                    <span><strong>Timing:</strong> <span id="m-rec-timing">Within 2-3 days</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-actions mt-3">
+              <button class="btn btn-outline" id="btn-export-field"><i data-lucide="download"></i> Download Field Advisory (PDF/CSV)</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pipeline Architecture Diagram & Execution Modal -->
+  <div class="modal-backdrop" id="pipeline-modal-backdrop">
+    <div class="modal-card modal-xlarge">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3><i data-lucide="cpu"></i> End-to-End Pipeline Architecture & Data Flow</h3>
+          <span class="badge badge-emerald">Karnal Region Remote Sensing AI</span>
+        </div>
+        <button class="modal-close" id="btn-close-pipeline-modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        
+        <!-- Interactive 8-Stage Pipeline Flow Steps -->
+        <div class="pipeline-steps-grid">
+          
+          <div class="pipe-step" data-step="1">
+            <div class="step-num">1</div>
+            <div class="step-title">Data Sources</div>
+            <p class="step-desc">Sentinel-2 (10m Optical), Sentinel-1 (SAR C-Band), IMD Weather Data, Ground Truth Samples.</p>
+          </div>
+
+          <div class="pipe-step" data-step="2">
+            <div class="step-num">2</div>
+            <div class="step-title">Data Pre-processing</div>
+            <p class="step-desc">Radiometric Calibration, s2cloudless Masking, SAR 3x3 Refined Lee Filter, 8-day Compositing.</p>
+          </div>
+
+          <div class="pipe-step" data-step="3">
+            <div class="step-num">3</div>
+            <div class="step-title">Feature Extraction</div>
+            <p class="step-desc">Spectral Indices (NDVI, NDWI, NDMI, EVI), SAR Ratios, GLCM Textures, Phenology Metrics.</p>
+          </div>
+
+          <div class="pipe-step" data-step="4">
+            <div class="step-num">4</div>
+            <div class="step-title">Core AI/ML Models</div>
+            <p class="step-desc">Random Forest Crop Classifier, Phenology LSTM, Moisture Stress Deep Learning Classifier.</p>
+          </div>
+
+          <div class="pipe-step" data-step="5">
+            <div class="step-num">5</div>
+            <div class="step-title">Output Products</div>
+            <p class="step-desc">Crop Type Map, Growth Stage Map, Stress Map, Deficit Map, Advisory Map, Time Series.</p>
+          </div>
+
+          <div class="pipe-step" data-step="6">
+            <div class="step-num">6</div>
+            <div class="step-title">Water Deficit & Engine</div>
+            <p class="step-desc">FAO-56 Crop Evapotranspiration ETc = ETo × Kc, Soil Water Deficit, Canal Release Priority.</p>
+          </div>
+
+          <div class="pipe-step" data-step="7">
+            <div class="step-num">7</div>
+            <div class="step-title">End User Portals</div>
+            <p class="step-desc">Custom Personas: Farmers, Water User Associations, Agri Officers, Irrigation Officers, Policy.</p>
+          </div>
+
+          <div class="pipe-step" data-step="8">
+            <div class="step-num">8</div>
+            <div class="step-title">Cross Cutting APIs</div>
+            <p class="step-desc">PostGIS Database, Cloud Compute, REST/GeoAPI, SMS/Email Alerts, PDF Reports.</p>
+          </div>
+
+        </div>
+
+        <!-- Live Execution Log Terminal -->
+        <div class="execution-console-card mt-4">
+          <div class="console-header">
+            <span><i data-lucide="terminal"></i> Pipeline Live Execution Console</span>
+            <span class="console-status" id="console-status">System Ready</span>
+          </div>
+          <div class="console-body" id="console-body">
+            <div class="log-line log-info">[INFO] AgriSense Pipeline Engine initialized for Karnal Region (Lat 29.6857°N, Lon 76.9905°E).</div>
+            <div class="log-line log-success">[READY] All 8 pipeline stages configured according to architecture specification.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- External JS Libraries -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>

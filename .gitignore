@@ -1,0 +1,14 @@
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+.DS_Store
+Thumbs.db
+npm-debug.log*
+*.log
+GEE_Karnal/exports/
+data/*.tif
+data/*.tiff
+data/*.zip
