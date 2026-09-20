@@ -782,25 +782,36 @@ function initMap() {
 /* -------------------------------------------------------------------------- */
 
 async function fetchMasterData() {
-  try {
-    const res = await fetch('/api/data', { cache: 'no-store' });
-    if (!res.ok) throw new Error('Master demo data not built.');
+  const sources = [
+    '/api/data',
+    '/data/karnal_master_demo_output.json',
+    '/data/karnal_gee_output.json',
+    '/data/karnal_pipeline_output.json'
+  ];
 
-    pipelineData = await res.json();
-    initializePersonaScopes();
+  for (const source of sources) {
+    try {
+      const res = await fetch(source, { cache: 'no-store' });
+      if (!res.ok) continue;
 
-    configureTimeline();
+      const payload = await res.json();
+      if (!payload.summary || !payload.geojson) continue;
 
-    await loadPeriod(0, false);
-
-    renderBaseMap();
-    applyPersonaRole(false);
-    renderAll();
-  } catch (err) {
-    console.error(err);
-    setText('timeline-date', 'Run python pipeline/run_pipeline.py');
-    setText('timeline-sub', err.message);
+      pipelineData = payload;
+      initializePersonaScopes();
+      configureTimeline();
+      await loadPeriod(0, false);
+      renderBaseMap();
+      applyPersonaRole(false);
+      renderAll();
+      return;
+    } catch (err) {
+      console.warn(`Unable to load ${source}:`, err.message);
+    }
   }
+
+  setText('timeline-date', 'Static pipeline data unavailable');
+  setText('timeline-sub', 'Run the local pipeline or check the deployment assets.');
 }
 
 function masterTimeline() {
@@ -833,16 +844,26 @@ async function loadPeriod(index, shouldRender = true) {
   currentPeriodIndex = Math.max(0, Math.min(timeline.length - 1, Number(index)));
 
   const period = timeline[currentPeriodIndex];
-  const res = await fetch(
-    `/api/period/${encodeURIComponent(period.period_start)}`,
-    { cache: 'no-store' }
-  );
+  const periodPath = encodeURIComponent(period.period_start);
+  const sources = [
+    `/api/period/${periodPath}`,
+    `/data/periods/${periodPath}.json`
+  ];
 
-  if (!res.ok) {
+  let payload = null;
+  for (const source of sources) {
+    const res = await fetch(source, { cache: 'no-store' });
+    if (res.ok) {
+      payload = await res.json();
+      break;
+    }
+  }
+
+  if (!payload) {
     throw new Error(`Unable to load period ${period.period_start}`);
   }
 
-  currentPeriodPayload = await res.json();
+  currentPeriodPayload = payload;
   currentPeriodByField = new Map(
     (currentPeriodPayload.records || [])
       .map(row => [String(row.field_id), row])
@@ -2148,12 +2169,19 @@ async function renderModelEvaluation() {
       fetch('/api/model-metadata', { cache: 'no-store' })
     ]);
 
-    if (!evalRes.ok) {
+    const staticEvalRes = evalRes.ok
+      ? evalRes
+      : await fetch('/data/model_evaluation.json', { cache: 'no-store' });
+    const staticMetaRes = metaRes.ok
+      ? metaRes
+      : await fetch('/data/model_metadata.json', { cache: 'no-store' });
+
+    if (!staticEvalRes.ok) {
       throw new Error('model_evaluation.json is unavailable');
     }
 
-    const rows = await evalRes.json();
-    const meta = metaRes.ok ? await metaRes.json() : {};
+    const rows = await staticEvalRes.json();
+    const meta = staticMetaRes.ok ? await staticMetaRes.json() : {};
 
     const grouped = {};
 
