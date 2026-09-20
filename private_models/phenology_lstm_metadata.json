@@ -1,0 +1,30 @@
+{
+  "features": [
+    "NDVI",
+    "NDMI",
+    "NDWI",
+    "EVI",
+    "SAVI",
+    "VV",
+    "VH",
+    "VV_VH_ratio_dB",
+    "optical_valid",
+    "sar_valid",
+    "season_day"
+  ],
+  "classes": [
+    "Flowering",
+    "Grain Filling",
+    "Maturity",
+    "Sowing/Planting",
+    "Vegetative"
+  ],
+  "sequence_length": 3,
+  "date_column": "period_start",
+  "label_column": "growth_stage_pseudo",
+  "label_source": "derived/pseudo labels from each field's real NDVI trajectory",
+  "optical_gap_handling": "causal field-wise forward-fill + optical_valid mask; no back-fill",
+  "evi_cleaning": "values outside [-1,1] converted to NaN before train-only median imputation",
+  "split_strategy": "field-group train/validation/test split",
+  "evaluation_warning": "If growth_stage_pseudo is used, the confusion matrix measures agreement with derived NDVI trajectory labels, not independent field truth."
+}

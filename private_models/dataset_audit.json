@@ -1,0 +1,40 @@
+{
+  "rows": 4311,
+  "columns": [
+    "system:index",
+    "EVI",
+    "NDMI",
+    "NDVI",
+    "NDWI",
+    "SAVI",
+    "VH",
+    "VV",
+    "VV_VH_ratio",
+    "canal_priority_score",
+    "crop_type",
+    "field_id",
+    "growth_stage",
+    "latitude",
+    "longitude",
+    "moisture_stress",
+    "recommended_depth_mm",
+    "sar_available",
+    "stress_score",
+    "water_deficit_mm",
+    ".geo",
+    "VV_VH_ratio_dB"
+  ],
+  "crop_distribution": {
+    "Unclassified": 4109,
+    "Paddy (Rice)": 202
+  },
+  "growth_stage_distribution": {
+    "Sowing/Planting": 3416,
+    "Vegetative": 559,
+    "Flowering": 336
+  },
+  "stress_distribution": {
+    "Severe Stress": 4286,
+    "Moderate Stress": 25
+  }
+}

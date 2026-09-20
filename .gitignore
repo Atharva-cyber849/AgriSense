@@ -1,4 +1,5 @@
-node_modules/
+data/**/*.tif
+data/**/*.parquetnode_modules/
 __pycache__/
 *.py[cod]
 .venv/
@@ -12,3 +13,6 @@ GEE_Karnal/exports/
 data/*.tif
 data/*.tiff
 data/*.zip
+
+.venv/
+node_modules/

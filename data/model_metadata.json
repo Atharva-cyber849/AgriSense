@@ -1,0 +1,47 @@
+{
+  "base_features": [
+    "EVI",
+    "NDMI",
+    "NDVI",
+    "NDWI",
+    "SAVI",
+    "VV",
+    "VH",
+    "VV_VH_ratio_dB"
+  ],
+  "corrected_sar_feature": "VV_VH_ratio_dB = VV - VH",
+  "excluded_leakage_features": [
+    "stress_score",
+    "water_deficit_mm",
+    "recommended_depth_mm",
+    "canal_priority_score"
+  ],
+  "label_classes": {
+    "crop_type": [
+      "Paddy (Rice)",
+      "Unclassified"
+    ],
+    "growth_stage": [
+      "Flowering",
+      "Sowing/Planting",
+      "Vegetative"
+    ],
+    "phenology_lstm": [
+      "Flowering",
+      "Grain Filling",
+      "Maturity",
+      "Sowing/Planting",
+      "Vegetative"
+    ],
+    "moisture_stress": [
+      "Moderate Stress",
+      "Severe Stress"
+    ]
+  },
+  "best_prototype_model_by_macro_f1": {
+    "Crop Engine": "Random Forest",
+    "Phenology Engine": "Random Forest",
+    "Stress Engine": "XGBoost"
+  },
+  "evaluation_warning": "Current confusion matrices are prototype evaluations on derived/pseudo labels, not independent agronomic validation."
+}

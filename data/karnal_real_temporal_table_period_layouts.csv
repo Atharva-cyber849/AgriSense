@@ -1,0 +1,11 @@
+period_start,band_count,layout_source,has_optical,has_sar,bands
+2025-06-01,14,geotiff_descriptions,1,1,"B2,B3,B4,B8,B11,B12,NDVI,NDWI,NDMI,EVI,SAVI,VV,VH,VV_VH_ratio_raw"
+2025-06-17,14,geotiff_descriptions,1,1,"B2,B3,B4,B8,B11,B12,NDVI,NDWI,NDMI,EVI,SAVI,VV,VH,VV_VH_ratio_raw"
+2025-07-03,14,geotiff_descriptions,1,1,"B2,B3,B4,B8,B11,B12,NDVI,NDWI,NDMI,EVI,SAVI,VV,VH,VV_VH_ratio_raw"
+2025-07-19,3,geotiff_descriptions,0,1,"VV,VH,VV_VH_ratio_raw"
+2025-08-04,3,geotiff_descriptions,0,1,"VV,VH,VV_VH_ratio_raw"
+2025-08-20,14,geotiff_descriptions,1,1,"B2,B3,B4,B8,B11,B12,NDVI,NDWI,NDMI,EVI,SAVI,VV,VH,VV_VH_ratio_raw"
+2025-09-05,14,geotiff_descriptions,1,1,"B2,B3,B4,B8,B11,B12,NDVI,NDWI,NDMI,EVI,SAVI,VV,VH,VV_VH_ratio_raw"
+2025-09-21,14,geotiff_descriptions,1,1,"B2,B3,B4,B8,B11,B12,NDVI,NDWI,NDMI,EVI,SAVI,VV,VH,VV_VH_ratio_raw"
+2025-10-07,14,geotiff_descriptions,1,1,"B2,B3,B4,B8,B11,B12,NDVI,NDWI,NDMI,EVI,SAVI,VV,VH,VV_VH_ratio_raw"
+2025-10-23,14,geotiff_descriptions,1,1,"B2,B3,B4,B8,B11,B12,NDVI,NDWI,NDMI,EVI,SAVI,VV,VH,VV_VH_ratio_raw"
