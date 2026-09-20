@@ -353,7 +353,7 @@ function injectUi() {
       color:#67e8f9;
     }
 
-    .map-info-badge { top:9.45rem !important; }
+    .map-info-badge { top:11.25rem !important; }
 
     .provenance-banner {
       display:flex;
@@ -638,7 +638,7 @@ function injectUi() {
         grid-template-columns:auto auto 1fr auto;
       }
       .timeline-select,.weather-chip { display:none; }
-      .map-info-badge { top:13rem !important; }
+      .map-info-badge { top:16.5rem !important; }
       .period-context-card { grid-template-columns:repeat(2,1fr); }
       .model-eval-grid { grid-template-columns:1fr; }
     }

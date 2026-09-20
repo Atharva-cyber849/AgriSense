@@ -786,7 +786,7 @@ body.dark-theme {
 
 .map-info-badge {
   position: absolute;
-  top: 5.25rem;
+  top: 11.25rem;
   right: 1rem;
   z-index: 500;
   background: rgba(16, 25, 38, 0.85);
@@ -801,6 +801,20 @@ body.dark-theme {
   gap: 0.4rem;
   max-width: min(520px, calc(100% - 2rem));
   white-space: normal;
+}
+
+@media (max-width: 1250px) {
+  .map-info-badge {
+    top: 13rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .map-info-badge {
+    top: 10.5rem;
+    left: 1rem;
+    right: 1rem;
+  }
 }
 
 /* Sidebar Dashboard Panel */
