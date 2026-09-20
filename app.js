@@ -2345,24 +2345,82 @@ function initEventListeners() {
       applyPersonaRole(true);
     });
 
-  document.getElementById('btn-export-field')
-    ?.addEventListener('click', () => {
-      if (!activeField) return;
+  document.getElementById('btn-export-field-csv')
+    ?.addEventListener('click', exportFieldCsv);
 
-      const current = currentRecord(activeField.field_id);
-      const blob = new Blob(
-        [JSON.stringify({ field: activeField, current_period: current }, null, 2)],
-        { type: 'application/json' }
-      );
+  document.getElementById('btn-export-field-pdf')
+    ?.addEventListener('click', printFieldAdvisory);
+}
 
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download =
-        `AgriSense_${activeField.field_id}_${currentPeriodSummary().period_start}.json`;
-      a.click();
-      URL.revokeObjectURL(url);
-    });
+function fieldAdvisoryExportData() {
+  if (!activeField) return null;
+
+  const current = currentRecord(activeField.field_id) || {};
+  const satellite = current.satellite || {};
+  const weather = current.weather || {};
+  const water = current.water_balance || {};
+
+  return {
+    field_id: activeField.field_id,
+    period_start: current.period_start || currentPeriodSummary().period_start,
+    crop_type: activeField.crop_type || 'Unclassified',
+    ndvi: satellite.NDVI,
+    ndwi: activeField.snapshot_indices?.NDWI,
+    ndmi: satellite.NDMI,
+    vv_db: satellite.VV,
+    vh_db: satellite.VH,
+    vv_vh_ratio_db: satellite.VV_VH_ratio_dB,
+    rainfall_mm: weather.rainfall_mm,
+    crop_kc: water.kc,
+    weekly_etc_demand_mm: water.etc_mm,
+    effective_rain_mm: water.effective_rain_mm,
+    net_water_deficit_mm: water.deficit_mm,
+    priority_score: water.priority_score,
+    priority_label: water.priority_label,
+    advisory_status: water.status,
+    recommended_depth_mm: water.recommended_depth_mm,
+    timing: water.timing
+  };
+}
+
+function exportFieldCsv() {
+  const data = fieldAdvisoryExportData();
+  if (!data) return;
+
+  const escapeCsv = value => {
+    const text = value == null ? '' : String(value);
+    return /[",\n]/.test(text)
+      ? `"${text.replaceAll('"', '""')}"`
+      : text;
+  };
+  const csv = [
+    ['Metric', 'Value'],
+    ...Object.entries(data)
+  ].map(row => row.map(escapeCsv).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `AgriSense_${data.field_id}_${data.period_start}.csv`;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+function printFieldAdvisory() {
+  const data = fieldAdvisoryExportData();
+  if (!data) return;
+
+  const rows = Object.entries(data)
+    .map(([key, value]) => `<tr><th>${escapeHtml(key)}</th><td>${escapeHtml(value ?? '--')}</td></tr>`)
+    .join('');
+  const printWindow = window.open('', '_blank', 'width=900,height=700');
+  if (!printWindow) return;
+
+  printWindow.document.write(`<!doctype html><html><head><title>AgriSense Field Advisory</title>
+    <style>body{font:14px Arial,sans-serif;color:#17202b;padding:32px}h1{color:#087f5b}table{border-collapse:collapse;width:100%;max-width:760px}th,td{border:1px solid #ccd5df;padding:8px;text-align:left}th{background:#edf5f2;text-transform:capitalize;width:36%}@media print{button{display:none}}</style>
+    </head><body><h1>AgriSense Field Advisory</h1><p>${escapeHtml(data.field_id)} • ${escapeHtml(data.period_start)}</p><table>${rows}</table><button onclick="window.print()">Print / Save PDF</button></body></html>`);
+  printWindow.document.close();
+  printWindow.focus();
 }
 
 function togglePlayback() {
