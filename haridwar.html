@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriSense Haridwar | Wheat Phenology & Sensor Fusion Research</title>
+  <meta name="description" content="AgriSense Haridwar research dashboard for Sentinel-1/Sentinel-2 wheat phenology, cloud-gap robustness and LOSO model evaluation.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="haridwar.css">
+</head>
+<body class="dark-theme haridwar-page">
+
+  <header class="app-header haridwar-app-header">
+    <div class="header-left">
+      <div class="brand-logo">
+        <i data-lucide="sprout" class="brand-icon"></i>
+        <div class="brand-text">
+          <span class="brand-title">
+            AgriSense <span class="badge-region haridwar-region-badge">HARIDWAR, IN</span>
+          </span>
+          <span class="brand-subtitle">
+            Sentinel-1/2 Wheat Phenology, Sensor Fusion & Cloud-Robustness Analysis
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="haridwar-header-kpis" aria-label="Haridwar research summary">
+      <div class="stat-pill">
+        <span class="stat-label">Wheat Seasons</span>
+        <span class="stat-value" id="h-kpi-seasons">--</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Labelled Dates</span>
+        <span class="stat-value" id="h-kpi-labelled">--</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Best Fusion Macro-F1</span>
+        <span class="stat-value text-emerald" id="h-kpi-f1">--</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">S1 Track Observations</span>
+        <span class="stat-value" id="h-kpi-s1">--</span>
+      </div>
+    </div>
+
+    <div class="header-right haridwar-header-actions">
+      <a class="btn btn-outline" href="index.html">
+        <i data-lucide="map"></i> Karnal Operational Demo
+      </a>
+      <button class="btn btn-primary" type="button" disabled>
+        <i data-lucide="microscope"></i> Haridwar Research
+      </button>
+    </div>
+  </header>
+
+  <main class="haridwar-shell">
+    <section class="haridwar-context-card">
+      <div>
+        <span class="haridwar-eyebrow">HARIDWAR VALIDATION DATASET</span>
+        <h1>Wheat Phenology & Sentinel-1/Sentinel-2 Fusion</h1>
+        <p id="h-scope-note">
+          Loading research scope...
+        </p>
+      </div>
+      <div class="haridwar-provenance">
+        <span class="h-pill h-real">REAL S2 OPTICAL</span>
+        <span class="h-pill h-real">REAL S1 SAR</span>
+        <span class="h-pill h-observed">PUBLISHED STAGE ANCHORS</span>
+        <span class="h-pill h-eval">LOSO EVALUATION</span>
+      </div>
+    </section>
+
+    <nav class="haridwar-tabs" aria-label="Haridwar dashboard views">
+      <button class="haridwar-tab active" data-tab="overview">
+        <i data-lucide="layout-dashboard"></i> Overview
+      </button>
+      <button class="haridwar-tab" data-tab="phenology">
+        <i data-lucide="sprout"></i> Phenology
+      </button>
+      <button class="haridwar-tab" data-tab="models">
+        <i data-lucide="brain-circuit"></i> Model Results
+      </button>
+      <button class="haridwar-tab" data-tab="robustness">
+        <i data-lucide="cloud-sun"></i> Cloud Robustness
+      </button>
+      <button class="haridwar-tab" data-tab="outputs">
+        <i data-lucide="image"></i> Research Outputs
+      </button>
+    </nav>
+
+    <section class="haridwar-panel active" data-panel="overview">
+      <div class="haridwar-kpi-grid">
+        <article class="haridwar-kpi-card">
+          <span>Fusion Calendar</span>
+          <strong id="h-over-calendar">--</strong>
+          <small>Sentinel-2 calendar rows across two wheat seasons</small>
+        </article>
+        <article class="haridwar-kpi-card">
+          <span>Stage Anchors</span>
+          <strong id="h-over-anchors">--</strong>
+          <small>Published reference stage dates</small>
+        </article>
+        <article class="haridwar-kpi-card">
+          <span>2023-24 Optical Usability</span>
+          <strong id="h-over-optical-1">--</strong>
+          <small id="h-over-gap-1">--</small>
+        </article>
+        <article class="haridwar-kpi-card">
+          <span>2024-25 Optical Usability</span>
+          <strong id="h-over-optical-2">--</strong>
+          <small id="h-over-gap-2">--</small>
+        </article>
+      </div>
+
+      <div class="haridwar-grid haridwar-grid-2">
+        <article class="haridwar-card">
+          <div class="haridwar-card-head">
+            <div>
+              <span class="haridwar-card-kicker">LOSO OUT-OF-FOLD</span>
+              <h2>Best Model by Sensor Feature Set</h2>
+            </div>
+          </div>
+          <div class="haridwar-chart-lg">
+            <canvas id="hBestModelChart"></canvas>
+          </div>
+        </article>
+
+        <article class="haridwar-card">
+          <div class="haridwar-card-head">
+            <div>
+              <span class="haridwar-card-kicker">LABEL SUPPORT</span>
+              <h2>Five-Group Phenology Distribution</h2>
+            </div>
+          </div>
+          <div class="haridwar-chart-lg">
+            <canvas id="hStageDistChart"></canvas>
+          </div>
+        </article>
+      </div>
+
+      <div class="haridwar-grid haridwar-grid-2">
+        <article class="haridwar-card">
+          <div class="haridwar-card-head">
+            <div>
+              <span class="haridwar-card-kicker">DATA INVENTORY</span>
+              <h2>Season Data Quality</h2>
+            </div>
+          </div>
+          <div class="haridwar-table-wrap">
+            <table class="haridwar-table">
+              <thead>
+                <tr>
+                  <th>Season</th>
+                  <th>Calendar Dates</th>
+                  <th>Usable Optical</th>
+                  <th>Usable %</th>
+                  <th>Longest Gap</th>
+                </tr>
+              </thead>
+              <tbody id="h-season-quality-body"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="haridwar-card">
+          <div class="haridwar-card-head">
+            <div>
+              <span class="haridwar-card-kicker">SOURCE-DERIVED INTERPRETATION</span>
+              <h2>Current Findings</h2>
+            </div>
+          </div>
+          <div id="h-analysis-notes" class="haridwar-analysis-notes"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="haridwar-panel" data-panel="phenology">
+      <div class="haridwar-toolbar">
+        <div>
+          <span class="haridwar-card-kicker">SEASON VIEW</span>
+          <h2>Observed and Smoothed Wheat Phenology</h2>
+        </div>
+        <select id="h-season-select" class="haridwar-select">
+          <option value="wheat_2023_24">Wheat 2023-24</option>
+          <option value="wheat_2024_25">Wheat 2024-25</option>
+        </select>
+      </div>
+
+      <article class="haridwar-card">
+        <div class="haridwar-card-head">
+          <div>
+            <span class="haridwar-card-kicker">NDVI TEMPORAL PROFILE</span>
+            <h2>Raw Sentinel-2 NDVI vs Whittaker-Smoothed NDVI</h2>
+          </div>
+          <span class="h-pill h-observed">STAGE ANCHORS BELOW</span>
+        </div>
+        <div class="haridwar-chart-xl">
+          <canvas id="hNdviChart"></canvas>
+        </div>
+      </article>
+
+      <div class="haridwar-grid haridwar-grid-2">
+        <article class="haridwar-card">
+          <div class="haridwar-card-head">
+            <h2>Published Growth-Stage Anchors</h2>
+          </div>
+          <div id="h-stage-anchor-list" class="haridwar-stage-list"></div>
+        </article>
+
+        <article class="haridwar-card">
+          <div class="haridwar-card-head">
+            <h2>Transition-Date Evaluation</h2>
+          </div>
+          <div class="haridwar-table-wrap">
+            <table class="haridwar-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Transition</th>
+                  <th>Predicted</th>
+                  <th>Reference</th>
+                  <th>Error</th>
+                </tr>
+              </thead>
+              <tbody id="h-transition-body"></tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="haridwar-panel" data-panel="models">
+      <div class="haridwar-toolbar">
+        <div>
+          <span class="haridwar-card-kicker">LEAVE-ONE-SEASON-OUT</span>
+          <h2>Phenology Classification Results</h2>
+        </div>
+        <div class="haridwar-segmented" id="h-feature-buttons">
+          <button data-feature-set="S1_S2_fusion" class="active">S1 + S2 Fusion</button>
+          <button data-feature-set="S2_only">S2 Only</button>
+          <button data-feature-set="S1_only">S1 Only</button>
+        </div>
+      </div>
+
+      <div class="haridwar-grid haridwar-grid-model">
+        <article class="haridwar-card">
+          <div class="haridwar-card-head">
+            <div>
+              <span class="haridwar-card-kicker">MODEL COMPARISON</span>
+              <h2>Macro-F1 by Model</h2>
+            </div>
+          </div>
+          <div class="haridwar-chart-lg">
+            <canvas id="hModelChart"></canvas>
+          </div>
+        </article>
+
+        <article class="haridwar-card">
+          <div class="haridwar-card-head">
+            <div>
+              <span class="haridwar-card-kicker">SELECTED MODEL</span>
+              <h2 id="h-best-model-title">--</h2>
+            </div>
+          </div>
+          <div class="haridwar-metric-grid">
+            <div><span>Accuracy</span><strong id="h-m-accuracy">--</strong></div>
+            <div><span>Balanced Acc.</span><strong id="h-m-balanced">--</strong></div>
+            <div><span>Macro Precision</span><strong id="h-m-precision">--</strong></div>
+            <div><span>Macro Recall</span><strong id="h-m-recall">--</strong></div>
+            <div><span>Macro F1</span><strong id="h-m-f1">--</strong></div>
+            <div><span>Kappa</span><strong id="h-m-kappa">--</strong></div>
+          </div>
+          <div class="haridwar-warning">
+            LOSO results are based on two wheat seasons and strongly imbalanced five-stage support.
+          </div>
+        </article>
+      </div>
+
+      <article class="haridwar-card">
+        <div class="haridwar-card-head">
+          <div>
+            <span class="haridwar-card-kicker">OUT-OF-FOLD COUNTS</span>
+            <h2>Confusion Matrix</h2>
+          </div>
+        </div>
+        <div id="h-confusion-matrix" class="haridwar-cm"></div>
+      </article>
+
+      <article class="haridwar-card">
+        <div class="haridwar-card-head">
+          <h2>Per-Season Metrics</h2>
+        </div>
+        <div class="haridwar-table-wrap">
+          <table class="haridwar-table">
+            <thead>
+              <tr>
+                <th>Season</th>
+                <th>Model</th>
+                <th>Accuracy</th>
+                <th>Balanced Acc.</th>
+                <th>Macro F1</th>
+                <th>Kappa</th>
+              </tr>
+            </thead>
+            <tbody id="h-per-season-body"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <section class="haridwar-panel" data-panel="robustness">
+      <div class="haridwar-grid haridwar-grid-2">
+        <article class="haridwar-card">
+          <div class="haridwar-card-head">
+            <div>
+              <span class="haridwar-card-kicker">CLOUD-GAP EXPERIMENT</span>
+              <h2>Optical Masking Robustness</h2>
+            </div>
+          </div>
+          <div class="haridwar-chart-xl">
+            <canvas id="hRobustChart"></canvas>
+          </div>
+        </article>
+
+        <article class="haridwar-card">
+          <div class="haridwar-card-head">
+            <div>
+              <span class="haridwar-card-kicker">FUSION RANDOM FOREST</span>
+              <h2>Permutation Feature Importance</h2>
+            </div>
+          </div>
+          <div class="haridwar-chart-xl">
+            <canvas id="hImportanceChart"></canvas>
+          </div>
+        </article>
+      </div>
+
+      <article class="haridwar-card">
+        <div class="haridwar-card-head">
+          <h2>Natural Optical-Gap Summary</h2>
+        </div>
+        <div id="h-gap-cards" class="haridwar-gap-cards"></div>
+      </article>
+    </section>
+
+    <section class="haridwar-panel" data-panel="outputs">
+      <div class="haridwar-toolbar">
+        <div>
+          <span class="haridwar-card-kicker">UPLOADED RESEARCH OUTPUTS</span>
+          <h2>Generated Plots</h2>
+        </div>
+        <span class="h-pill h-real">NO SYNTHETIC RESULTS</span>
+      </div>
+
+      <div class="haridwar-gallery" id="h-output-gallery"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="haridwar.js"></script>
+</body>
+</html>

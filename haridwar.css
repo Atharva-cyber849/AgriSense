@@ -1,0 +1,557 @@
+
+:root {
+  --h-bg: #08111d;
+  --h-card: #101a28;
+  --h-card-2: #0c1623;
+  --h-line: rgba(255,255,255,.09);
+  --h-text: #f8fafc;
+  --h-muted: #94a3b8;
+  --h-green: #10b981;
+  --h-cyan: #06b6d4;
+  --h-amber: #f59e0b;
+  --h-purple: #8b5cf6;
+}
+
+.haridwar-page {
+  background: var(--h-bg);
+  color: var(--h-text);
+  min-height: 100vh;
+}
+
+.haridwar-app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  grid-template-columns: minmax(280px, 360px) minmax(420px, 1fr) auto !important;
+}
+
+.haridwar-region-badge {
+  background: rgba(139,92,246,.15);
+  border-color: rgba(139,92,246,.35);
+  color: #c4b5fd;
+}
+
+.haridwar-header-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(115px,1fr));
+  gap: .5rem;
+  min-width: 0;
+}
+
+.haridwar-header-actions {
+  display: flex;
+  gap: .55rem;
+  flex-wrap: nowrap;
+}
+
+.haridwar-shell {
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.haridwar-context-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid var(--h-line);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at top right, rgba(139,92,246,.16), transparent 34%),
+    var(--h-card);
+}
+
+.haridwar-context-card h1 {
+  font: 700 1.35rem/1.15 "Outfit",sans-serif;
+  margin: .25rem 0 .45rem;
+}
+
+.haridwar-context-card p {
+  max-width: 920px;
+  margin: 0;
+  color: var(--h-muted);
+  font-size: .82rem;
+  line-height: 1.55;
+}
+
+.haridwar-eyebrow,
+.haridwar-card-kicker {
+  color: #a78bfa;
+  font-size: .66rem;
+  letter-spacing: .08em;
+  font-weight: 800;
+}
+
+.haridwar-provenance {
+  display: flex;
+  justify-content: flex-end;
+  gap: .4rem;
+  flex-wrap: wrap;
+  min-width: 280px;
+}
+
+.h-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: .3rem .55rem;
+  border-radius: 999px;
+  font-size: .62rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.h-real {
+  color: #6ee7b7;
+  border: 1px solid rgba(16,185,129,.35);
+  background: rgba(16,185,129,.12);
+}
+
+.h-observed {
+  color: #67e8f9;
+  border: 1px solid rgba(6,182,212,.35);
+  background: rgba(6,182,212,.12);
+}
+
+.h-eval {
+  color: #fcd34d;
+  border: 1px solid rgba(245,158,11,.35);
+  background: rgba(245,158,11,.12);
+}
+
+.haridwar-tabs {
+  display: flex;
+  gap: .45rem;
+  margin: .8rem 0;
+  padding: .45rem;
+  border: 1px solid var(--h-line);
+  border-radius: 12px;
+  background: var(--h-card-2);
+  overflow-x: auto;
+}
+
+.haridwar-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--h-muted);
+  border-radius: 8px;
+  padding: .58rem .8rem;
+  cursor: pointer;
+  white-space: nowrap;
+  font: 600 .76rem/1 "Inter",sans-serif;
+}
+
+.haridwar-tab:hover,
+.haridwar-tab.active {
+  color: #fff;
+  border-color: rgba(16,185,129,.35);
+  background: rgba(16,185,129,.10);
+}
+
+.haridwar-tab svg {
+  width: 16px;
+  height: 16px;
+}
+
+.haridwar-panel {
+  display: none;
+}
+
+.haridwar-panel.active {
+  display: block;
+}
+
+.haridwar-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: .75rem;
+  margin-bottom: .75rem;
+}
+
+.haridwar-kpi-card,
+.haridwar-card {
+  border: 1px solid var(--h-line);
+  background: var(--h-card);
+  border-radius: 12px;
+}
+
+.haridwar-kpi-card {
+  padding: .85rem .95rem;
+}
+
+.haridwar-kpi-card span {
+  display: block;
+  color: var(--h-muted);
+  font-size: .68rem;
+}
+
+.haridwar-kpi-card strong {
+  display: block;
+  margin-top: .3rem;
+  font: 700 1.25rem/1.1 "Outfit",sans-serif;
+}
+
+.haridwar-kpi-card small {
+  display: block;
+  color: #64748b;
+  font-size: .62rem;
+  margin-top: .35rem;
+  line-height: 1.35;
+}
+
+.haridwar-grid {
+  display: grid;
+  gap: .75rem;
+  margin-bottom: .75rem;
+}
+
+.haridwar-grid-2 {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+
+.haridwar-grid-model {
+  grid-template-columns: minmax(0,1.45fr) minmax(320px,.7fr);
+}
+
+.haridwar-card {
+  min-width: 0;
+  padding: .85rem;
+}
+
+.haridwar-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: .65rem;
+  margin-bottom: .65rem;
+}
+
+.haridwar-card h2,
+.haridwar-toolbar h2 {
+  margin: .15rem 0 0;
+  font: 650 1rem/1.15 "Outfit",sans-serif;
+}
+
+.haridwar-chart-lg {
+  height: 320px;
+}
+
+.haridwar-chart-xl {
+  height: 390px;
+}
+
+.haridwar-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: .75rem;
+  padding: .8rem .9rem;
+  border: 1px solid var(--h-line);
+  border-radius: 12px;
+  background: var(--h-card);
+}
+
+.haridwar-select {
+  min-width: 180px;
+  border: 1px solid var(--h-line);
+  background: #0b1420;
+  color: #f8fafc;
+  border-radius: 8px;
+  padding: .55rem .65rem;
+}
+
+.haridwar-table-wrap {
+  overflow: auto;
+}
+
+.haridwar-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .72rem;
+}
+
+.haridwar-table th,
+.haridwar-table td {
+  padding: .55rem .5rem;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.haridwar-table th {
+  color: #94a3b8;
+  font-size: .63rem;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+.haridwar-analysis-notes {
+  display: grid;
+  gap: .48rem;
+}
+
+.haridwar-analysis-note {
+  padding: .58rem .65rem;
+  border-left: 3px solid #8b5cf6;
+  border-radius: 6px;
+  background: rgba(139,92,246,.07);
+}
+
+.haridwar-analysis-note strong {
+  display: block;
+  font-size: .74rem;
+  margin-bottom: .2rem;
+}
+
+.haridwar-analysis-note p {
+  margin: 0;
+  color: var(--h-muted);
+  font-size: .7rem;
+  line-height: 1.45;
+}
+
+.haridwar-stage-list {
+  display: grid;
+  gap: .4rem;
+}
+
+.haridwar-stage-row {
+  display: grid;
+  grid-template-columns: 110px minmax(120px,1fr) 140px;
+  align-items: center;
+  gap: .55rem;
+  padding: .5rem .55rem;
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 8px;
+  background: rgba(255,255,255,.025);
+  font-size: .7rem;
+}
+
+.haridwar-stage-row time {
+  color: #cbd5e1;
+}
+
+.haridwar-stage-row strong {
+  color: #f8fafc;
+}
+
+.haridwar-stage-row span {
+  color: #94a3b8;
+}
+
+.haridwar-segmented {
+  display: inline-flex;
+  padding: .25rem;
+  gap: .25rem;
+  border: 1px solid var(--h-line);
+  border-radius: 9px;
+  background: #0b1420;
+}
+
+.haridwar-segmented button {
+  border: 0;
+  border-radius: 6px;
+  padding: .45rem .6rem;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: .68rem;
+}
+
+.haridwar-segmented button.active {
+  background: rgba(16,185,129,.15);
+  color: #6ee7b7;
+}
+
+.haridwar-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: .45rem;
+}
+
+.haridwar-metric-grid > div {
+  padding: .6rem;
+  border: 1px solid rgba(255,255,255,.07);
+  background: rgba(255,255,255,.025);
+  border-radius: 8px;
+}
+
+.haridwar-metric-grid span {
+  display: block;
+  color: #94a3b8;
+  font-size: .62rem;
+}
+
+.haridwar-metric-grid strong {
+  display: block;
+  margin-top: .2rem;
+  font: 650 .95rem/1 "Outfit",sans-serif;
+}
+
+.haridwar-warning {
+  margin-top: .65rem;
+  padding: .6rem;
+  border-left: 3px solid #f59e0b;
+  background: rgba(245,158,11,.08);
+  color: #fcd34d;
+  font-size: .68rem;
+  line-height: 1.45;
+}
+
+.haridwar-cm {
+  overflow-x: auto;
+}
+
+.haridwar-cm table {
+  min-width: 680px;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 3px;
+  font-size: .7rem;
+}
+
+.haridwar-cm th {
+  color: #94a3b8;
+  padding: .45rem;
+}
+
+.haridwar-cm td {
+  text-align: center;
+  padding: .72rem .4rem;
+  border-radius: 6px;
+  border: 1px solid rgba(16,185,129,.08);
+}
+
+.haridwar-gap-cards {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: .65rem;
+}
+
+.haridwar-gap-card {
+  padding: .75rem;
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 9px;
+  background: rgba(255,255,255,.025);
+}
+
+.haridwar-gap-card h3 {
+  margin: 0 0 .5rem;
+  font: 650 .9rem/1 "Outfit",sans-serif;
+}
+
+.haridwar-gap-kpis {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: .4rem;
+}
+
+.haridwar-gap-kpis div {
+  padding: .45rem;
+  border-radius: 7px;
+  background: rgba(0,0,0,.18);
+}
+
+.haridwar-gap-kpis span {
+  display: block;
+  color: #94a3b8;
+  font-size: .58rem;
+}
+
+.haridwar-gap-kpis strong {
+  display: block;
+  margin-top: .2rem;
+  font-size: .8rem;
+}
+
+.haridwar-gallery {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: .75rem;
+}
+
+.haridwar-gallery figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--h-line);
+  border-radius: 12px;
+  background: var(--h-card);
+}
+
+.haridwar-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: white;
+}
+
+.haridwar-gallery figcaption {
+  padding: .65rem .75rem;
+  color: #cbd5e1;
+  font-size: .7rem;
+}
+
+@media(max-width: 1350px) {
+  .haridwar-app-header {
+    grid-template-columns: 1fr auto !important;
+    grid-template-areas:
+      "brand actions"
+      "metrics metrics";
+  }
+  .haridwar-app-header .header-left { grid-area: brand; }
+  .haridwar-header-actions { grid-area: actions; }
+  .haridwar-header-kpis { grid-area: metrics; }
+}
+
+@media(max-width: 900px) {
+  .haridwar-app-header {
+    grid-template-columns: 1fr !important;
+    grid-template-areas: "brand" "actions" "metrics";
+  }
+
+  .haridwar-header-kpis {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .haridwar-header-actions {
+    flex-wrap: wrap;
+  }
+
+  .haridwar-context-card,
+  .haridwar-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .haridwar-provenance {
+    min-width: 0;
+    justify-content: flex-start;
+  }
+
+  .haridwar-kpi-grid,
+  .haridwar-grid-2,
+  .haridwar-grid-model,
+  .haridwar-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 600px) {
+  .haridwar-shell {
+    padding: .65rem;
+  }
+
+  .haridwar-stage-row {
+    grid-template-columns: 1fr;
+    gap: .2rem;
+  }
+
+  .haridwar-gap-kpis {
+    grid-template-columns: 1fr;
+  }
+}

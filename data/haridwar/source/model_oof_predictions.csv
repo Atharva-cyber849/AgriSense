@@ -1,0 +1,1948 @@
+row_index,date,season,feature_set,model,y_true,y_pred
+0,2023-11-05,wheat_2023_24,S2_only,LogisticRegression,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S2_only,LogisticRegression,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S2_only,LogisticRegression,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S2_only,LogisticRegression,Establishment,Establishment
+4,2023-11-25,wheat_2023_24,S2_only,LogisticRegression,Establishment,Establishment
+5,2023-11-30,wheat_2023_24,S2_only,LogisticRegression,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S2_only,LogisticRegression,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S2_only,LogisticRegression,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S2_only,LogisticRegression,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S2_only,LogisticRegression,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S2_only,LogisticRegression,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S2_only,LogisticRegression,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S2_only,LogisticRegression,Vegetative,Establishment
+13,2024-01-09,wheat_2023_24,S2_only,LogisticRegression,Vegetative,Establishment
+14,2024-01-14,wheat_2023_24,S2_only,LogisticRegression,Vegetative,Establishment
+15,2024-01-19,wheat_2023_24,S2_only,LogisticRegression,Vegetative,Establishment
+16,2024-01-24,wheat_2023_24,S2_only,LogisticRegression,Vegetative,Establishment
+17,2024-01-29,wheat_2023_24,S2_only,LogisticRegression,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S2_only,LogisticRegression,Vegetative,Establishment
+19,2024-02-08,wheat_2023_24,S2_only,LogisticRegression,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S2_only,LogisticRegression,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S2_only,LogisticRegression,Vegetative,Establishment
+22,2024-02-23,wheat_2023_24,S2_only,LogisticRegression,Reproductive,Reproductive
+23,2024-02-28,wheat_2023_24,S2_only,LogisticRegression,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S2_only,LogisticRegression,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S2_only,LogisticRegression,Reproductive,Reproductive
+26,2024-03-14,wheat_2023_24,S2_only,LogisticRegression,Reproductive,Reproductive
+27,2024-03-19,wheat_2023_24,S2_only,LogisticRegression,Reproductive,Reproductive
+28,2024-03-24,wheat_2023_24,S2_only,LogisticRegression,Reproductive,Establishment
+29,2024-03-29,wheat_2023_24,S2_only,LogisticRegression,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S2_only,LogisticRegression,Grain Filling,Establishment
+31,2024-04-08,wheat_2023_24,S2_only,LogisticRegression,Grain Filling,Grain Filling
+32,2024-04-13,wheat_2023_24,S2_only,LogisticRegression,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S2_only,LogisticRegression,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S2_only,LogisticRegression,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S2_only,LogisticRegression,Establishment,Vegetative
+36,2025-01-13,wheat_2024_25,S2_only,LogisticRegression,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S2_only,LogisticRegression,Establishment,Vegetative
+38,2025-01-23,wheat_2024_25,S2_only,LogisticRegression,Vegetative,Reproductive
+39,2025-01-28,wheat_2024_25,S2_only,LogisticRegression,Vegetative,Establishment
+40,2025-02-02,wheat_2024_25,S2_only,LogisticRegression,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S2_only,LogisticRegression,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S2_only,LogisticRegression,Vegetative,Reproductive
+43,2025-02-17,wheat_2024_25,S2_only,LogisticRegression,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S2_only,LogisticRegression,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S2_only,LogisticRegression,Vegetative,Vegetative
+46,2025-03-04,wheat_2024_25,S2_only,LogisticRegression,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S2_only,LogisticRegression,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S2_only,LogisticRegression,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S2_only,LogisticRegression,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S2_only,LogisticRegression,Reproductive,Vegetative
+51,2025-03-29,wheat_2024_25,S2_only,LogisticRegression,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S2_only,LogisticRegression,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S2_only,LogisticRegression,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S2_only,LogisticRegression,Reproductive,Establishment
+55,2025-04-13,wheat_2024_25,S2_only,LogisticRegression,Grain Filling,Grain Filling
+56,2025-04-18,wheat_2024_25,S2_only,LogisticRegression,Grain Filling,Senescence/Harvest
+57,2025-04-20,wheat_2024_25,S2_only,LogisticRegression,Grain Filling,Senescence/Harvest
+58,2025-04-23,wheat_2024_25,S2_only,LogisticRegression,Grain Filling,Senescence/Harvest
+0,2023-11-05,wheat_2023_24,S2_only,SVM_RBF,Establishment,Establishment
+1,2023-11-10,wheat_2023_24,S2_only,SVM_RBF,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S2_only,SVM_RBF,Establishment,Establishment
+3,2023-11-20,wheat_2023_24,S2_only,SVM_RBF,Establishment,Establishment
+4,2023-11-25,wheat_2023_24,S2_only,SVM_RBF,Establishment,Establishment
+5,2023-11-30,wheat_2023_24,S2_only,SVM_RBF,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S2_only,SVM_RBF,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S2_only,SVM_RBF,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S2_only,SVM_RBF,Vegetative,Establishment
+9,2023-12-20,wheat_2023_24,S2_only,SVM_RBF,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S2_only,SVM_RBF,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S2_only,SVM_RBF,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S2_only,SVM_RBF,Vegetative,Establishment
+13,2024-01-09,wheat_2023_24,S2_only,SVM_RBF,Vegetative,Establishment
+14,2024-01-14,wheat_2023_24,S2_only,SVM_RBF,Vegetative,Establishment
+15,2024-01-19,wheat_2023_24,S2_only,SVM_RBF,Vegetative,Establishment
+16,2024-01-24,wheat_2023_24,S2_only,SVM_RBF,Vegetative,Establishment
+17,2024-01-29,wheat_2023_24,S2_only,SVM_RBF,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S2_only,SVM_RBF,Vegetative,Establishment
+19,2024-02-08,wheat_2023_24,S2_only,SVM_RBF,Vegetative,Reproductive
+20,2024-02-13,wheat_2023_24,S2_only,SVM_RBF,Vegetative,Establishment
+21,2024-02-18,wheat_2023_24,S2_only,SVM_RBF,Vegetative,Establishment
+22,2024-02-23,wheat_2023_24,S2_only,SVM_RBF,Reproductive,Reproductive
+23,2024-02-28,wheat_2023_24,S2_only,SVM_RBF,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S2_only,SVM_RBF,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S2_only,SVM_RBF,Reproductive,Reproductive
+26,2024-03-14,wheat_2023_24,S2_only,SVM_RBF,Reproductive,Reproductive
+27,2024-03-19,wheat_2023_24,S2_only,SVM_RBF,Reproductive,Reproductive
+28,2024-03-24,wheat_2023_24,S2_only,SVM_RBF,Reproductive,Establishment
+29,2024-03-29,wheat_2023_24,S2_only,SVM_RBF,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S2_only,SVM_RBF,Grain Filling,Establishment
+31,2024-04-08,wheat_2023_24,S2_only,SVM_RBF,Grain Filling,Grain Filling
+32,2024-04-13,wheat_2023_24,S2_only,SVM_RBF,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S2_only,SVM_RBF,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S2_only,SVM_RBF,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S2_only,SVM_RBF,Establishment,Vegetative
+36,2025-01-13,wheat_2024_25,S2_only,SVM_RBF,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S2_only,SVM_RBF,Establishment,Vegetative
+38,2025-01-23,wheat_2024_25,S2_only,SVM_RBF,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S2_only,SVM_RBF,Vegetative,Vegetative
+40,2025-02-02,wheat_2024_25,S2_only,SVM_RBF,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S2_only,SVM_RBF,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S2_only,SVM_RBF,Vegetative,Reproductive
+43,2025-02-17,wheat_2024_25,S2_only,SVM_RBF,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S2_only,SVM_RBF,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S2_only,SVM_RBF,Vegetative,Vegetative
+46,2025-03-04,wheat_2024_25,S2_only,SVM_RBF,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S2_only,SVM_RBF,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S2_only,SVM_RBF,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S2_only,SVM_RBF,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S2_only,SVM_RBF,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S2_only,SVM_RBF,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S2_only,SVM_RBF,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S2_only,SVM_RBF,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S2_only,SVM_RBF,Reproductive,Establishment
+55,2025-04-13,wheat_2024_25,S2_only,SVM_RBF,Grain Filling,Grain Filling
+56,2025-04-18,wheat_2024_25,S2_only,SVM_RBF,Grain Filling,Senescence/Harvest
+57,2025-04-20,wheat_2024_25,S2_only,SVM_RBF,Grain Filling,Senescence/Harvest
+58,2025-04-23,wheat_2024_25,S2_only,SVM_RBF,Grain Filling,Senescence/Harvest
+0,2023-11-05,wheat_2023_24,S2_only,KNN,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S2_only,KNN,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S2_only,KNN,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S2_only,KNN,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S2_only,KNN,Establishment,Grain Filling
+5,2023-11-30,wheat_2023_24,S2_only,KNN,Establishment,Vegetative
+6,2023-12-05,wheat_2023_24,S2_only,KNN,Establishment,Vegetative
+7,2023-12-10,wheat_2023_24,S2_only,KNN,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S2_only,KNN,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S2_only,KNN,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S2_only,KNN,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S2_only,KNN,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S2_only,KNN,Vegetative,Establishment
+13,2024-01-09,wheat_2023_24,S2_only,KNN,Vegetative,Vegetative
+14,2024-01-14,wheat_2023_24,S2_only,KNN,Vegetative,Establishment
+15,2024-01-19,wheat_2023_24,S2_only,KNN,Vegetative,Establishment
+16,2024-01-24,wheat_2023_24,S2_only,KNN,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S2_only,KNN,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S2_only,KNN,Vegetative,Establishment
+19,2024-02-08,wheat_2023_24,S2_only,KNN,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S2_only,KNN,Vegetative,Establishment
+21,2024-02-18,wheat_2023_24,S2_only,KNN,Vegetative,Establishment
+22,2024-02-23,wheat_2023_24,S2_only,KNN,Reproductive,Reproductive
+23,2024-02-28,wheat_2023_24,S2_only,KNN,Reproductive,Vegetative
+24,2024-03-04,wheat_2023_24,S2_only,KNN,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S2_only,KNN,Reproductive,Vegetative
+26,2024-03-14,wheat_2023_24,S2_only,KNN,Reproductive,Reproductive
+27,2024-03-19,wheat_2023_24,S2_only,KNN,Reproductive,Reproductive
+28,2024-03-24,wheat_2023_24,S2_only,KNN,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S2_only,KNN,Reproductive,Vegetative
+30,2024-04-03,wheat_2023_24,S2_only,KNN,Grain Filling,Vegetative
+31,2024-04-08,wheat_2023_24,S2_only,KNN,Grain Filling,Grain Filling
+32,2024-04-13,wheat_2023_24,S2_only,KNN,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S2_only,KNN,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S2_only,KNN,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S2_only,KNN,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S2_only,KNN,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S2_only,KNN,Establishment,Vegetative
+38,2025-01-23,wheat_2024_25,S2_only,KNN,Vegetative,Reproductive
+39,2025-01-28,wheat_2024_25,S2_only,KNN,Vegetative,Vegetative
+40,2025-02-02,wheat_2024_25,S2_only,KNN,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S2_only,KNN,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S2_only,KNN,Vegetative,Reproductive
+43,2025-02-17,wheat_2024_25,S2_only,KNN,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S2_only,KNN,Vegetative,Reproductive
+45,2025-02-27,wheat_2024_25,S2_only,KNN,Vegetative,Reproductive
+46,2025-03-04,wheat_2024_25,S2_only,KNN,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S2_only,KNN,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S2_only,KNN,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S2_only,KNN,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S2_only,KNN,Reproductive,Vegetative
+51,2025-03-29,wheat_2024_25,S2_only,KNN,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S2_only,KNN,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S2_only,KNN,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S2_only,KNN,Reproductive,Establishment
+55,2025-04-13,wheat_2024_25,S2_only,KNN,Grain Filling,Grain Filling
+56,2025-04-18,wheat_2024_25,S2_only,KNN,Grain Filling,Grain Filling
+57,2025-04-20,wheat_2024_25,S2_only,KNN,Grain Filling,Senescence/Harvest
+58,2025-04-23,wheat_2024_25,S2_only,KNN,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S2_only,GaussianNB,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S2_only,GaussianNB,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S2_only,GaussianNB,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S2_only,GaussianNB,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S2_only,GaussianNB,Establishment,Grain Filling
+5,2023-11-30,wheat_2023_24,S2_only,GaussianNB,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S2_only,GaussianNB,Establishment,Reproductive
+7,2023-12-10,wheat_2023_24,S2_only,GaussianNB,Establishment,Reproductive
+8,2023-12-15,wheat_2023_24,S2_only,GaussianNB,Vegetative,Establishment
+9,2023-12-20,wheat_2023_24,S2_only,GaussianNB,Vegetative,Reproductive
+10,2023-12-25,wheat_2023_24,S2_only,GaussianNB,Vegetative,Reproductive
+11,2023-12-30,wheat_2023_24,S2_only,GaussianNB,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S2_only,GaussianNB,Vegetative,Establishment
+13,2024-01-09,wheat_2023_24,S2_only,GaussianNB,Vegetative,Establishment
+14,2024-01-14,wheat_2023_24,S2_only,GaussianNB,Vegetative,Establishment
+15,2024-01-19,wheat_2023_24,S2_only,GaussianNB,Vegetative,Establishment
+16,2024-01-24,wheat_2023_24,S2_only,GaussianNB,Vegetative,Establishment
+17,2024-01-29,wheat_2023_24,S2_only,GaussianNB,Vegetative,Reproductive
+18,2024-02-03,wheat_2023_24,S2_only,GaussianNB,Vegetative,Establishment
+19,2024-02-08,wheat_2023_24,S2_only,GaussianNB,Vegetative,Reproductive
+20,2024-02-13,wheat_2023_24,S2_only,GaussianNB,Vegetative,Establishment
+21,2024-02-18,wheat_2023_24,S2_only,GaussianNB,Vegetative,Establishment
+22,2024-02-23,wheat_2023_24,S2_only,GaussianNB,Reproductive,Reproductive
+23,2024-02-28,wheat_2023_24,S2_only,GaussianNB,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S2_only,GaussianNB,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S2_only,GaussianNB,Reproductive,Reproductive
+26,2024-03-14,wheat_2023_24,S2_only,GaussianNB,Reproductive,Reproductive
+27,2024-03-19,wheat_2023_24,S2_only,GaussianNB,Reproductive,Reproductive
+28,2024-03-24,wheat_2023_24,S2_only,GaussianNB,Reproductive,Establishment
+29,2024-03-29,wheat_2023_24,S2_only,GaussianNB,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S2_only,GaussianNB,Grain Filling,Establishment
+31,2024-04-08,wheat_2023_24,S2_only,GaussianNB,Grain Filling,Grain Filling
+32,2024-04-13,wheat_2023_24,S2_only,GaussianNB,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S2_only,GaussianNB,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S2_only,GaussianNB,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S2_only,GaussianNB,Establishment,Vegetative
+36,2025-01-13,wheat_2024_25,S2_only,GaussianNB,Establishment,Grain Filling
+37,2025-01-18,wheat_2024_25,S2_only,GaussianNB,Establishment,Vegetative
+38,2025-01-23,wheat_2024_25,S2_only,GaussianNB,Vegetative,Reproductive
+39,2025-01-28,wheat_2024_25,S2_only,GaussianNB,Vegetative,Establishment
+40,2025-02-02,wheat_2024_25,S2_only,GaussianNB,Vegetative,Reproductive
+41,2025-02-07,wheat_2024_25,S2_only,GaussianNB,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S2_only,GaussianNB,Vegetative,Reproductive
+43,2025-02-17,wheat_2024_25,S2_only,GaussianNB,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S2_only,GaussianNB,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S2_only,GaussianNB,Vegetative,Vegetative
+46,2025-03-04,wheat_2024_25,S2_only,GaussianNB,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S2_only,GaussianNB,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S2_only,GaussianNB,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S2_only,GaussianNB,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S2_only,GaussianNB,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S2_only,GaussianNB,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S2_only,GaussianNB,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S2_only,GaussianNB,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S2_only,GaussianNB,Reproductive,Grain Filling
+55,2025-04-13,wheat_2024_25,S2_only,GaussianNB,Grain Filling,Grain Filling
+56,2025-04-18,wheat_2024_25,S2_only,GaussianNB,Grain Filling,Grain Filling
+57,2025-04-20,wheat_2024_25,S2_only,GaussianNB,Grain Filling,Grain Filling
+58,2025-04-23,wheat_2024_25,S2_only,GaussianNB,Grain Filling,Grain Filling
+0,2023-11-05,wheat_2023_24,S2_only,RandomForest,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S2_only,RandomForest,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S2_only,RandomForest,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S2_only,RandomForest,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S2_only,RandomForest,Establishment,Grain Filling
+5,2023-11-30,wheat_2023_24,S2_only,RandomForest,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S2_only,RandomForest,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S2_only,RandomForest,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S2_only,RandomForest,Vegetative,Establishment
+9,2023-12-20,wheat_2023_24,S2_only,RandomForest,Vegetative,Reproductive
+10,2023-12-25,wheat_2023_24,S2_only,RandomForest,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S2_only,RandomForest,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S2_only,RandomForest,Vegetative,Establishment
+13,2024-01-09,wheat_2023_24,S2_only,RandomForest,Vegetative,Vegetative
+14,2024-01-14,wheat_2023_24,S2_only,RandomForest,Vegetative,Establishment
+15,2024-01-19,wheat_2023_24,S2_only,RandomForest,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S2_only,RandomForest,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S2_only,RandomForest,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S2_only,RandomForest,Vegetative,Establishment
+19,2024-02-08,wheat_2023_24,S2_only,RandomForest,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S2_only,RandomForest,Vegetative,Establishment
+21,2024-02-18,wheat_2023_24,S2_only,RandomForest,Vegetative,Establishment
+22,2024-02-23,wheat_2023_24,S2_only,RandomForest,Reproductive,Reproductive
+23,2024-02-28,wheat_2023_24,S2_only,RandomForest,Reproductive,Vegetative
+24,2024-03-04,wheat_2023_24,S2_only,RandomForest,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S2_only,RandomForest,Reproductive,Vegetative
+26,2024-03-14,wheat_2023_24,S2_only,RandomForest,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S2_only,RandomForest,Reproductive,Reproductive
+28,2024-03-24,wheat_2023_24,S2_only,RandomForest,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S2_only,RandomForest,Reproductive,Vegetative
+30,2024-04-03,wheat_2023_24,S2_only,RandomForest,Grain Filling,Establishment
+31,2024-04-08,wheat_2023_24,S2_only,RandomForest,Grain Filling,Establishment
+32,2024-04-13,wheat_2023_24,S2_only,RandomForest,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S2_only,RandomForest,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S2_only,RandomForest,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S2_only,RandomForest,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S2_only,RandomForest,Establishment,Grain Filling
+37,2025-01-18,wheat_2024_25,S2_only,RandomForest,Establishment,Vegetative
+38,2025-01-23,wheat_2024_25,S2_only,RandomForest,Vegetative,Reproductive
+39,2025-01-28,wheat_2024_25,S2_only,RandomForest,Vegetative,Vegetative
+40,2025-02-02,wheat_2024_25,S2_only,RandomForest,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S2_only,RandomForest,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S2_only,RandomForest,Vegetative,Reproductive
+43,2025-02-17,wheat_2024_25,S2_only,RandomForest,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S2_only,RandomForest,Vegetative,Reproductive
+45,2025-02-27,wheat_2024_25,S2_only,RandomForest,Vegetative,Reproductive
+46,2025-03-04,wheat_2024_25,S2_only,RandomForest,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S2_only,RandomForest,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S2_only,RandomForest,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S2_only,RandomForest,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S2_only,RandomForest,Reproductive,Vegetative
+51,2025-03-29,wheat_2024_25,S2_only,RandomForest,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S2_only,RandomForest,Reproductive,Vegetative
+53,2025-04-03,wheat_2024_25,S2_only,RandomForest,Reproductive,Vegetative
+54,2025-04-08,wheat_2024_25,S2_only,RandomForest,Reproductive,Establishment
+55,2025-04-13,wheat_2024_25,S2_only,RandomForest,Grain Filling,Grain Filling
+56,2025-04-18,wheat_2024_25,S2_only,RandomForest,Grain Filling,Establishment
+57,2025-04-20,wheat_2024_25,S2_only,RandomForest,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S2_only,RandomForest,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S2_only,ExtraTrees,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S2_only,ExtraTrees,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S2_only,ExtraTrees,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S2_only,ExtraTrees,Establishment,Establishment
+4,2023-11-25,wheat_2023_24,S2_only,ExtraTrees,Establishment,Grain Filling
+5,2023-11-30,wheat_2023_24,S2_only,ExtraTrees,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S2_only,ExtraTrees,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S2_only,ExtraTrees,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S2_only,ExtraTrees,Vegetative,Establishment
+9,2023-12-20,wheat_2023_24,S2_only,ExtraTrees,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S2_only,ExtraTrees,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S2_only,ExtraTrees,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S2_only,ExtraTrees,Vegetative,Establishment
+13,2024-01-09,wheat_2023_24,S2_only,ExtraTrees,Vegetative,Establishment
+14,2024-01-14,wheat_2023_24,S2_only,ExtraTrees,Vegetative,Establishment
+15,2024-01-19,wheat_2023_24,S2_only,ExtraTrees,Vegetative,Establishment
+16,2024-01-24,wheat_2023_24,S2_only,ExtraTrees,Vegetative,Establishment
+17,2024-01-29,wheat_2023_24,S2_only,ExtraTrees,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S2_only,ExtraTrees,Vegetative,Establishment
+19,2024-02-08,wheat_2023_24,S2_only,ExtraTrees,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S2_only,ExtraTrees,Vegetative,Establishment
+21,2024-02-18,wheat_2023_24,S2_only,ExtraTrees,Vegetative,Establishment
+22,2024-02-23,wheat_2023_24,S2_only,ExtraTrees,Reproductive,Reproductive
+23,2024-02-28,wheat_2023_24,S2_only,ExtraTrees,Reproductive,Vegetative
+24,2024-03-04,wheat_2023_24,S2_only,ExtraTrees,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S2_only,ExtraTrees,Reproductive,Vegetative
+26,2024-03-14,wheat_2023_24,S2_only,ExtraTrees,Reproductive,Reproductive
+27,2024-03-19,wheat_2023_24,S2_only,ExtraTrees,Reproductive,Reproductive
+28,2024-03-24,wheat_2023_24,S2_only,ExtraTrees,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S2_only,ExtraTrees,Reproductive,Vegetative
+30,2024-04-03,wheat_2023_24,S2_only,ExtraTrees,Grain Filling,Establishment
+31,2024-04-08,wheat_2023_24,S2_only,ExtraTrees,Grain Filling,Grain Filling
+32,2024-04-13,wheat_2023_24,S2_only,ExtraTrees,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S2_only,ExtraTrees,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S2_only,ExtraTrees,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S2_only,ExtraTrees,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S2_only,ExtraTrees,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S2_only,ExtraTrees,Establishment,Vegetative
+38,2025-01-23,wheat_2024_25,S2_only,ExtraTrees,Vegetative,Reproductive
+39,2025-01-28,wheat_2024_25,S2_only,ExtraTrees,Vegetative,Vegetative
+40,2025-02-02,wheat_2024_25,S2_only,ExtraTrees,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S2_only,ExtraTrees,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S2_only,ExtraTrees,Vegetative,Vegetative
+43,2025-02-17,wheat_2024_25,S2_only,ExtraTrees,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S2_only,ExtraTrees,Vegetative,Reproductive
+45,2025-02-27,wheat_2024_25,S2_only,ExtraTrees,Vegetative,Reproductive
+46,2025-03-04,wheat_2024_25,S2_only,ExtraTrees,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S2_only,ExtraTrees,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S2_only,ExtraTrees,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S2_only,ExtraTrees,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S2_only,ExtraTrees,Reproductive,Vegetative
+51,2025-03-29,wheat_2024_25,S2_only,ExtraTrees,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S2_only,ExtraTrees,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S2_only,ExtraTrees,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S2_only,ExtraTrees,Reproductive,Establishment
+55,2025-04-13,wheat_2024_25,S2_only,ExtraTrees,Grain Filling,Grain Filling
+56,2025-04-18,wheat_2024_25,S2_only,ExtraTrees,Grain Filling,Grain Filling
+57,2025-04-20,wheat_2024_25,S2_only,ExtraTrees,Grain Filling,Senescence/Harvest
+58,2025-04-23,wheat_2024_25,S2_only,ExtraTrees,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S2_only,GradientBoosting,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S2_only,GradientBoosting,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S2_only,GradientBoosting,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S2_only,GradientBoosting,Establishment,Establishment
+4,2023-11-25,wheat_2023_24,S2_only,GradientBoosting,Establishment,Establishment
+5,2023-11-30,wheat_2023_24,S2_only,GradientBoosting,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S2_only,GradientBoosting,Establishment,Reproductive
+7,2023-12-10,wheat_2023_24,S2_only,GradientBoosting,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S2_only,GradientBoosting,Vegetative,Establishment
+9,2023-12-20,wheat_2023_24,S2_only,GradientBoosting,Vegetative,Reproductive
+10,2023-12-25,wheat_2023_24,S2_only,GradientBoosting,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S2_only,GradientBoosting,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S2_only,GradientBoosting,Vegetative,Vegetative
+13,2024-01-09,wheat_2023_24,S2_only,GradientBoosting,Vegetative,Establishment
+14,2024-01-14,wheat_2023_24,S2_only,GradientBoosting,Vegetative,Vegetative
+15,2024-01-19,wheat_2023_24,S2_only,GradientBoosting,Vegetative,Establishment
+16,2024-01-24,wheat_2023_24,S2_only,GradientBoosting,Vegetative,Establishment
+17,2024-01-29,wheat_2023_24,S2_only,GradientBoosting,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S2_only,GradientBoosting,Vegetative,Establishment
+19,2024-02-08,wheat_2023_24,S2_only,GradientBoosting,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S2_only,GradientBoosting,Vegetative,Establishment
+21,2024-02-18,wheat_2023_24,S2_only,GradientBoosting,Vegetative,Establishment
+22,2024-02-23,wheat_2023_24,S2_only,GradientBoosting,Reproductive,Reproductive
+23,2024-02-28,wheat_2023_24,S2_only,GradientBoosting,Reproductive,Vegetative
+24,2024-03-04,wheat_2023_24,S2_only,GradientBoosting,Reproductive,Vegetative
+25,2024-03-09,wheat_2023_24,S2_only,GradientBoosting,Reproductive,Vegetative
+26,2024-03-14,wheat_2023_24,S2_only,GradientBoosting,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S2_only,GradientBoosting,Reproductive,Vegetative
+28,2024-03-24,wheat_2023_24,S2_only,GradientBoosting,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S2_only,GradientBoosting,Reproductive,Vegetative
+30,2024-04-03,wheat_2023_24,S2_only,GradientBoosting,Grain Filling,Reproductive
+31,2024-04-08,wheat_2023_24,S2_only,GradientBoosting,Grain Filling,Establishment
+32,2024-04-13,wheat_2023_24,S2_only,GradientBoosting,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S2_only,GradientBoosting,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S2_only,GradientBoosting,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S2_only,GradientBoosting,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S2_only,GradientBoosting,Establishment,Grain Filling
+37,2025-01-18,wheat_2024_25,S2_only,GradientBoosting,Establishment,Vegetative
+38,2025-01-23,wheat_2024_25,S2_only,GradientBoosting,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S2_only,GradientBoosting,Vegetative,Vegetative
+40,2025-02-02,wheat_2024_25,S2_only,GradientBoosting,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S2_only,GradientBoosting,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S2_only,GradientBoosting,Vegetative,Reproductive
+43,2025-02-17,wheat_2024_25,S2_only,GradientBoosting,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S2_only,GradientBoosting,Vegetative,Reproductive
+45,2025-02-27,wheat_2024_25,S2_only,GradientBoosting,Vegetative,Reproductive
+46,2025-03-04,wheat_2024_25,S2_only,GradientBoosting,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S2_only,GradientBoosting,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S2_only,GradientBoosting,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S2_only,GradientBoosting,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S2_only,GradientBoosting,Reproductive,Vegetative
+51,2025-03-29,wheat_2024_25,S2_only,GradientBoosting,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S2_only,GradientBoosting,Reproductive,Vegetative
+53,2025-04-03,wheat_2024_25,S2_only,GradientBoosting,Reproductive,Vegetative
+54,2025-04-08,wheat_2024_25,S2_only,GradientBoosting,Reproductive,Establishment
+55,2025-04-13,wheat_2024_25,S2_only,GradientBoosting,Grain Filling,Grain Filling
+56,2025-04-18,wheat_2024_25,S2_only,GradientBoosting,Grain Filling,Establishment
+57,2025-04-20,wheat_2024_25,S2_only,GradientBoosting,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S2_only,GradientBoosting,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S2_only,HistGradientBoosting,Establishment,Establishment
+1,2023-11-10,wheat_2023_24,S2_only,HistGradientBoosting,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S2_only,HistGradientBoosting,Establishment,Establishment
+3,2023-11-20,wheat_2023_24,S2_only,HistGradientBoosting,Establishment,Establishment
+4,2023-11-25,wheat_2023_24,S2_only,HistGradientBoosting,Establishment,Establishment
+5,2023-11-30,wheat_2023_24,S2_only,HistGradientBoosting,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S2_only,HistGradientBoosting,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S2_only,HistGradientBoosting,Establishment,Establishment
+8,2023-12-15,wheat_2023_24,S2_only,HistGradientBoosting,Vegetative,Establishment
+9,2023-12-20,wheat_2023_24,S2_only,HistGradientBoosting,Vegetative,Establishment
+10,2023-12-25,wheat_2023_24,S2_only,HistGradientBoosting,Vegetative,Establishment
+11,2023-12-30,wheat_2023_24,S2_only,HistGradientBoosting,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S2_only,HistGradientBoosting,Vegetative,Establishment
+13,2024-01-09,wheat_2023_24,S2_only,HistGradientBoosting,Vegetative,Establishment
+14,2024-01-14,wheat_2023_24,S2_only,HistGradientBoosting,Vegetative,Establishment
+15,2024-01-19,wheat_2023_24,S2_only,HistGradientBoosting,Vegetative,Establishment
+16,2024-01-24,wheat_2023_24,S2_only,HistGradientBoosting,Vegetative,Establishment
+17,2024-01-29,wheat_2023_24,S2_only,HistGradientBoosting,Vegetative,Establishment
+18,2024-02-03,wheat_2023_24,S2_only,HistGradientBoosting,Vegetative,Establishment
+19,2024-02-08,wheat_2023_24,S2_only,HistGradientBoosting,Vegetative,Establishment
+20,2024-02-13,wheat_2023_24,S2_only,HistGradientBoosting,Vegetative,Establishment
+21,2024-02-18,wheat_2023_24,S2_only,HistGradientBoosting,Vegetative,Establishment
+22,2024-02-23,wheat_2023_24,S2_only,HistGradientBoosting,Reproductive,Establishment
+23,2024-02-28,wheat_2023_24,S2_only,HistGradientBoosting,Reproductive,Establishment
+24,2024-03-04,wheat_2023_24,S2_only,HistGradientBoosting,Reproductive,Establishment
+25,2024-03-09,wheat_2023_24,S2_only,HistGradientBoosting,Reproductive,Establishment
+26,2024-03-14,wheat_2023_24,S2_only,HistGradientBoosting,Reproductive,Establishment
+27,2024-03-19,wheat_2023_24,S2_only,HistGradientBoosting,Reproductive,Establishment
+28,2024-03-24,wheat_2023_24,S2_only,HistGradientBoosting,Reproductive,Establishment
+29,2024-03-29,wheat_2023_24,S2_only,HistGradientBoosting,Reproductive,Establishment
+30,2024-04-03,wheat_2023_24,S2_only,HistGradientBoosting,Grain Filling,Establishment
+31,2024-04-08,wheat_2023_24,S2_only,HistGradientBoosting,Grain Filling,Establishment
+32,2024-04-13,wheat_2023_24,S2_only,HistGradientBoosting,Grain Filling,Establishment
+33,2024-04-18,wheat_2023_24,S2_only,HistGradientBoosting,Senescence/Harvest,Establishment
+34,2024-12-29,wheat_2024_25,S2_only,HistGradientBoosting,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S2_only,HistGradientBoosting,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S2_only,HistGradientBoosting,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S2_only,HistGradientBoosting,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S2_only,HistGradientBoosting,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S2_only,HistGradientBoosting,Vegetative,Establishment
+40,2025-02-02,wheat_2024_25,S2_only,HistGradientBoosting,Vegetative,Establishment
+41,2025-02-07,wheat_2024_25,S2_only,HistGradientBoosting,Vegetative,Establishment
+42,2025-02-12,wheat_2024_25,S2_only,HistGradientBoosting,Vegetative,Establishment
+43,2025-02-17,wheat_2024_25,S2_only,HistGradientBoosting,Vegetative,Establishment
+44,2025-02-22,wheat_2024_25,S2_only,HistGradientBoosting,Vegetative,Establishment
+45,2025-02-27,wheat_2024_25,S2_only,HistGradientBoosting,Vegetative,Establishment
+46,2025-03-04,wheat_2024_25,S2_only,HistGradientBoosting,Vegetative,Establishment
+47,2025-03-09,wheat_2024_25,S2_only,HistGradientBoosting,Reproductive,Establishment
+48,2025-03-14,wheat_2024_25,S2_only,HistGradientBoosting,Reproductive,Establishment
+49,2025-03-19,wheat_2024_25,S2_only,HistGradientBoosting,Reproductive,Establishment
+50,2025-03-24,wheat_2024_25,S2_only,HistGradientBoosting,Reproductive,Establishment
+51,2025-03-29,wheat_2024_25,S2_only,HistGradientBoosting,Reproductive,Establishment
+52,2025-03-31,wheat_2024_25,S2_only,HistGradientBoosting,Reproductive,Establishment
+53,2025-04-03,wheat_2024_25,S2_only,HistGradientBoosting,Reproductive,Establishment
+54,2025-04-08,wheat_2024_25,S2_only,HistGradientBoosting,Reproductive,Establishment
+55,2025-04-13,wheat_2024_25,S2_only,HistGradientBoosting,Grain Filling,Establishment
+56,2025-04-18,wheat_2024_25,S2_only,HistGradientBoosting,Grain Filling,Establishment
+57,2025-04-20,wheat_2024_25,S2_only,HistGradientBoosting,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S2_only,HistGradientBoosting,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S2_only,XGBoost,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S2_only,XGBoost,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S2_only,XGBoost,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S2_only,XGBoost,Establishment,Reproductive
+4,2023-11-25,wheat_2023_24,S2_only,XGBoost,Establishment,Establishment
+5,2023-11-30,wheat_2023_24,S2_only,XGBoost,Establishment,Vegetative
+6,2023-12-05,wheat_2023_24,S2_only,XGBoost,Establishment,Vegetative
+7,2023-12-10,wheat_2023_24,S2_only,XGBoost,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S2_only,XGBoost,Vegetative,Establishment
+9,2023-12-20,wheat_2023_24,S2_only,XGBoost,Vegetative,Reproductive
+10,2023-12-25,wheat_2023_24,S2_only,XGBoost,Vegetative,Reproductive
+11,2023-12-30,wheat_2023_24,S2_only,XGBoost,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S2_only,XGBoost,Vegetative,Vegetative
+13,2024-01-09,wheat_2023_24,S2_only,XGBoost,Vegetative,Vegetative
+14,2024-01-14,wheat_2023_24,S2_only,XGBoost,Vegetative,Vegetative
+15,2024-01-19,wheat_2023_24,S2_only,XGBoost,Vegetative,Establishment
+16,2024-01-24,wheat_2023_24,S2_only,XGBoost,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S2_only,XGBoost,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S2_only,XGBoost,Vegetative,Establishment
+19,2024-02-08,wheat_2023_24,S2_only,XGBoost,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S2_only,XGBoost,Vegetative,Establishment
+21,2024-02-18,wheat_2023_24,S2_only,XGBoost,Vegetative,Establishment
+22,2024-02-23,wheat_2023_24,S2_only,XGBoost,Reproductive,Reproductive
+23,2024-02-28,wheat_2023_24,S2_only,XGBoost,Reproductive,Vegetative
+24,2024-03-04,wheat_2023_24,S2_only,XGBoost,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S2_only,XGBoost,Reproductive,Vegetative
+26,2024-03-14,wheat_2023_24,S2_only,XGBoost,Reproductive,Reproductive
+27,2024-03-19,wheat_2023_24,S2_only,XGBoost,Reproductive,Vegetative
+28,2024-03-24,wheat_2023_24,S2_only,XGBoost,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S2_only,XGBoost,Reproductive,Vegetative
+30,2024-04-03,wheat_2023_24,S2_only,XGBoost,Grain Filling,Establishment
+31,2024-04-08,wheat_2023_24,S2_only,XGBoost,Grain Filling,Establishment
+32,2024-04-13,wheat_2023_24,S2_only,XGBoost,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S2_only,XGBoost,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S2_only,XGBoost,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S2_only,XGBoost,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S2_only,XGBoost,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S2_only,XGBoost,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S2_only,XGBoost,Vegetative,Reproductive
+39,2025-01-28,wheat_2024_25,S2_only,XGBoost,Vegetative,Vegetative
+40,2025-02-02,wheat_2024_25,S2_only,XGBoost,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S2_only,XGBoost,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S2_only,XGBoost,Vegetative,Vegetative
+43,2025-02-17,wheat_2024_25,S2_only,XGBoost,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S2_only,XGBoost,Vegetative,Reproductive
+45,2025-02-27,wheat_2024_25,S2_only,XGBoost,Vegetative,Establishment
+46,2025-03-04,wheat_2024_25,S2_only,XGBoost,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S2_only,XGBoost,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S2_only,XGBoost,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S2_only,XGBoost,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S2_only,XGBoost,Reproductive,Vegetative
+51,2025-03-29,wheat_2024_25,S2_only,XGBoost,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S2_only,XGBoost,Reproductive,Vegetative
+53,2025-04-03,wheat_2024_25,S2_only,XGBoost,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S2_only,XGBoost,Reproductive,Establishment
+55,2025-04-13,wheat_2024_25,S2_only,XGBoost,Grain Filling,Grain Filling
+56,2025-04-18,wheat_2024_25,S2_only,XGBoost,Grain Filling,Establishment
+57,2025-04-20,wheat_2024_25,S2_only,XGBoost,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S2_only,XGBoost,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S2_only,LightGBM,Establishment,Establishment
+1,2023-11-10,wheat_2023_24,S2_only,LightGBM,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S2_only,LightGBM,Establishment,Establishment
+3,2023-11-20,wheat_2023_24,S2_only,LightGBM,Establishment,Establishment
+4,2023-11-25,wheat_2023_24,S2_only,LightGBM,Establishment,Establishment
+5,2023-11-30,wheat_2023_24,S2_only,LightGBM,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S2_only,LightGBM,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S2_only,LightGBM,Establishment,Establishment
+8,2023-12-15,wheat_2023_24,S2_only,LightGBM,Vegetative,Establishment
+9,2023-12-20,wheat_2023_24,S2_only,LightGBM,Vegetative,Establishment
+10,2023-12-25,wheat_2023_24,S2_only,LightGBM,Vegetative,Establishment
+11,2023-12-30,wheat_2023_24,S2_only,LightGBM,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S2_only,LightGBM,Vegetative,Establishment
+13,2024-01-09,wheat_2023_24,S2_only,LightGBM,Vegetative,Establishment
+14,2024-01-14,wheat_2023_24,S2_only,LightGBM,Vegetative,Establishment
+15,2024-01-19,wheat_2023_24,S2_only,LightGBM,Vegetative,Establishment
+16,2024-01-24,wheat_2023_24,S2_only,LightGBM,Vegetative,Establishment
+17,2024-01-29,wheat_2023_24,S2_only,LightGBM,Vegetative,Establishment
+18,2024-02-03,wheat_2023_24,S2_only,LightGBM,Vegetative,Establishment
+19,2024-02-08,wheat_2023_24,S2_only,LightGBM,Vegetative,Establishment
+20,2024-02-13,wheat_2023_24,S2_only,LightGBM,Vegetative,Establishment
+21,2024-02-18,wheat_2023_24,S2_only,LightGBM,Vegetative,Establishment
+22,2024-02-23,wheat_2023_24,S2_only,LightGBM,Reproductive,Establishment
+23,2024-02-28,wheat_2023_24,S2_only,LightGBM,Reproductive,Establishment
+24,2024-03-04,wheat_2023_24,S2_only,LightGBM,Reproductive,Establishment
+25,2024-03-09,wheat_2023_24,S2_only,LightGBM,Reproductive,Establishment
+26,2024-03-14,wheat_2023_24,S2_only,LightGBM,Reproductive,Establishment
+27,2024-03-19,wheat_2023_24,S2_only,LightGBM,Reproductive,Establishment
+28,2024-03-24,wheat_2023_24,S2_only,LightGBM,Reproductive,Establishment
+29,2024-03-29,wheat_2023_24,S2_only,LightGBM,Reproductive,Establishment
+30,2024-04-03,wheat_2023_24,S2_only,LightGBM,Grain Filling,Establishment
+31,2024-04-08,wheat_2023_24,S2_only,LightGBM,Grain Filling,Establishment
+32,2024-04-13,wheat_2023_24,S2_only,LightGBM,Grain Filling,Establishment
+33,2024-04-18,wheat_2023_24,S2_only,LightGBM,Senescence/Harvest,Establishment
+34,2024-12-29,wheat_2024_25,S2_only,LightGBM,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S2_only,LightGBM,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S2_only,LightGBM,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S2_only,LightGBM,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S2_only,LightGBM,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S2_only,LightGBM,Vegetative,Establishment
+40,2025-02-02,wheat_2024_25,S2_only,LightGBM,Vegetative,Establishment
+41,2025-02-07,wheat_2024_25,S2_only,LightGBM,Vegetative,Establishment
+42,2025-02-12,wheat_2024_25,S2_only,LightGBM,Vegetative,Establishment
+43,2025-02-17,wheat_2024_25,S2_only,LightGBM,Vegetative,Establishment
+44,2025-02-22,wheat_2024_25,S2_only,LightGBM,Vegetative,Establishment
+45,2025-02-27,wheat_2024_25,S2_only,LightGBM,Vegetative,Establishment
+46,2025-03-04,wheat_2024_25,S2_only,LightGBM,Vegetative,Establishment
+47,2025-03-09,wheat_2024_25,S2_only,LightGBM,Reproductive,Establishment
+48,2025-03-14,wheat_2024_25,S2_only,LightGBM,Reproductive,Establishment
+49,2025-03-19,wheat_2024_25,S2_only,LightGBM,Reproductive,Establishment
+50,2025-03-24,wheat_2024_25,S2_only,LightGBM,Reproductive,Establishment
+51,2025-03-29,wheat_2024_25,S2_only,LightGBM,Reproductive,Establishment
+52,2025-03-31,wheat_2024_25,S2_only,LightGBM,Reproductive,Establishment
+53,2025-04-03,wheat_2024_25,S2_only,LightGBM,Reproductive,Establishment
+54,2025-04-08,wheat_2024_25,S2_only,LightGBM,Reproductive,Establishment
+55,2025-04-13,wheat_2024_25,S2_only,LightGBM,Grain Filling,Establishment
+56,2025-04-18,wheat_2024_25,S2_only,LightGBM,Grain Filling,Establishment
+57,2025-04-20,wheat_2024_25,S2_only,LightGBM,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S2_only,LightGBM,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S2_only,CatBoost,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S2_only,CatBoost,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S2_only,CatBoost,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S2_only,CatBoost,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S2_only,CatBoost,Establishment,Grain Filling
+5,2023-11-30,wheat_2023_24,S2_only,CatBoost,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S2_only,CatBoost,Establishment,Grain Filling
+7,2023-12-10,wheat_2023_24,S2_only,CatBoost,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S2_only,CatBoost,Vegetative,Establishment
+9,2023-12-20,wheat_2023_24,S2_only,CatBoost,Vegetative,Reproductive
+10,2023-12-25,wheat_2023_24,S2_only,CatBoost,Vegetative,Reproductive
+11,2023-12-30,wheat_2023_24,S2_only,CatBoost,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S2_only,CatBoost,Vegetative,Establishment
+13,2024-01-09,wheat_2023_24,S2_only,CatBoost,Vegetative,Establishment
+14,2024-01-14,wheat_2023_24,S2_only,CatBoost,Vegetative,Establishment
+15,2024-01-19,wheat_2023_24,S2_only,CatBoost,Vegetative,Establishment
+16,2024-01-24,wheat_2023_24,S2_only,CatBoost,Vegetative,Establishment
+17,2024-01-29,wheat_2023_24,S2_only,CatBoost,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S2_only,CatBoost,Vegetative,Establishment
+19,2024-02-08,wheat_2023_24,S2_only,CatBoost,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S2_only,CatBoost,Vegetative,Establishment
+21,2024-02-18,wheat_2023_24,S2_only,CatBoost,Vegetative,Establishment
+22,2024-02-23,wheat_2023_24,S2_only,CatBoost,Reproductive,Reproductive
+23,2024-02-28,wheat_2023_24,S2_only,CatBoost,Reproductive,Vegetative
+24,2024-03-04,wheat_2023_24,S2_only,CatBoost,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S2_only,CatBoost,Reproductive,Vegetative
+26,2024-03-14,wheat_2023_24,S2_only,CatBoost,Reproductive,Reproductive
+27,2024-03-19,wheat_2023_24,S2_only,CatBoost,Reproductive,Reproductive
+28,2024-03-24,wheat_2023_24,S2_only,CatBoost,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S2_only,CatBoost,Reproductive,Vegetative
+30,2024-04-03,wheat_2023_24,S2_only,CatBoost,Grain Filling,Establishment
+31,2024-04-08,wheat_2023_24,S2_only,CatBoost,Grain Filling,Grain Filling
+32,2024-04-13,wheat_2023_24,S2_only,CatBoost,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S2_only,CatBoost,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S2_only,CatBoost,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S2_only,CatBoost,Establishment,Vegetative
+36,2025-01-13,wheat_2024_25,S2_only,CatBoost,Establishment,Grain Filling
+37,2025-01-18,wheat_2024_25,S2_only,CatBoost,Establishment,Vegetative
+38,2025-01-23,wheat_2024_25,S2_only,CatBoost,Vegetative,Reproductive
+39,2025-01-28,wheat_2024_25,S2_only,CatBoost,Vegetative,Vegetative
+40,2025-02-02,wheat_2024_25,S2_only,CatBoost,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S2_only,CatBoost,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S2_only,CatBoost,Vegetative,Reproductive
+43,2025-02-17,wheat_2024_25,S2_only,CatBoost,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S2_only,CatBoost,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S2_only,CatBoost,Vegetative,Vegetative
+46,2025-03-04,wheat_2024_25,S2_only,CatBoost,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S2_only,CatBoost,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S2_only,CatBoost,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S2_only,CatBoost,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S2_only,CatBoost,Reproductive,Vegetative
+51,2025-03-29,wheat_2024_25,S2_only,CatBoost,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S2_only,CatBoost,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S2_only,CatBoost,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S2_only,CatBoost,Reproductive,Establishment
+55,2025-04-13,wheat_2024_25,S2_only,CatBoost,Grain Filling,Grain Filling
+56,2025-04-18,wheat_2024_25,S2_only,CatBoost,Grain Filling,Senescence/Harvest
+57,2025-04-20,wheat_2024_25,S2_only,CatBoost,Grain Filling,Senescence/Harvest
+58,2025-04-23,wheat_2024_25,S2_only,CatBoost,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_only,LogisticRegression,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S1_only,LogisticRegression,Establishment,Grain Filling
+2,2023-11-15,wheat_2023_24,S1_only,LogisticRegression,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S1_only,LogisticRegression,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S1_only,LogisticRegression,Establishment,Vegetative
+5,2023-11-30,wheat_2023_24,S1_only,LogisticRegression,Establishment,Vegetative
+6,2023-12-05,wheat_2023_24,S1_only,LogisticRegression,Establishment,Vegetative
+7,2023-12-10,wheat_2023_24,S1_only,LogisticRegression,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_only,LogisticRegression,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_only,LogisticRegression,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S1_only,LogisticRegression,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S1_only,LogisticRegression,Vegetative,Vegetative
+12,2024-01-04,wheat_2023_24,S1_only,LogisticRegression,Vegetative,Reproductive
+13,2024-01-09,wheat_2023_24,S1_only,LogisticRegression,Vegetative,Reproductive
+14,2024-01-14,wheat_2023_24,S1_only,LogisticRegression,Vegetative,Reproductive
+15,2024-01-19,wheat_2023_24,S1_only,LogisticRegression,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_only,LogisticRegression,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_only,LogisticRegression,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_only,LogisticRegression,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_only,LogisticRegression,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_only,LogisticRegression,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_only,LogisticRegression,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_only,LogisticRegression,Reproductive,Vegetative
+23,2024-02-28,wheat_2023_24,S1_only,LogisticRegression,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S1_only,LogisticRegression,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_only,LogisticRegression,Reproductive,Reproductive
+26,2024-03-14,wheat_2023_24,S1_only,LogisticRegression,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_only,LogisticRegression,Reproductive,Vegetative
+28,2024-03-24,wheat_2023_24,S1_only,LogisticRegression,Reproductive,Reproductive
+29,2024-03-29,wheat_2023_24,S1_only,LogisticRegression,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_only,LogisticRegression,Grain Filling,Reproductive
+31,2024-04-08,wheat_2023_24,S1_only,LogisticRegression,Grain Filling,Vegetative
+32,2024-04-13,wheat_2023_24,S1_only,LogisticRegression,Grain Filling,Vegetative
+33,2024-04-18,wheat_2023_24,S1_only,LogisticRegression,Senescence/Harvest,Reproductive
+34,2024-12-29,wheat_2024_25,S1_only,LogisticRegression,Establishment,Senescence/Harvest
+35,2025-01-03,wheat_2024_25,S1_only,LogisticRegression,Establishment,Senescence/Harvest
+36,2025-01-13,wheat_2024_25,S1_only,LogisticRegression,Establishment,Senescence/Harvest
+37,2025-01-18,wheat_2024_25,S1_only,LogisticRegression,Establishment,Senescence/Harvest
+38,2025-01-23,wheat_2024_25,S1_only,LogisticRegression,Vegetative,Senescence/Harvest
+39,2025-01-28,wheat_2024_25,S1_only,LogisticRegression,Vegetative,Senescence/Harvest
+40,2025-02-02,wheat_2024_25,S1_only,LogisticRegression,Vegetative,Senescence/Harvest
+41,2025-02-07,wheat_2024_25,S1_only,LogisticRegression,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S1_only,LogisticRegression,Vegetative,Grain Filling
+43,2025-02-17,wheat_2024_25,S1_only,LogisticRegression,Vegetative,Grain Filling
+44,2025-02-22,wheat_2024_25,S1_only,LogisticRegression,Vegetative,Reproductive
+45,2025-02-27,wheat_2024_25,S1_only,LogisticRegression,Vegetative,Reproductive
+46,2025-03-04,wheat_2024_25,S1_only,LogisticRegression,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_only,LogisticRegression,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_only,LogisticRegression,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_only,LogisticRegression,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_only,LogisticRegression,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S1_only,LogisticRegression,Reproductive,Reproductive
+52,2025-03-31,wheat_2024_25,S1_only,LogisticRegression,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_only,LogisticRegression,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_only,LogisticRegression,Reproductive,Reproductive
+55,2025-04-13,wheat_2024_25,S1_only,LogisticRegression,Grain Filling,Reproductive
+56,2025-04-18,wheat_2024_25,S1_only,LogisticRegression,Grain Filling,Vegetative
+57,2025-04-20,wheat_2024_25,S1_only,LogisticRegression,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S1_only,LogisticRegression,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_only,SVM_RBF,Establishment,Vegetative
+1,2023-11-10,wheat_2023_24,S1_only,SVM_RBF,Establishment,Vegetative
+2,2023-11-15,wheat_2023_24,S1_only,SVM_RBF,Establishment,Vegetative
+3,2023-11-20,wheat_2023_24,S1_only,SVM_RBF,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S1_only,SVM_RBF,Establishment,Vegetative
+5,2023-11-30,wheat_2023_24,S1_only,SVM_RBF,Establishment,Vegetative
+6,2023-12-05,wheat_2023_24,S1_only,SVM_RBF,Establishment,Vegetative
+7,2023-12-10,wheat_2023_24,S1_only,SVM_RBF,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_only,SVM_RBF,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_only,SVM_RBF,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S1_only,SVM_RBF,Vegetative,Reproductive
+11,2023-12-30,wheat_2023_24,S1_only,SVM_RBF,Vegetative,Vegetative
+12,2024-01-04,wheat_2023_24,S1_only,SVM_RBF,Vegetative,Reproductive
+13,2024-01-09,wheat_2023_24,S1_only,SVM_RBF,Vegetative,Reproductive
+14,2024-01-14,wheat_2023_24,S1_only,SVM_RBF,Vegetative,Reproductive
+15,2024-01-19,wheat_2023_24,S1_only,SVM_RBF,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_only,SVM_RBF,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_only,SVM_RBF,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_only,SVM_RBF,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_only,SVM_RBF,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_only,SVM_RBF,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_only,SVM_RBF,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_only,SVM_RBF,Reproductive,Vegetative
+23,2024-02-28,wheat_2023_24,S1_only,SVM_RBF,Reproductive,Vegetative
+24,2024-03-04,wheat_2023_24,S1_only,SVM_RBF,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_only,SVM_RBF,Reproductive,Vegetative
+26,2024-03-14,wheat_2023_24,S1_only,SVM_RBF,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_only,SVM_RBF,Reproductive,Vegetative
+28,2024-03-24,wheat_2023_24,S1_only,SVM_RBF,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S1_only,SVM_RBF,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_only,SVM_RBF,Grain Filling,Reproductive
+31,2024-04-08,wheat_2023_24,S1_only,SVM_RBF,Grain Filling,Vegetative
+32,2024-04-13,wheat_2023_24,S1_only,SVM_RBF,Grain Filling,Vegetative
+33,2024-04-18,wheat_2023_24,S1_only,SVM_RBF,Senescence/Harvest,Vegetative
+34,2024-12-29,wheat_2024_25,S1_only,SVM_RBF,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_only,SVM_RBF,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_only,SVM_RBF,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_only,SVM_RBF,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_only,SVM_RBF,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_only,SVM_RBF,Vegetative,Vegetative
+40,2025-02-02,wheat_2024_25,S1_only,SVM_RBF,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S1_only,SVM_RBF,Vegetative,Grain Filling
+42,2025-02-12,wheat_2024_25,S1_only,SVM_RBF,Vegetative,Grain Filling
+43,2025-02-17,wheat_2024_25,S1_only,SVM_RBF,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S1_only,SVM_RBF,Vegetative,Reproductive
+45,2025-02-27,wheat_2024_25,S1_only,SVM_RBF,Vegetative,Reproductive
+46,2025-03-04,wheat_2024_25,S1_only,SVM_RBF,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_only,SVM_RBF,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_only,SVM_RBF,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_only,SVM_RBF,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_only,SVM_RBF,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S1_only,SVM_RBF,Reproductive,Reproductive
+52,2025-03-31,wheat_2024_25,S1_only,SVM_RBF,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_only,SVM_RBF,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_only,SVM_RBF,Reproductive,Reproductive
+55,2025-04-13,wheat_2024_25,S1_only,SVM_RBF,Grain Filling,Reproductive
+56,2025-04-18,wheat_2024_25,S1_only,SVM_RBF,Grain Filling,Establishment
+57,2025-04-20,wheat_2024_25,S1_only,SVM_RBF,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S1_only,SVM_RBF,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_only,KNN,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S1_only,KNN,Establishment,Grain Filling
+2,2023-11-15,wheat_2023_24,S1_only,KNN,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S1_only,KNN,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S1_only,KNN,Establishment,Vegetative
+5,2023-11-30,wheat_2023_24,S1_only,KNN,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S1_only,KNN,Establishment,Vegetative
+7,2023-12-10,wheat_2023_24,S1_only,KNN,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_only,KNN,Vegetative,Reproductive
+9,2023-12-20,wheat_2023_24,S1_only,KNN,Vegetative,Reproductive
+10,2023-12-25,wheat_2023_24,S1_only,KNN,Vegetative,Reproductive
+11,2023-12-30,wheat_2023_24,S1_only,KNN,Vegetative,Reproductive
+12,2024-01-04,wheat_2023_24,S1_only,KNN,Vegetative,Reproductive
+13,2024-01-09,wheat_2023_24,S1_only,KNN,Vegetative,Reproductive
+14,2024-01-14,wheat_2023_24,S1_only,KNN,Vegetative,Reproductive
+15,2024-01-19,wheat_2023_24,S1_only,KNN,Vegetative,Reproductive
+16,2024-01-24,wheat_2023_24,S1_only,KNN,Vegetative,Reproductive
+17,2024-01-29,wheat_2023_24,S1_only,KNN,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_only,KNN,Vegetative,Reproductive
+19,2024-02-08,wheat_2023_24,S1_only,KNN,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_only,KNN,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_only,KNN,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_only,KNN,Reproductive,Vegetative
+23,2024-02-28,wheat_2023_24,S1_only,KNN,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S1_only,KNN,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_only,KNN,Reproductive,Reproductive
+26,2024-03-14,wheat_2023_24,S1_only,KNN,Reproductive,Reproductive
+27,2024-03-19,wheat_2023_24,S1_only,KNN,Reproductive,Reproductive
+28,2024-03-24,wheat_2023_24,S1_only,KNN,Reproductive,Reproductive
+29,2024-03-29,wheat_2023_24,S1_only,KNN,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_only,KNN,Grain Filling,Reproductive
+31,2024-04-08,wheat_2023_24,S1_only,KNN,Grain Filling,Reproductive
+32,2024-04-13,wheat_2023_24,S1_only,KNN,Grain Filling,Vegetative
+33,2024-04-18,wheat_2023_24,S1_only,KNN,Senescence/Harvest,Vegetative
+34,2024-12-29,wheat_2024_25,S1_only,KNN,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_only,KNN,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_only,KNN,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_only,KNN,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_only,KNN,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_only,KNN,Vegetative,Grain Filling
+40,2025-02-02,wheat_2024_25,S1_only,KNN,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S1_only,KNN,Vegetative,Reproductive
+42,2025-02-12,wheat_2024_25,S1_only,KNN,Vegetative,Vegetative
+43,2025-02-17,wheat_2024_25,S1_only,KNN,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S1_only,KNN,Vegetative,Reproductive
+45,2025-02-27,wheat_2024_25,S1_only,KNN,Vegetative,Reproductive
+46,2025-03-04,wheat_2024_25,S1_only,KNN,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_only,KNN,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_only,KNN,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_only,KNN,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_only,KNN,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S1_only,KNN,Reproductive,Reproductive
+52,2025-03-31,wheat_2024_25,S1_only,KNN,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_only,KNN,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_only,KNN,Reproductive,Reproductive
+55,2025-04-13,wheat_2024_25,S1_only,KNN,Grain Filling,Reproductive
+56,2025-04-18,wheat_2024_25,S1_only,KNN,Grain Filling,Reproductive
+57,2025-04-20,wheat_2024_25,S1_only,KNN,Grain Filling,Reproductive
+58,2025-04-23,wheat_2024_25,S1_only,KNN,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_only,GaussianNB,Establishment,Vegetative
+1,2023-11-10,wheat_2023_24,S1_only,GaussianNB,Establishment,Vegetative
+2,2023-11-15,wheat_2023_24,S1_only,GaussianNB,Establishment,Vegetative
+3,2023-11-20,wheat_2023_24,S1_only,GaussianNB,Establishment,Vegetative
+4,2023-11-25,wheat_2023_24,S1_only,GaussianNB,Establishment,Vegetative
+5,2023-11-30,wheat_2023_24,S1_only,GaussianNB,Establishment,Vegetative
+6,2023-12-05,wheat_2023_24,S1_only,GaussianNB,Establishment,Vegetative
+7,2023-12-10,wheat_2023_24,S1_only,GaussianNB,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_only,GaussianNB,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_only,GaussianNB,Vegetative,Reproductive
+10,2023-12-25,wheat_2023_24,S1_only,GaussianNB,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S1_only,GaussianNB,Vegetative,Vegetative
+12,2024-01-04,wheat_2023_24,S1_only,GaussianNB,Vegetative,Reproductive
+13,2024-01-09,wheat_2023_24,S1_only,GaussianNB,Vegetative,Reproductive
+14,2024-01-14,wheat_2023_24,S1_only,GaussianNB,Vegetative,Reproductive
+15,2024-01-19,wheat_2023_24,S1_only,GaussianNB,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_only,GaussianNB,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_only,GaussianNB,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_only,GaussianNB,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_only,GaussianNB,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_only,GaussianNB,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_only,GaussianNB,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_only,GaussianNB,Reproductive,Vegetative
+23,2024-02-28,wheat_2023_24,S1_only,GaussianNB,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S1_only,GaussianNB,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_only,GaussianNB,Reproductive,Vegetative
+26,2024-03-14,wheat_2023_24,S1_only,GaussianNB,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_only,GaussianNB,Reproductive,Vegetative
+28,2024-03-24,wheat_2023_24,S1_only,GaussianNB,Reproductive,Reproductive
+29,2024-03-29,wheat_2023_24,S1_only,GaussianNB,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_only,GaussianNB,Grain Filling,Vegetative
+31,2024-04-08,wheat_2023_24,S1_only,GaussianNB,Grain Filling,Vegetative
+32,2024-04-13,wheat_2023_24,S1_only,GaussianNB,Grain Filling,Vegetative
+33,2024-04-18,wheat_2023_24,S1_only,GaussianNB,Senescence/Harvest,Vegetative
+34,2024-12-29,wheat_2024_25,S1_only,GaussianNB,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_only,GaussianNB,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_only,GaussianNB,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_only,GaussianNB,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_only,GaussianNB,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_only,GaussianNB,Vegetative,Reproductive
+40,2025-02-02,wheat_2024_25,S1_only,GaussianNB,Vegetative,Reproductive
+41,2025-02-07,wheat_2024_25,S1_only,GaussianNB,Vegetative,Reproductive
+42,2025-02-12,wheat_2024_25,S1_only,GaussianNB,Vegetative,Reproductive
+43,2025-02-17,wheat_2024_25,S1_only,GaussianNB,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S1_only,GaussianNB,Vegetative,Reproductive
+45,2025-02-27,wheat_2024_25,S1_only,GaussianNB,Vegetative,Reproductive
+46,2025-03-04,wheat_2024_25,S1_only,GaussianNB,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_only,GaussianNB,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_only,GaussianNB,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_only,GaussianNB,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_only,GaussianNB,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S1_only,GaussianNB,Reproductive,Reproductive
+52,2025-03-31,wheat_2024_25,S1_only,GaussianNB,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_only,GaussianNB,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_only,GaussianNB,Reproductive,Reproductive
+55,2025-04-13,wheat_2024_25,S1_only,GaussianNB,Grain Filling,Establishment
+56,2025-04-18,wheat_2024_25,S1_only,GaussianNB,Grain Filling,Establishment
+57,2025-04-20,wheat_2024_25,S1_only,GaussianNB,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S1_only,GaussianNB,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_only,RandomForest,Establishment,Establishment
+1,2023-11-10,wheat_2023_24,S1_only,RandomForest,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S1_only,RandomForest,Establishment,Establishment
+3,2023-11-20,wheat_2023_24,S1_only,RandomForest,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S1_only,RandomForest,Establishment,Vegetative
+5,2023-11-30,wheat_2023_24,S1_only,RandomForest,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S1_only,RandomForest,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S1_only,RandomForest,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_only,RandomForest,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_only,RandomForest,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S1_only,RandomForest,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S1_only,RandomForest,Vegetative,Vegetative
+12,2024-01-04,wheat_2023_24,S1_only,RandomForest,Vegetative,Reproductive
+13,2024-01-09,wheat_2023_24,S1_only,RandomForest,Vegetative,Reproductive
+14,2024-01-14,wheat_2023_24,S1_only,RandomForest,Vegetative,Reproductive
+15,2024-01-19,wheat_2023_24,S1_only,RandomForest,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_only,RandomForest,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_only,RandomForest,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_only,RandomForest,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_only,RandomForest,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_only,RandomForest,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_only,RandomForest,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_only,RandomForest,Reproductive,Vegetative
+23,2024-02-28,wheat_2023_24,S1_only,RandomForest,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S1_only,RandomForest,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_only,RandomForest,Reproductive,Reproductive
+26,2024-03-14,wheat_2023_24,S1_only,RandomForest,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_only,RandomForest,Reproductive,Reproductive
+28,2024-03-24,wheat_2023_24,S1_only,RandomForest,Reproductive,Reproductive
+29,2024-03-29,wheat_2023_24,S1_only,RandomForest,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_only,RandomForest,Grain Filling,Reproductive
+31,2024-04-08,wheat_2023_24,S1_only,RandomForest,Grain Filling,Vegetative
+32,2024-04-13,wheat_2023_24,S1_only,RandomForest,Grain Filling,Vegetative
+33,2024-04-18,wheat_2023_24,S1_only,RandomForest,Senescence/Harvest,Vegetative
+34,2024-12-29,wheat_2024_25,S1_only,RandomForest,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_only,RandomForest,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_only,RandomForest,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_only,RandomForest,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_only,RandomForest,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_only,RandomForest,Vegetative,Establishment
+40,2025-02-02,wheat_2024_25,S1_only,RandomForest,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S1_only,RandomForest,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S1_only,RandomForest,Vegetative,Vegetative
+43,2025-02-17,wheat_2024_25,S1_only,RandomForest,Vegetative,Vegetative
+44,2025-02-22,wheat_2024_25,S1_only,RandomForest,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S1_only,RandomForest,Vegetative,Reproductive
+46,2025-03-04,wheat_2024_25,S1_only,RandomForest,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_only,RandomForest,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_only,RandomForest,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_only,RandomForest,Reproductive,Vegetative
+50,2025-03-24,wheat_2024_25,S1_only,RandomForest,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S1_only,RandomForest,Reproductive,Reproductive
+52,2025-03-31,wheat_2024_25,S1_only,RandomForest,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_only,RandomForest,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_only,RandomForest,Reproductive,Reproductive
+55,2025-04-13,wheat_2024_25,S1_only,RandomForest,Grain Filling,Reproductive
+56,2025-04-18,wheat_2024_25,S1_only,RandomForest,Grain Filling,Vegetative
+57,2025-04-20,wheat_2024_25,S1_only,RandomForest,Grain Filling,Vegetative
+58,2025-04-23,wheat_2024_25,S1_only,RandomForest,Grain Filling,Vegetative
+0,2023-11-05,wheat_2023_24,S1_only,ExtraTrees,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S1_only,ExtraTrees,Establishment,Grain Filling
+2,2023-11-15,wheat_2023_24,S1_only,ExtraTrees,Establishment,Establishment
+3,2023-11-20,wheat_2023_24,S1_only,ExtraTrees,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S1_only,ExtraTrees,Establishment,Vegetative
+5,2023-11-30,wheat_2023_24,S1_only,ExtraTrees,Establishment,Vegetative
+6,2023-12-05,wheat_2023_24,S1_only,ExtraTrees,Establishment,Vegetative
+7,2023-12-10,wheat_2023_24,S1_only,ExtraTrees,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_only,ExtraTrees,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_only,ExtraTrees,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S1_only,ExtraTrees,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S1_only,ExtraTrees,Vegetative,Vegetative
+12,2024-01-04,wheat_2023_24,S1_only,ExtraTrees,Vegetative,Reproductive
+13,2024-01-09,wheat_2023_24,S1_only,ExtraTrees,Vegetative,Reproductive
+14,2024-01-14,wheat_2023_24,S1_only,ExtraTrees,Vegetative,Reproductive
+15,2024-01-19,wheat_2023_24,S1_only,ExtraTrees,Vegetative,Reproductive
+16,2024-01-24,wheat_2023_24,S1_only,ExtraTrees,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_only,ExtraTrees,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_only,ExtraTrees,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_only,ExtraTrees,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_only,ExtraTrees,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_only,ExtraTrees,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_only,ExtraTrees,Reproductive,Vegetative
+23,2024-02-28,wheat_2023_24,S1_only,ExtraTrees,Reproductive,Vegetative
+24,2024-03-04,wheat_2023_24,S1_only,ExtraTrees,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_only,ExtraTrees,Reproductive,Reproductive
+26,2024-03-14,wheat_2023_24,S1_only,ExtraTrees,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_only,ExtraTrees,Reproductive,Reproductive
+28,2024-03-24,wheat_2023_24,S1_only,ExtraTrees,Reproductive,Reproductive
+29,2024-03-29,wheat_2023_24,S1_only,ExtraTrees,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_only,ExtraTrees,Grain Filling,Reproductive
+31,2024-04-08,wheat_2023_24,S1_only,ExtraTrees,Grain Filling,Vegetative
+32,2024-04-13,wheat_2023_24,S1_only,ExtraTrees,Grain Filling,Vegetative
+33,2024-04-18,wheat_2023_24,S1_only,ExtraTrees,Senescence/Harvest,Vegetative
+34,2024-12-29,wheat_2024_25,S1_only,ExtraTrees,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_only,ExtraTrees,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_only,ExtraTrees,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_only,ExtraTrees,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_only,ExtraTrees,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_only,ExtraTrees,Vegetative,Reproductive
+40,2025-02-02,wheat_2024_25,S1_only,ExtraTrees,Vegetative,Reproductive
+41,2025-02-07,wheat_2024_25,S1_only,ExtraTrees,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S1_only,ExtraTrees,Vegetative,Vegetative
+43,2025-02-17,wheat_2024_25,S1_only,ExtraTrees,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S1_only,ExtraTrees,Vegetative,Reproductive
+45,2025-02-27,wheat_2024_25,S1_only,ExtraTrees,Vegetative,Reproductive
+46,2025-03-04,wheat_2024_25,S1_only,ExtraTrees,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_only,ExtraTrees,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_only,ExtraTrees,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_only,ExtraTrees,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_only,ExtraTrees,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S1_only,ExtraTrees,Reproductive,Reproductive
+52,2025-03-31,wheat_2024_25,S1_only,ExtraTrees,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_only,ExtraTrees,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_only,ExtraTrees,Reproductive,Reproductive
+55,2025-04-13,wheat_2024_25,S1_only,ExtraTrees,Grain Filling,Reproductive
+56,2025-04-18,wheat_2024_25,S1_only,ExtraTrees,Grain Filling,Establishment
+57,2025-04-20,wheat_2024_25,S1_only,ExtraTrees,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S1_only,ExtraTrees,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_only,GradientBoosting,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S1_only,GradientBoosting,Establishment,Grain Filling
+2,2023-11-15,wheat_2023_24,S1_only,GradientBoosting,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S1_only,GradientBoosting,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S1_only,GradientBoosting,Establishment,Vegetative
+5,2023-11-30,wheat_2023_24,S1_only,GradientBoosting,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S1_only,GradientBoosting,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S1_only,GradientBoosting,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_only,GradientBoosting,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_only,GradientBoosting,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S1_only,GradientBoosting,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S1_only,GradientBoosting,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S1_only,GradientBoosting,Vegetative,Reproductive
+13,2024-01-09,wheat_2023_24,S1_only,GradientBoosting,Vegetative,Reproductive
+14,2024-01-14,wheat_2023_24,S1_only,GradientBoosting,Vegetative,Vegetative
+15,2024-01-19,wheat_2023_24,S1_only,GradientBoosting,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_only,GradientBoosting,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_only,GradientBoosting,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_only,GradientBoosting,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_only,GradientBoosting,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_only,GradientBoosting,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_only,GradientBoosting,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_only,GradientBoosting,Reproductive,Vegetative
+23,2024-02-28,wheat_2023_24,S1_only,GradientBoosting,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S1_only,GradientBoosting,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_only,GradientBoosting,Reproductive,Vegetative
+26,2024-03-14,wheat_2023_24,S1_only,GradientBoosting,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_only,GradientBoosting,Reproductive,Vegetative
+28,2024-03-24,wheat_2023_24,S1_only,GradientBoosting,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S1_only,GradientBoosting,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_only,GradientBoosting,Grain Filling,Reproductive
+31,2024-04-08,wheat_2023_24,S1_only,GradientBoosting,Grain Filling,Vegetative
+32,2024-04-13,wheat_2023_24,S1_only,GradientBoosting,Grain Filling,Vegetative
+33,2024-04-18,wheat_2023_24,S1_only,GradientBoosting,Senescence/Harvest,Vegetative
+34,2024-12-29,wheat_2024_25,S1_only,GradientBoosting,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_only,GradientBoosting,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_only,GradientBoosting,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_only,GradientBoosting,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_only,GradientBoosting,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_only,GradientBoosting,Vegetative,Reproductive
+40,2025-02-02,wheat_2024_25,S1_only,GradientBoosting,Vegetative,Reproductive
+41,2025-02-07,wheat_2024_25,S1_only,GradientBoosting,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S1_only,GradientBoosting,Vegetative,Vegetative
+43,2025-02-17,wheat_2024_25,S1_only,GradientBoosting,Vegetative,Vegetative
+44,2025-02-22,wheat_2024_25,S1_only,GradientBoosting,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S1_only,GradientBoosting,Vegetative,Reproductive
+46,2025-03-04,wheat_2024_25,S1_only,GradientBoosting,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_only,GradientBoosting,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_only,GradientBoosting,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_only,GradientBoosting,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_only,GradientBoosting,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S1_only,GradientBoosting,Reproductive,Reproductive
+52,2025-03-31,wheat_2024_25,S1_only,GradientBoosting,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_only,GradientBoosting,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_only,GradientBoosting,Reproductive,Reproductive
+55,2025-04-13,wheat_2024_25,S1_only,GradientBoosting,Grain Filling,Reproductive
+56,2025-04-18,wheat_2024_25,S1_only,GradientBoosting,Grain Filling,Vegetative
+57,2025-04-20,wheat_2024_25,S1_only,GradientBoosting,Grain Filling,Vegetative
+58,2025-04-23,wheat_2024_25,S1_only,GradientBoosting,Grain Filling,Vegetative
+0,2023-11-05,wheat_2023_24,S1_only,HistGradientBoosting,Establishment,Establishment
+1,2023-11-10,wheat_2023_24,S1_only,HistGradientBoosting,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S1_only,HistGradientBoosting,Establishment,Establishment
+3,2023-11-20,wheat_2023_24,S1_only,HistGradientBoosting,Establishment,Establishment
+4,2023-11-25,wheat_2023_24,S1_only,HistGradientBoosting,Establishment,Establishment
+5,2023-11-30,wheat_2023_24,S1_only,HistGradientBoosting,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S1_only,HistGradientBoosting,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S1_only,HistGradientBoosting,Establishment,Establishment
+8,2023-12-15,wheat_2023_24,S1_only,HistGradientBoosting,Vegetative,Establishment
+9,2023-12-20,wheat_2023_24,S1_only,HistGradientBoosting,Vegetative,Establishment
+10,2023-12-25,wheat_2023_24,S1_only,HistGradientBoosting,Vegetative,Establishment
+11,2023-12-30,wheat_2023_24,S1_only,HistGradientBoosting,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S1_only,HistGradientBoosting,Vegetative,Establishment
+13,2024-01-09,wheat_2023_24,S1_only,HistGradientBoosting,Vegetative,Establishment
+14,2024-01-14,wheat_2023_24,S1_only,HistGradientBoosting,Vegetative,Establishment
+15,2024-01-19,wheat_2023_24,S1_only,HistGradientBoosting,Vegetative,Establishment
+16,2024-01-24,wheat_2023_24,S1_only,HistGradientBoosting,Vegetative,Establishment
+17,2024-01-29,wheat_2023_24,S1_only,HistGradientBoosting,Vegetative,Establishment
+18,2024-02-03,wheat_2023_24,S1_only,HistGradientBoosting,Vegetative,Establishment
+19,2024-02-08,wheat_2023_24,S1_only,HistGradientBoosting,Vegetative,Establishment
+20,2024-02-13,wheat_2023_24,S1_only,HistGradientBoosting,Vegetative,Establishment
+21,2024-02-18,wheat_2023_24,S1_only,HistGradientBoosting,Vegetative,Establishment
+22,2024-02-23,wheat_2023_24,S1_only,HistGradientBoosting,Reproductive,Establishment
+23,2024-02-28,wheat_2023_24,S1_only,HistGradientBoosting,Reproductive,Establishment
+24,2024-03-04,wheat_2023_24,S1_only,HistGradientBoosting,Reproductive,Establishment
+25,2024-03-09,wheat_2023_24,S1_only,HistGradientBoosting,Reproductive,Establishment
+26,2024-03-14,wheat_2023_24,S1_only,HistGradientBoosting,Reproductive,Establishment
+27,2024-03-19,wheat_2023_24,S1_only,HistGradientBoosting,Reproductive,Establishment
+28,2024-03-24,wheat_2023_24,S1_only,HistGradientBoosting,Reproductive,Establishment
+29,2024-03-29,wheat_2023_24,S1_only,HistGradientBoosting,Reproductive,Establishment
+30,2024-04-03,wheat_2023_24,S1_only,HistGradientBoosting,Grain Filling,Establishment
+31,2024-04-08,wheat_2023_24,S1_only,HistGradientBoosting,Grain Filling,Establishment
+32,2024-04-13,wheat_2023_24,S1_only,HistGradientBoosting,Grain Filling,Establishment
+33,2024-04-18,wheat_2023_24,S1_only,HistGradientBoosting,Senescence/Harvest,Establishment
+34,2024-12-29,wheat_2024_25,S1_only,HistGradientBoosting,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_only,HistGradientBoosting,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_only,HistGradientBoosting,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_only,HistGradientBoosting,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_only,HistGradientBoosting,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_only,HistGradientBoosting,Vegetative,Establishment
+40,2025-02-02,wheat_2024_25,S1_only,HistGradientBoosting,Vegetative,Establishment
+41,2025-02-07,wheat_2024_25,S1_only,HistGradientBoosting,Vegetative,Establishment
+42,2025-02-12,wheat_2024_25,S1_only,HistGradientBoosting,Vegetative,Establishment
+43,2025-02-17,wheat_2024_25,S1_only,HistGradientBoosting,Vegetative,Establishment
+44,2025-02-22,wheat_2024_25,S1_only,HistGradientBoosting,Vegetative,Establishment
+45,2025-02-27,wheat_2024_25,S1_only,HistGradientBoosting,Vegetative,Establishment
+46,2025-03-04,wheat_2024_25,S1_only,HistGradientBoosting,Vegetative,Establishment
+47,2025-03-09,wheat_2024_25,S1_only,HistGradientBoosting,Reproductive,Establishment
+48,2025-03-14,wheat_2024_25,S1_only,HistGradientBoosting,Reproductive,Establishment
+49,2025-03-19,wheat_2024_25,S1_only,HistGradientBoosting,Reproductive,Establishment
+50,2025-03-24,wheat_2024_25,S1_only,HistGradientBoosting,Reproductive,Establishment
+51,2025-03-29,wheat_2024_25,S1_only,HistGradientBoosting,Reproductive,Establishment
+52,2025-03-31,wheat_2024_25,S1_only,HistGradientBoosting,Reproductive,Establishment
+53,2025-04-03,wheat_2024_25,S1_only,HistGradientBoosting,Reproductive,Establishment
+54,2025-04-08,wheat_2024_25,S1_only,HistGradientBoosting,Reproductive,Establishment
+55,2025-04-13,wheat_2024_25,S1_only,HistGradientBoosting,Grain Filling,Establishment
+56,2025-04-18,wheat_2024_25,S1_only,HistGradientBoosting,Grain Filling,Establishment
+57,2025-04-20,wheat_2024_25,S1_only,HistGradientBoosting,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S1_only,HistGradientBoosting,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_only,XGBoost,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S1_only,XGBoost,Establishment,Grain Filling
+2,2023-11-15,wheat_2023_24,S1_only,XGBoost,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S1_only,XGBoost,Establishment,Establishment
+4,2023-11-25,wheat_2023_24,S1_only,XGBoost,Establishment,Vegetative
+5,2023-11-30,wheat_2023_24,S1_only,XGBoost,Establishment,Vegetative
+6,2023-12-05,wheat_2023_24,S1_only,XGBoost,Establishment,Vegetative
+7,2023-12-10,wheat_2023_24,S1_only,XGBoost,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_only,XGBoost,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_only,XGBoost,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S1_only,XGBoost,Vegetative,Reproductive
+11,2023-12-30,wheat_2023_24,S1_only,XGBoost,Vegetative,Reproductive
+12,2024-01-04,wheat_2023_24,S1_only,XGBoost,Vegetative,Reproductive
+13,2024-01-09,wheat_2023_24,S1_only,XGBoost,Vegetative,Reproductive
+14,2024-01-14,wheat_2023_24,S1_only,XGBoost,Vegetative,Vegetative
+15,2024-01-19,wheat_2023_24,S1_only,XGBoost,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_only,XGBoost,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_only,XGBoost,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_only,XGBoost,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_only,XGBoost,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_only,XGBoost,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_only,XGBoost,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_only,XGBoost,Reproductive,Vegetative
+23,2024-02-28,wheat_2023_24,S1_only,XGBoost,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S1_only,XGBoost,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_only,XGBoost,Reproductive,Vegetative
+26,2024-03-14,wheat_2023_24,S1_only,XGBoost,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_only,XGBoost,Reproductive,Vegetative
+28,2024-03-24,wheat_2023_24,S1_only,XGBoost,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S1_only,XGBoost,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_only,XGBoost,Grain Filling,Reproductive
+31,2024-04-08,wheat_2023_24,S1_only,XGBoost,Grain Filling,Vegetative
+32,2024-04-13,wheat_2023_24,S1_only,XGBoost,Grain Filling,Vegetative
+33,2024-04-18,wheat_2023_24,S1_only,XGBoost,Senescence/Harvest,Vegetative
+34,2024-12-29,wheat_2024_25,S1_only,XGBoost,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_only,XGBoost,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_only,XGBoost,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_only,XGBoost,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_only,XGBoost,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_only,XGBoost,Vegetative,Establishment
+40,2025-02-02,wheat_2024_25,S1_only,XGBoost,Vegetative,Senescence/Harvest
+41,2025-02-07,wheat_2024_25,S1_only,XGBoost,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S1_only,XGBoost,Vegetative,Vegetative
+43,2025-02-17,wheat_2024_25,S1_only,XGBoost,Vegetative,Vegetative
+44,2025-02-22,wheat_2024_25,S1_only,XGBoost,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S1_only,XGBoost,Vegetative,Reproductive
+46,2025-03-04,wheat_2024_25,S1_only,XGBoost,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_only,XGBoost,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_only,XGBoost,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_only,XGBoost,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_only,XGBoost,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S1_only,XGBoost,Reproductive,Reproductive
+52,2025-03-31,wheat_2024_25,S1_only,XGBoost,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_only,XGBoost,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_only,XGBoost,Reproductive,Reproductive
+55,2025-04-13,wheat_2024_25,S1_only,XGBoost,Grain Filling,Reproductive
+56,2025-04-18,wheat_2024_25,S1_only,XGBoost,Grain Filling,Vegetative
+57,2025-04-20,wheat_2024_25,S1_only,XGBoost,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S1_only,XGBoost,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_only,LightGBM,Establishment,Establishment
+1,2023-11-10,wheat_2023_24,S1_only,LightGBM,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S1_only,LightGBM,Establishment,Establishment
+3,2023-11-20,wheat_2023_24,S1_only,LightGBM,Establishment,Establishment
+4,2023-11-25,wheat_2023_24,S1_only,LightGBM,Establishment,Establishment
+5,2023-11-30,wheat_2023_24,S1_only,LightGBM,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S1_only,LightGBM,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S1_only,LightGBM,Establishment,Establishment
+8,2023-12-15,wheat_2023_24,S1_only,LightGBM,Vegetative,Establishment
+9,2023-12-20,wheat_2023_24,S1_only,LightGBM,Vegetative,Establishment
+10,2023-12-25,wheat_2023_24,S1_only,LightGBM,Vegetative,Establishment
+11,2023-12-30,wheat_2023_24,S1_only,LightGBM,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S1_only,LightGBM,Vegetative,Establishment
+13,2024-01-09,wheat_2023_24,S1_only,LightGBM,Vegetative,Establishment
+14,2024-01-14,wheat_2023_24,S1_only,LightGBM,Vegetative,Establishment
+15,2024-01-19,wheat_2023_24,S1_only,LightGBM,Vegetative,Establishment
+16,2024-01-24,wheat_2023_24,S1_only,LightGBM,Vegetative,Establishment
+17,2024-01-29,wheat_2023_24,S1_only,LightGBM,Vegetative,Establishment
+18,2024-02-03,wheat_2023_24,S1_only,LightGBM,Vegetative,Establishment
+19,2024-02-08,wheat_2023_24,S1_only,LightGBM,Vegetative,Establishment
+20,2024-02-13,wheat_2023_24,S1_only,LightGBM,Vegetative,Establishment
+21,2024-02-18,wheat_2023_24,S1_only,LightGBM,Vegetative,Establishment
+22,2024-02-23,wheat_2023_24,S1_only,LightGBM,Reproductive,Establishment
+23,2024-02-28,wheat_2023_24,S1_only,LightGBM,Reproductive,Establishment
+24,2024-03-04,wheat_2023_24,S1_only,LightGBM,Reproductive,Establishment
+25,2024-03-09,wheat_2023_24,S1_only,LightGBM,Reproductive,Establishment
+26,2024-03-14,wheat_2023_24,S1_only,LightGBM,Reproductive,Establishment
+27,2024-03-19,wheat_2023_24,S1_only,LightGBM,Reproductive,Establishment
+28,2024-03-24,wheat_2023_24,S1_only,LightGBM,Reproductive,Establishment
+29,2024-03-29,wheat_2023_24,S1_only,LightGBM,Reproductive,Establishment
+30,2024-04-03,wheat_2023_24,S1_only,LightGBM,Grain Filling,Establishment
+31,2024-04-08,wheat_2023_24,S1_only,LightGBM,Grain Filling,Establishment
+32,2024-04-13,wheat_2023_24,S1_only,LightGBM,Grain Filling,Establishment
+33,2024-04-18,wheat_2023_24,S1_only,LightGBM,Senescence/Harvest,Establishment
+34,2024-12-29,wheat_2024_25,S1_only,LightGBM,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_only,LightGBM,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_only,LightGBM,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_only,LightGBM,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_only,LightGBM,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_only,LightGBM,Vegetative,Establishment
+40,2025-02-02,wheat_2024_25,S1_only,LightGBM,Vegetative,Establishment
+41,2025-02-07,wheat_2024_25,S1_only,LightGBM,Vegetative,Establishment
+42,2025-02-12,wheat_2024_25,S1_only,LightGBM,Vegetative,Establishment
+43,2025-02-17,wheat_2024_25,S1_only,LightGBM,Vegetative,Establishment
+44,2025-02-22,wheat_2024_25,S1_only,LightGBM,Vegetative,Establishment
+45,2025-02-27,wheat_2024_25,S1_only,LightGBM,Vegetative,Establishment
+46,2025-03-04,wheat_2024_25,S1_only,LightGBM,Vegetative,Establishment
+47,2025-03-09,wheat_2024_25,S1_only,LightGBM,Reproductive,Establishment
+48,2025-03-14,wheat_2024_25,S1_only,LightGBM,Reproductive,Establishment
+49,2025-03-19,wheat_2024_25,S1_only,LightGBM,Reproductive,Establishment
+50,2025-03-24,wheat_2024_25,S1_only,LightGBM,Reproductive,Establishment
+51,2025-03-29,wheat_2024_25,S1_only,LightGBM,Reproductive,Establishment
+52,2025-03-31,wheat_2024_25,S1_only,LightGBM,Reproductive,Establishment
+53,2025-04-03,wheat_2024_25,S1_only,LightGBM,Reproductive,Establishment
+54,2025-04-08,wheat_2024_25,S1_only,LightGBM,Reproductive,Establishment
+55,2025-04-13,wheat_2024_25,S1_only,LightGBM,Grain Filling,Establishment
+56,2025-04-18,wheat_2024_25,S1_only,LightGBM,Grain Filling,Establishment
+57,2025-04-20,wheat_2024_25,S1_only,LightGBM,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S1_only,LightGBM,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_only,CatBoost,Establishment,Establishment
+1,2023-11-10,wheat_2023_24,S1_only,CatBoost,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S1_only,CatBoost,Establishment,Establishment
+3,2023-11-20,wheat_2023_24,S1_only,CatBoost,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S1_only,CatBoost,Establishment,Vegetative
+5,2023-11-30,wheat_2023_24,S1_only,CatBoost,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S1_only,CatBoost,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S1_only,CatBoost,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_only,CatBoost,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_only,CatBoost,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S1_only,CatBoost,Vegetative,Reproductive
+11,2023-12-30,wheat_2023_24,S1_only,CatBoost,Vegetative,Reproductive
+12,2024-01-04,wheat_2023_24,S1_only,CatBoost,Vegetative,Reproductive
+13,2024-01-09,wheat_2023_24,S1_only,CatBoost,Vegetative,Reproductive
+14,2024-01-14,wheat_2023_24,S1_only,CatBoost,Vegetative,Vegetative
+15,2024-01-19,wheat_2023_24,S1_only,CatBoost,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_only,CatBoost,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_only,CatBoost,Vegetative,Reproductive
+18,2024-02-03,wheat_2023_24,S1_only,CatBoost,Vegetative,Reproductive
+19,2024-02-08,wheat_2023_24,S1_only,CatBoost,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_only,CatBoost,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_only,CatBoost,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_only,CatBoost,Reproductive,Vegetative
+23,2024-02-28,wheat_2023_24,S1_only,CatBoost,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S1_only,CatBoost,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_only,CatBoost,Reproductive,Reproductive
+26,2024-03-14,wheat_2023_24,S1_only,CatBoost,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_only,CatBoost,Reproductive,Vegetative
+28,2024-03-24,wheat_2023_24,S1_only,CatBoost,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S1_only,CatBoost,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_only,CatBoost,Grain Filling,Reproductive
+31,2024-04-08,wheat_2023_24,S1_only,CatBoost,Grain Filling,Vegetative
+32,2024-04-13,wheat_2023_24,S1_only,CatBoost,Grain Filling,Vegetative
+33,2024-04-18,wheat_2023_24,S1_only,CatBoost,Senescence/Harvest,Vegetative
+34,2024-12-29,wheat_2024_25,S1_only,CatBoost,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_only,CatBoost,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_only,CatBoost,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_only,CatBoost,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_only,CatBoost,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_only,CatBoost,Vegetative,Establishment
+40,2025-02-02,wheat_2024_25,S1_only,CatBoost,Vegetative,Senescence/Harvest
+41,2025-02-07,wheat_2024_25,S1_only,CatBoost,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S1_only,CatBoost,Vegetative,Vegetative
+43,2025-02-17,wheat_2024_25,S1_only,CatBoost,Vegetative,Vegetative
+44,2025-02-22,wheat_2024_25,S1_only,CatBoost,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S1_only,CatBoost,Vegetative,Reproductive
+46,2025-03-04,wheat_2024_25,S1_only,CatBoost,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_only,CatBoost,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_only,CatBoost,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_only,CatBoost,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_only,CatBoost,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S1_only,CatBoost,Reproductive,Reproductive
+52,2025-03-31,wheat_2024_25,S1_only,CatBoost,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_only,CatBoost,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_only,CatBoost,Reproductive,Reproductive
+55,2025-04-13,wheat_2024_25,S1_only,CatBoost,Grain Filling,Reproductive
+56,2025-04-18,wheat_2024_25,S1_only,CatBoost,Grain Filling,Vegetative
+57,2025-04-20,wheat_2024_25,S1_only,CatBoost,Grain Filling,Vegetative
+58,2025-04-23,wheat_2024_25,S1_only,CatBoost,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_S2_fusion,LogisticRegression,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S1_S2_fusion,LogisticRegression,Establishment,Vegetative
+2,2023-11-15,wheat_2023_24,S1_S2_fusion,LogisticRegression,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S1_S2_fusion,LogisticRegression,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S1_S2_fusion,LogisticRegression,Establishment,Vegetative
+5,2023-11-30,wheat_2023_24,S1_S2_fusion,LogisticRegression,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S1_S2_fusion,LogisticRegression,Establishment,Vegetative
+7,2023-12-10,wheat_2023_24,S1_S2_fusion,LogisticRegression,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_S2_fusion,LogisticRegression,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_S2_fusion,LogisticRegression,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S1_S2_fusion,LogisticRegression,Vegetative,Reproductive
+11,2023-12-30,wheat_2023_24,S1_S2_fusion,LogisticRegression,Vegetative,Vegetative
+12,2024-01-04,wheat_2023_24,S1_S2_fusion,LogisticRegression,Vegetative,Reproductive
+13,2024-01-09,wheat_2023_24,S1_S2_fusion,LogisticRegression,Vegetative,Reproductive
+14,2024-01-14,wheat_2023_24,S1_S2_fusion,LogisticRegression,Vegetative,Reproductive
+15,2024-01-19,wheat_2023_24,S1_S2_fusion,LogisticRegression,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_S2_fusion,LogisticRegression,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_S2_fusion,LogisticRegression,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_S2_fusion,LogisticRegression,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_S2_fusion,LogisticRegression,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_S2_fusion,LogisticRegression,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_S2_fusion,LogisticRegression,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_S2_fusion,LogisticRegression,Reproductive,Vegetative
+23,2024-02-28,wheat_2023_24,S1_S2_fusion,LogisticRegression,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S1_S2_fusion,LogisticRegression,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_S2_fusion,LogisticRegression,Reproductive,Reproductive
+26,2024-03-14,wheat_2023_24,S1_S2_fusion,LogisticRegression,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_S2_fusion,LogisticRegression,Reproductive,Vegetative
+28,2024-03-24,wheat_2023_24,S1_S2_fusion,LogisticRegression,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S1_S2_fusion,LogisticRegression,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_S2_fusion,LogisticRegression,Grain Filling,Reproductive
+31,2024-04-08,wheat_2023_24,S1_S2_fusion,LogisticRegression,Grain Filling,Grain Filling
+32,2024-04-13,wheat_2023_24,S1_S2_fusion,LogisticRegression,Grain Filling,Vegetative
+33,2024-04-18,wheat_2023_24,S1_S2_fusion,LogisticRegression,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S1_S2_fusion,LogisticRegression,Establishment,Senescence/Harvest
+35,2025-01-03,wheat_2024_25,S1_S2_fusion,LogisticRegression,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_S2_fusion,LogisticRegression,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_S2_fusion,LogisticRegression,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_S2_fusion,LogisticRegression,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_S2_fusion,LogisticRegression,Vegetative,Establishment
+40,2025-02-02,wheat_2024_25,S1_S2_fusion,LogisticRegression,Vegetative,Reproductive
+41,2025-02-07,wheat_2024_25,S1_S2_fusion,LogisticRegression,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S1_S2_fusion,LogisticRegression,Vegetative,Vegetative
+43,2025-02-17,wheat_2024_25,S1_S2_fusion,LogisticRegression,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S1_S2_fusion,LogisticRegression,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S1_S2_fusion,LogisticRegression,Vegetative,Vegetative
+46,2025-03-04,wheat_2024_25,S1_S2_fusion,LogisticRegression,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_S2_fusion,LogisticRegression,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_S2_fusion,LogisticRegression,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_S2_fusion,LogisticRegression,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_S2_fusion,LogisticRegression,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S1_S2_fusion,LogisticRegression,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S1_S2_fusion,LogisticRegression,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_S2_fusion,LogisticRegression,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_S2_fusion,LogisticRegression,Reproductive,Grain Filling
+55,2025-04-13,wheat_2024_25,S1_S2_fusion,LogisticRegression,Grain Filling,Senescence/Harvest
+56,2025-04-18,wheat_2024_25,S1_S2_fusion,LogisticRegression,Grain Filling,Senescence/Harvest
+57,2025-04-20,wheat_2024_25,S1_S2_fusion,LogisticRegression,Grain Filling,Senescence/Harvest
+58,2025-04-23,wheat_2024_25,S1_S2_fusion,LogisticRegression,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_S2_fusion,SVM_RBF,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S1_S2_fusion,SVM_RBF,Establishment,Vegetative
+2,2023-11-15,wheat_2023_24,S1_S2_fusion,SVM_RBF,Establishment,Establishment
+3,2023-11-20,wheat_2023_24,S1_S2_fusion,SVM_RBF,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S1_S2_fusion,SVM_RBF,Establishment,Establishment
+5,2023-11-30,wheat_2023_24,S1_S2_fusion,SVM_RBF,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S1_S2_fusion,SVM_RBF,Establishment,Vegetative
+7,2023-12-10,wheat_2023_24,S1_S2_fusion,SVM_RBF,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S1_S2_fusion,SVM_RBF,Vegetative,Reproductive
+11,2023-12-30,wheat_2023_24,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+12,2024-01-04,wheat_2023_24,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+13,2024-01-09,wheat_2023_24,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+14,2024-01-14,wheat_2023_24,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+15,2024-01-19,wheat_2023_24,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_S2_fusion,SVM_RBF,Reproductive,Reproductive
+23,2024-02-28,wheat_2023_24,S1_S2_fusion,SVM_RBF,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S1_S2_fusion,SVM_RBF,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_S2_fusion,SVM_RBF,Reproductive,Reproductive
+26,2024-03-14,wheat_2023_24,S1_S2_fusion,SVM_RBF,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_S2_fusion,SVM_RBF,Reproductive,Vegetative
+28,2024-03-24,wheat_2023_24,S1_S2_fusion,SVM_RBF,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S1_S2_fusion,SVM_RBF,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_S2_fusion,SVM_RBF,Grain Filling,Reproductive
+31,2024-04-08,wheat_2023_24,S1_S2_fusion,SVM_RBF,Grain Filling,Vegetative
+32,2024-04-13,wheat_2023_24,S1_S2_fusion,SVM_RBF,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S1_S2_fusion,SVM_RBF,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S1_S2_fusion,SVM_RBF,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_S2_fusion,SVM_RBF,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_S2_fusion,SVM_RBF,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_S2_fusion,SVM_RBF,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_S2_fusion,SVM_RBF,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+40,2025-02-02,wheat_2024_25,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S1_S2_fusion,SVM_RBF,Vegetative,Reproductive
+43,2025-02-17,wheat_2024_25,S1_S2_fusion,SVM_RBF,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S1_S2_fusion,SVM_RBF,Vegetative,Vegetative
+46,2025-03-04,wheat_2024_25,S1_S2_fusion,SVM_RBF,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_S2_fusion,SVM_RBF,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_S2_fusion,SVM_RBF,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_S2_fusion,SVM_RBF,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_S2_fusion,SVM_RBF,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S1_S2_fusion,SVM_RBF,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S1_S2_fusion,SVM_RBF,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_S2_fusion,SVM_RBF,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_S2_fusion,SVM_RBF,Reproductive,Reproductive
+55,2025-04-13,wheat_2024_25,S1_S2_fusion,SVM_RBF,Grain Filling,Reproductive
+56,2025-04-18,wheat_2024_25,S1_S2_fusion,SVM_RBF,Grain Filling,Grain Filling
+57,2025-04-20,wheat_2024_25,S1_S2_fusion,SVM_RBF,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S1_S2_fusion,SVM_RBF,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_S2_fusion,KNN,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S1_S2_fusion,KNN,Establishment,Vegetative
+2,2023-11-15,wheat_2023_24,S1_S2_fusion,KNN,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S1_S2_fusion,KNN,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S1_S2_fusion,KNN,Establishment,Vegetative
+5,2023-11-30,wheat_2023_24,S1_S2_fusion,KNN,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S1_S2_fusion,KNN,Establishment,Vegetative
+7,2023-12-10,wheat_2023_24,S1_S2_fusion,KNN,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_S2_fusion,KNN,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_S2_fusion,KNN,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S1_S2_fusion,KNN,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S1_S2_fusion,KNN,Vegetative,Vegetative
+12,2024-01-04,wheat_2023_24,S1_S2_fusion,KNN,Vegetative,Vegetative
+13,2024-01-09,wheat_2023_24,S1_S2_fusion,KNN,Vegetative,Vegetative
+14,2024-01-14,wheat_2023_24,S1_S2_fusion,KNN,Vegetative,Vegetative
+15,2024-01-19,wheat_2023_24,S1_S2_fusion,KNN,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_S2_fusion,KNN,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_S2_fusion,KNN,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_S2_fusion,KNN,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_S2_fusion,KNN,Vegetative,Reproductive
+20,2024-02-13,wheat_2023_24,S1_S2_fusion,KNN,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_S2_fusion,KNN,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_S2_fusion,KNN,Reproductive,Reproductive
+23,2024-02-28,wheat_2023_24,S1_S2_fusion,KNN,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S1_S2_fusion,KNN,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_S2_fusion,KNN,Reproductive,Reproductive
+26,2024-03-14,wheat_2023_24,S1_S2_fusion,KNN,Reproductive,Reproductive
+27,2024-03-19,wheat_2023_24,S1_S2_fusion,KNN,Reproductive,Reproductive
+28,2024-03-24,wheat_2023_24,S1_S2_fusion,KNN,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S1_S2_fusion,KNN,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_S2_fusion,KNN,Grain Filling,Reproductive
+31,2024-04-08,wheat_2023_24,S1_S2_fusion,KNN,Grain Filling,Reproductive
+32,2024-04-13,wheat_2023_24,S1_S2_fusion,KNN,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S1_S2_fusion,KNN,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S1_S2_fusion,KNN,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_S2_fusion,KNN,Establishment,Vegetative
+36,2025-01-13,wheat_2024_25,S1_S2_fusion,KNN,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_S2_fusion,KNN,Establishment,Vegetative
+38,2025-01-23,wheat_2024_25,S1_S2_fusion,KNN,Vegetative,Vegetative
+39,2025-01-28,wheat_2024_25,S1_S2_fusion,KNN,Vegetative,Vegetative
+40,2025-02-02,wheat_2024_25,S1_S2_fusion,KNN,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S1_S2_fusion,KNN,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S1_S2_fusion,KNN,Vegetative,Reproductive
+43,2025-02-17,wheat_2024_25,S1_S2_fusion,KNN,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S1_S2_fusion,KNN,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S1_S2_fusion,KNN,Vegetative,Vegetative
+46,2025-03-04,wheat_2024_25,S1_S2_fusion,KNN,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_S2_fusion,KNN,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_S2_fusion,KNN,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_S2_fusion,KNN,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_S2_fusion,KNN,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S1_S2_fusion,KNN,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S1_S2_fusion,KNN,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_S2_fusion,KNN,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_S2_fusion,KNN,Reproductive,Grain Filling
+55,2025-04-13,wheat_2024_25,S1_S2_fusion,KNN,Grain Filling,Grain Filling
+56,2025-04-18,wheat_2024_25,S1_S2_fusion,KNN,Grain Filling,Grain Filling
+57,2025-04-20,wheat_2024_25,S1_S2_fusion,KNN,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S1_S2_fusion,KNN,Grain Filling,Grain Filling
+0,2023-11-05,wheat_2023_24,S1_S2_fusion,GaussianNB,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S1_S2_fusion,GaussianNB,Establishment,Vegetative
+2,2023-11-15,wheat_2023_24,S1_S2_fusion,GaussianNB,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S1_S2_fusion,GaussianNB,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S1_S2_fusion,GaussianNB,Establishment,Grain Filling
+5,2023-11-30,wheat_2023_24,S1_S2_fusion,GaussianNB,Establishment,Vegetative
+6,2023-12-05,wheat_2023_24,S1_S2_fusion,GaussianNB,Establishment,Vegetative
+7,2023-12-10,wheat_2023_24,S1_S2_fusion,GaussianNB,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_S2_fusion,GaussianNB,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_S2_fusion,GaussianNB,Vegetative,Reproductive
+10,2023-12-25,wheat_2023_24,S1_S2_fusion,GaussianNB,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S1_S2_fusion,GaussianNB,Vegetative,Vegetative
+12,2024-01-04,wheat_2023_24,S1_S2_fusion,GaussianNB,Vegetative,Vegetative
+13,2024-01-09,wheat_2023_24,S1_S2_fusion,GaussianNB,Vegetative,Vegetative
+14,2024-01-14,wheat_2023_24,S1_S2_fusion,GaussianNB,Vegetative,Vegetative
+15,2024-01-19,wheat_2023_24,S1_S2_fusion,GaussianNB,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_S2_fusion,GaussianNB,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_S2_fusion,GaussianNB,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_S2_fusion,GaussianNB,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_S2_fusion,GaussianNB,Vegetative,Reproductive
+20,2024-02-13,wheat_2023_24,S1_S2_fusion,GaussianNB,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_S2_fusion,GaussianNB,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_S2_fusion,GaussianNB,Reproductive,Reproductive
+23,2024-02-28,wheat_2023_24,S1_S2_fusion,GaussianNB,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S1_S2_fusion,GaussianNB,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_S2_fusion,GaussianNB,Reproductive,Vegetative
+26,2024-03-14,wheat_2023_24,S1_S2_fusion,GaussianNB,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_S2_fusion,GaussianNB,Reproductive,Vegetative
+28,2024-03-24,wheat_2023_24,S1_S2_fusion,GaussianNB,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S1_S2_fusion,GaussianNB,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_S2_fusion,GaussianNB,Grain Filling,Vegetative
+31,2024-04-08,wheat_2023_24,S1_S2_fusion,GaussianNB,Grain Filling,Reproductive
+32,2024-04-13,wheat_2023_24,S1_S2_fusion,GaussianNB,Grain Filling,Reproductive
+33,2024-04-18,wheat_2023_24,S1_S2_fusion,GaussianNB,Senescence/Harvest,Reproductive
+34,2024-12-29,wheat_2024_25,S1_S2_fusion,GaussianNB,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_S2_fusion,GaussianNB,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_S2_fusion,GaussianNB,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_S2_fusion,GaussianNB,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_S2_fusion,GaussianNB,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_S2_fusion,GaussianNB,Vegetative,Reproductive
+40,2025-02-02,wheat_2024_25,S1_S2_fusion,GaussianNB,Vegetative,Reproductive
+41,2025-02-07,wheat_2024_25,S1_S2_fusion,GaussianNB,Vegetative,Reproductive
+42,2025-02-12,wheat_2024_25,S1_S2_fusion,GaussianNB,Vegetative,Reproductive
+43,2025-02-17,wheat_2024_25,S1_S2_fusion,GaussianNB,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S1_S2_fusion,GaussianNB,Vegetative,Reproductive
+45,2025-02-27,wheat_2024_25,S1_S2_fusion,GaussianNB,Vegetative,Reproductive
+46,2025-03-04,wheat_2024_25,S1_S2_fusion,GaussianNB,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_S2_fusion,GaussianNB,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_S2_fusion,GaussianNB,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_S2_fusion,GaussianNB,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_S2_fusion,GaussianNB,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S1_S2_fusion,GaussianNB,Reproductive,Reproductive
+52,2025-03-31,wheat_2024_25,S1_S2_fusion,GaussianNB,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_S2_fusion,GaussianNB,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_S2_fusion,GaussianNB,Reproductive,Reproductive
+55,2025-04-13,wheat_2024_25,S1_S2_fusion,GaussianNB,Grain Filling,Establishment
+56,2025-04-18,wheat_2024_25,S1_S2_fusion,GaussianNB,Grain Filling,Establishment
+57,2025-04-20,wheat_2024_25,S1_S2_fusion,GaussianNB,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S1_S2_fusion,GaussianNB,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_S2_fusion,RandomForest,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S1_S2_fusion,RandomForest,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S1_S2_fusion,RandomForest,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S1_S2_fusion,RandomForest,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S1_S2_fusion,RandomForest,Establishment,Grain Filling
+5,2023-11-30,wheat_2023_24,S1_S2_fusion,RandomForest,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S1_S2_fusion,RandomForest,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S1_S2_fusion,RandomForest,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+12,2024-01-04,wheat_2023_24,S1_S2_fusion,RandomForest,Vegetative,Reproductive
+13,2024-01-09,wheat_2023_24,S1_S2_fusion,RandomForest,Vegetative,Reproductive
+14,2024-01-14,wheat_2023_24,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+15,2024-01-19,wheat_2023_24,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_S2_fusion,RandomForest,Reproductive,Reproductive
+23,2024-02-28,wheat_2023_24,S1_S2_fusion,RandomForest,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S1_S2_fusion,RandomForest,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_S2_fusion,RandomForest,Reproductive,Reproductive
+26,2024-03-14,wheat_2023_24,S1_S2_fusion,RandomForest,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_S2_fusion,RandomForest,Reproductive,Reproductive
+28,2024-03-24,wheat_2023_24,S1_S2_fusion,RandomForest,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S1_S2_fusion,RandomForest,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_S2_fusion,RandomForest,Grain Filling,Reproductive
+31,2024-04-08,wheat_2023_24,S1_S2_fusion,RandomForest,Grain Filling,Grain Filling
+32,2024-04-13,wheat_2023_24,S1_S2_fusion,RandomForest,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S1_S2_fusion,RandomForest,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S1_S2_fusion,RandomForest,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_S2_fusion,RandomForest,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_S2_fusion,RandomForest,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_S2_fusion,RandomForest,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_S2_fusion,RandomForest,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_S2_fusion,RandomForest,Vegetative,Establishment
+40,2025-02-02,wheat_2024_25,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+43,2025-02-17,wheat_2024_25,S1_S2_fusion,RandomForest,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S1_S2_fusion,RandomForest,Vegetative,Vegetative
+46,2025-03-04,wheat_2024_25,S1_S2_fusion,RandomForest,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_S2_fusion,RandomForest,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_S2_fusion,RandomForest,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_S2_fusion,RandomForest,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_S2_fusion,RandomForest,Reproductive,Vegetative
+51,2025-03-29,wheat_2024_25,S1_S2_fusion,RandomForest,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S1_S2_fusion,RandomForest,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_S2_fusion,RandomForest,Reproductive,Vegetative
+54,2025-04-08,wheat_2024_25,S1_S2_fusion,RandomForest,Reproductive,Grain Filling
+55,2025-04-13,wheat_2024_25,S1_S2_fusion,RandomForest,Grain Filling,Grain Filling
+56,2025-04-18,wheat_2024_25,S1_S2_fusion,RandomForest,Grain Filling,Grain Filling
+57,2025-04-20,wheat_2024_25,S1_S2_fusion,RandomForest,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S1_S2_fusion,RandomForest,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_S2_fusion,ExtraTrees,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S1_S2_fusion,ExtraTrees,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S1_S2_fusion,ExtraTrees,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S1_S2_fusion,ExtraTrees,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S1_S2_fusion,ExtraTrees,Establishment,Vegetative
+5,2023-11-30,wheat_2023_24,S1_S2_fusion,ExtraTrees,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S1_S2_fusion,ExtraTrees,Establishment,Vegetative
+7,2023-12-10,wheat_2023_24,S1_S2_fusion,ExtraTrees,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+12,2024-01-04,wheat_2023_24,S1_S2_fusion,ExtraTrees,Vegetative,Reproductive
+13,2024-01-09,wheat_2023_24,S1_S2_fusion,ExtraTrees,Vegetative,Reproductive
+14,2024-01-14,wheat_2023_24,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+15,2024-01-19,wheat_2023_24,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_S2_fusion,ExtraTrees,Reproductive,Vegetative
+23,2024-02-28,wheat_2023_24,S1_S2_fusion,ExtraTrees,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S1_S2_fusion,ExtraTrees,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_S2_fusion,ExtraTrees,Reproductive,Reproductive
+26,2024-03-14,wheat_2023_24,S1_S2_fusion,ExtraTrees,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_S2_fusion,ExtraTrees,Reproductive,Reproductive
+28,2024-03-24,wheat_2023_24,S1_S2_fusion,ExtraTrees,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S1_S2_fusion,ExtraTrees,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_S2_fusion,ExtraTrees,Grain Filling,Reproductive
+31,2024-04-08,wheat_2023_24,S1_S2_fusion,ExtraTrees,Grain Filling,Vegetative
+32,2024-04-13,wheat_2023_24,S1_S2_fusion,ExtraTrees,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S1_S2_fusion,ExtraTrees,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S1_S2_fusion,ExtraTrees,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_S2_fusion,ExtraTrees,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_S2_fusion,ExtraTrees,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_S2_fusion,ExtraTrees,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_S2_fusion,ExtraTrees,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_S2_fusion,ExtraTrees,Vegetative,Reproductive
+40,2025-02-02,wheat_2024_25,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S1_S2_fusion,ExtraTrees,Vegetative,Reproductive
+43,2025-02-17,wheat_2024_25,S1_S2_fusion,ExtraTrees,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S1_S2_fusion,ExtraTrees,Vegetative,Vegetative
+46,2025-03-04,wheat_2024_25,S1_S2_fusion,ExtraTrees,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_S2_fusion,ExtraTrees,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_S2_fusion,ExtraTrees,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_S2_fusion,ExtraTrees,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_S2_fusion,ExtraTrees,Reproductive,Reproductive
+51,2025-03-29,wheat_2024_25,S1_S2_fusion,ExtraTrees,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S1_S2_fusion,ExtraTrees,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_S2_fusion,ExtraTrees,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_S2_fusion,ExtraTrees,Reproductive,Grain Filling
+55,2025-04-13,wheat_2024_25,S1_S2_fusion,ExtraTrees,Grain Filling,Grain Filling
+56,2025-04-18,wheat_2024_25,S1_S2_fusion,ExtraTrees,Grain Filling,Senescence/Harvest
+57,2025-04-20,wheat_2024_25,S1_S2_fusion,ExtraTrees,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S1_S2_fusion,ExtraTrees,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_S2_fusion,GradientBoosting,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S1_S2_fusion,GradientBoosting,Establishment,Vegetative
+2,2023-11-15,wheat_2023_24,S1_S2_fusion,GradientBoosting,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S1_S2_fusion,GradientBoosting,Establishment,Vegetative
+4,2023-11-25,wheat_2023_24,S1_S2_fusion,GradientBoosting,Establishment,Vegetative
+5,2023-11-30,wheat_2023_24,S1_S2_fusion,GradientBoosting,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S1_S2_fusion,GradientBoosting,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S1_S2_fusion,GradientBoosting,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+11,2023-12-30,wheat_2023_24,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+12,2024-01-04,wheat_2023_24,S1_S2_fusion,GradientBoosting,Vegetative,Reproductive
+13,2024-01-09,wheat_2023_24,S1_S2_fusion,GradientBoosting,Vegetative,Reproductive
+14,2024-01-14,wheat_2023_24,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+15,2024-01-19,wheat_2023_24,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_S2_fusion,GradientBoosting,Reproductive,Vegetative
+23,2024-02-28,wheat_2023_24,S1_S2_fusion,GradientBoosting,Reproductive,Vegetative
+24,2024-03-04,wheat_2023_24,S1_S2_fusion,GradientBoosting,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_S2_fusion,GradientBoosting,Reproductive,Vegetative
+26,2024-03-14,wheat_2023_24,S1_S2_fusion,GradientBoosting,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_S2_fusion,GradientBoosting,Reproductive,Vegetative
+28,2024-03-24,wheat_2023_24,S1_S2_fusion,GradientBoosting,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S1_S2_fusion,GradientBoosting,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_S2_fusion,GradientBoosting,Grain Filling,Vegetative
+31,2024-04-08,wheat_2023_24,S1_S2_fusion,GradientBoosting,Grain Filling,Vegetative
+32,2024-04-13,wheat_2023_24,S1_S2_fusion,GradientBoosting,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S1_S2_fusion,GradientBoosting,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S1_S2_fusion,GradientBoosting,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_S2_fusion,GradientBoosting,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_S2_fusion,GradientBoosting,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_S2_fusion,GradientBoosting,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_S2_fusion,GradientBoosting,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_S2_fusion,GradientBoosting,Vegetative,Reproductive
+40,2025-02-02,wheat_2024_25,S1_S2_fusion,GradientBoosting,Vegetative,Reproductive
+41,2025-02-07,wheat_2024_25,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+43,2025-02-17,wheat_2024_25,S1_S2_fusion,GradientBoosting,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S1_S2_fusion,GradientBoosting,Vegetative,Vegetative
+46,2025-03-04,wheat_2024_25,S1_S2_fusion,GradientBoosting,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_S2_fusion,GradientBoosting,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_S2_fusion,GradientBoosting,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_S2_fusion,GradientBoosting,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_S2_fusion,GradientBoosting,Reproductive,Vegetative
+51,2025-03-29,wheat_2024_25,S1_S2_fusion,GradientBoosting,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S1_S2_fusion,GradientBoosting,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_S2_fusion,GradientBoosting,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_S2_fusion,GradientBoosting,Reproductive,Reproductive
+55,2025-04-13,wheat_2024_25,S1_S2_fusion,GradientBoosting,Grain Filling,Reproductive
+56,2025-04-18,wheat_2024_25,S1_S2_fusion,GradientBoosting,Grain Filling,Vegetative
+57,2025-04-20,wheat_2024_25,S1_S2_fusion,GradientBoosting,Grain Filling,Vegetative
+58,2025-04-23,wheat_2024_25,S1_S2_fusion,GradientBoosting,Grain Filling,Vegetative
+0,2023-11-05,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Establishment,Establishment
+1,2023-11-10,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Establishment,Establishment
+3,2023-11-20,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Establishment,Establishment
+4,2023-11-25,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Establishment,Establishment
+5,2023-11-30,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Establishment,Establishment
+8,2023-12-15,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+9,2023-12-20,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+10,2023-12-25,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+11,2023-12-30,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+13,2024-01-09,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+14,2024-01-14,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+15,2024-01-19,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+16,2024-01-24,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+17,2024-01-29,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+18,2024-02-03,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+19,2024-02-08,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+20,2024-02-13,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+21,2024-02-18,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+22,2024-02-23,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+23,2024-02-28,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+24,2024-03-04,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+25,2024-03-09,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+26,2024-03-14,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+27,2024-03-19,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+28,2024-03-24,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+29,2024-03-29,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+30,2024-04-03,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Grain Filling,Establishment
+31,2024-04-08,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Grain Filling,Establishment
+32,2024-04-13,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Grain Filling,Establishment
+33,2024-04-18,wheat_2023_24,S1_S2_fusion,HistGradientBoosting,Senescence/Harvest,Establishment
+34,2024-12-29,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+40,2025-02-02,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+41,2025-02-07,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+42,2025-02-12,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+43,2025-02-17,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+44,2025-02-22,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+45,2025-02-27,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+46,2025-03-04,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Vegetative,Establishment
+47,2025-03-09,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+48,2025-03-14,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+49,2025-03-19,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+50,2025-03-24,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+51,2025-03-29,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+52,2025-03-31,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+53,2025-04-03,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+54,2025-04-08,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Reproductive,Establishment
+55,2025-04-13,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Grain Filling,Establishment
+56,2025-04-18,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Grain Filling,Establishment
+57,2025-04-20,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S1_S2_fusion,HistGradientBoosting,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_S2_fusion,XGBoost,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S1_S2_fusion,XGBoost,Establishment,Vegetative
+2,2023-11-15,wheat_2023_24,S1_S2_fusion,XGBoost,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S1_S2_fusion,XGBoost,Establishment,Establishment
+4,2023-11-25,wheat_2023_24,S1_S2_fusion,XGBoost,Establishment,Vegetative
+5,2023-11-30,wheat_2023_24,S1_S2_fusion,XGBoost,Establishment,Vegetative
+6,2023-12-05,wheat_2023_24,S1_S2_fusion,XGBoost,Establishment,Vegetative
+7,2023-12-10,wheat_2023_24,S1_S2_fusion,XGBoost,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_S2_fusion,XGBoost,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_S2_fusion,XGBoost,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S1_S2_fusion,XGBoost,Vegetative,Reproductive
+11,2023-12-30,wheat_2023_24,S1_S2_fusion,XGBoost,Vegetative,Reproductive
+12,2024-01-04,wheat_2023_24,S1_S2_fusion,XGBoost,Vegetative,Reproductive
+13,2024-01-09,wheat_2023_24,S1_S2_fusion,XGBoost,Vegetative,Reproductive
+14,2024-01-14,wheat_2023_24,S1_S2_fusion,XGBoost,Vegetative,Vegetative
+15,2024-01-19,wheat_2023_24,S1_S2_fusion,XGBoost,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_S2_fusion,XGBoost,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_S2_fusion,XGBoost,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_S2_fusion,XGBoost,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_S2_fusion,XGBoost,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_S2_fusion,XGBoost,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_S2_fusion,XGBoost,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_S2_fusion,XGBoost,Reproductive,Vegetative
+23,2024-02-28,wheat_2023_24,S1_S2_fusion,XGBoost,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S1_S2_fusion,XGBoost,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_S2_fusion,XGBoost,Reproductive,Reproductive
+26,2024-03-14,wheat_2023_24,S1_S2_fusion,XGBoost,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_S2_fusion,XGBoost,Reproductive,Vegetative
+28,2024-03-24,wheat_2023_24,S1_S2_fusion,XGBoost,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S1_S2_fusion,XGBoost,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_S2_fusion,XGBoost,Grain Filling,Vegetative
+31,2024-04-08,wheat_2023_24,S1_S2_fusion,XGBoost,Grain Filling,Vegetative
+32,2024-04-13,wheat_2023_24,S1_S2_fusion,XGBoost,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S1_S2_fusion,XGBoost,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S1_S2_fusion,XGBoost,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_S2_fusion,XGBoost,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_S2_fusion,XGBoost,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_S2_fusion,XGBoost,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_S2_fusion,XGBoost,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_S2_fusion,XGBoost,Vegetative,Establishment
+40,2025-02-02,wheat_2024_25,S1_S2_fusion,XGBoost,Vegetative,Reproductive
+41,2025-02-07,wheat_2024_25,S1_S2_fusion,XGBoost,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S1_S2_fusion,XGBoost,Vegetative,Vegetative
+43,2025-02-17,wheat_2024_25,S1_S2_fusion,XGBoost,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S1_S2_fusion,XGBoost,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S1_S2_fusion,XGBoost,Vegetative,Vegetative
+46,2025-03-04,wheat_2024_25,S1_S2_fusion,XGBoost,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_S2_fusion,XGBoost,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_S2_fusion,XGBoost,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_S2_fusion,XGBoost,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_S2_fusion,XGBoost,Reproductive,Vegetative
+51,2025-03-29,wheat_2024_25,S1_S2_fusion,XGBoost,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S1_S2_fusion,XGBoost,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_S2_fusion,XGBoost,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_S2_fusion,XGBoost,Reproductive,Reproductive
+55,2025-04-13,wheat_2024_25,S1_S2_fusion,XGBoost,Grain Filling,Reproductive
+56,2025-04-18,wheat_2024_25,S1_S2_fusion,XGBoost,Grain Filling,Senescence/Harvest
+57,2025-04-20,wheat_2024_25,S1_S2_fusion,XGBoost,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S1_S2_fusion,XGBoost,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_S2_fusion,LightGBM,Establishment,Establishment
+1,2023-11-10,wheat_2023_24,S1_S2_fusion,LightGBM,Establishment,Establishment
+2,2023-11-15,wheat_2023_24,S1_S2_fusion,LightGBM,Establishment,Establishment
+3,2023-11-20,wheat_2023_24,S1_S2_fusion,LightGBM,Establishment,Establishment
+4,2023-11-25,wheat_2023_24,S1_S2_fusion,LightGBM,Establishment,Establishment
+5,2023-11-30,wheat_2023_24,S1_S2_fusion,LightGBM,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S1_S2_fusion,LightGBM,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S1_S2_fusion,LightGBM,Establishment,Establishment
+8,2023-12-15,wheat_2023_24,S1_S2_fusion,LightGBM,Vegetative,Establishment
+9,2023-12-20,wheat_2023_24,S1_S2_fusion,LightGBM,Vegetative,Establishment
+10,2023-12-25,wheat_2023_24,S1_S2_fusion,LightGBM,Vegetative,Establishment
+11,2023-12-30,wheat_2023_24,S1_S2_fusion,LightGBM,Vegetative,Establishment
+12,2024-01-04,wheat_2023_24,S1_S2_fusion,LightGBM,Vegetative,Establishment
+13,2024-01-09,wheat_2023_24,S1_S2_fusion,LightGBM,Vegetative,Establishment
+14,2024-01-14,wheat_2023_24,S1_S2_fusion,LightGBM,Vegetative,Establishment
+15,2024-01-19,wheat_2023_24,S1_S2_fusion,LightGBM,Vegetative,Establishment
+16,2024-01-24,wheat_2023_24,S1_S2_fusion,LightGBM,Vegetative,Establishment
+17,2024-01-29,wheat_2023_24,S1_S2_fusion,LightGBM,Vegetative,Establishment
+18,2024-02-03,wheat_2023_24,S1_S2_fusion,LightGBM,Vegetative,Establishment
+19,2024-02-08,wheat_2023_24,S1_S2_fusion,LightGBM,Vegetative,Establishment
+20,2024-02-13,wheat_2023_24,S1_S2_fusion,LightGBM,Vegetative,Establishment
+21,2024-02-18,wheat_2023_24,S1_S2_fusion,LightGBM,Vegetative,Establishment
+22,2024-02-23,wheat_2023_24,S1_S2_fusion,LightGBM,Reproductive,Establishment
+23,2024-02-28,wheat_2023_24,S1_S2_fusion,LightGBM,Reproductive,Establishment
+24,2024-03-04,wheat_2023_24,S1_S2_fusion,LightGBM,Reproductive,Establishment
+25,2024-03-09,wheat_2023_24,S1_S2_fusion,LightGBM,Reproductive,Establishment
+26,2024-03-14,wheat_2023_24,S1_S2_fusion,LightGBM,Reproductive,Establishment
+27,2024-03-19,wheat_2023_24,S1_S2_fusion,LightGBM,Reproductive,Establishment
+28,2024-03-24,wheat_2023_24,S1_S2_fusion,LightGBM,Reproductive,Establishment
+29,2024-03-29,wheat_2023_24,S1_S2_fusion,LightGBM,Reproductive,Establishment
+30,2024-04-03,wheat_2023_24,S1_S2_fusion,LightGBM,Grain Filling,Establishment
+31,2024-04-08,wheat_2023_24,S1_S2_fusion,LightGBM,Grain Filling,Establishment
+32,2024-04-13,wheat_2023_24,S1_S2_fusion,LightGBM,Grain Filling,Establishment
+33,2024-04-18,wheat_2023_24,S1_S2_fusion,LightGBM,Senescence/Harvest,Establishment
+34,2024-12-29,wheat_2024_25,S1_S2_fusion,LightGBM,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_S2_fusion,LightGBM,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_S2_fusion,LightGBM,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_S2_fusion,LightGBM,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_S2_fusion,LightGBM,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_S2_fusion,LightGBM,Vegetative,Establishment
+40,2025-02-02,wheat_2024_25,S1_S2_fusion,LightGBM,Vegetative,Establishment
+41,2025-02-07,wheat_2024_25,S1_S2_fusion,LightGBM,Vegetative,Establishment
+42,2025-02-12,wheat_2024_25,S1_S2_fusion,LightGBM,Vegetative,Establishment
+43,2025-02-17,wheat_2024_25,S1_S2_fusion,LightGBM,Vegetative,Establishment
+44,2025-02-22,wheat_2024_25,S1_S2_fusion,LightGBM,Vegetative,Establishment
+45,2025-02-27,wheat_2024_25,S1_S2_fusion,LightGBM,Vegetative,Establishment
+46,2025-03-04,wheat_2024_25,S1_S2_fusion,LightGBM,Vegetative,Establishment
+47,2025-03-09,wheat_2024_25,S1_S2_fusion,LightGBM,Reproductive,Establishment
+48,2025-03-14,wheat_2024_25,S1_S2_fusion,LightGBM,Reproductive,Establishment
+49,2025-03-19,wheat_2024_25,S1_S2_fusion,LightGBM,Reproductive,Establishment
+50,2025-03-24,wheat_2024_25,S1_S2_fusion,LightGBM,Reproductive,Establishment
+51,2025-03-29,wheat_2024_25,S1_S2_fusion,LightGBM,Reproductive,Establishment
+52,2025-03-31,wheat_2024_25,S1_S2_fusion,LightGBM,Reproductive,Establishment
+53,2025-04-03,wheat_2024_25,S1_S2_fusion,LightGBM,Reproductive,Establishment
+54,2025-04-08,wheat_2024_25,S1_S2_fusion,LightGBM,Reproductive,Establishment
+55,2025-04-13,wheat_2024_25,S1_S2_fusion,LightGBM,Grain Filling,Establishment
+56,2025-04-18,wheat_2024_25,S1_S2_fusion,LightGBM,Grain Filling,Establishment
+57,2025-04-20,wheat_2024_25,S1_S2_fusion,LightGBM,Grain Filling,Establishment
+58,2025-04-23,wheat_2024_25,S1_S2_fusion,LightGBM,Grain Filling,Establishment
+0,2023-11-05,wheat_2023_24,S1_S2_fusion,CatBoost,Establishment,Grain Filling
+1,2023-11-10,wheat_2023_24,S1_S2_fusion,CatBoost,Establishment,Vegetative
+2,2023-11-15,wheat_2023_24,S1_S2_fusion,CatBoost,Establishment,Grain Filling
+3,2023-11-20,wheat_2023_24,S1_S2_fusion,CatBoost,Establishment,Grain Filling
+4,2023-11-25,wheat_2023_24,S1_S2_fusion,CatBoost,Establishment,Grain Filling
+5,2023-11-30,wheat_2023_24,S1_S2_fusion,CatBoost,Establishment,Establishment
+6,2023-12-05,wheat_2023_24,S1_S2_fusion,CatBoost,Establishment,Establishment
+7,2023-12-10,wheat_2023_24,S1_S2_fusion,CatBoost,Establishment,Vegetative
+8,2023-12-15,wheat_2023_24,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+9,2023-12-20,wheat_2023_24,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+10,2023-12-25,wheat_2023_24,S1_S2_fusion,CatBoost,Vegetative,Reproductive
+11,2023-12-30,wheat_2023_24,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+12,2024-01-04,wheat_2023_24,S1_S2_fusion,CatBoost,Vegetative,Reproductive
+13,2024-01-09,wheat_2023_24,S1_S2_fusion,CatBoost,Vegetative,Reproductive
+14,2024-01-14,wheat_2023_24,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+15,2024-01-19,wheat_2023_24,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+16,2024-01-24,wheat_2023_24,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+17,2024-01-29,wheat_2023_24,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+18,2024-02-03,wheat_2023_24,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+19,2024-02-08,wheat_2023_24,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+20,2024-02-13,wheat_2023_24,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+21,2024-02-18,wheat_2023_24,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+22,2024-02-23,wheat_2023_24,S1_S2_fusion,CatBoost,Reproductive,Reproductive
+23,2024-02-28,wheat_2023_24,S1_S2_fusion,CatBoost,Reproductive,Reproductive
+24,2024-03-04,wheat_2023_24,S1_S2_fusion,CatBoost,Reproductive,Reproductive
+25,2024-03-09,wheat_2023_24,S1_S2_fusion,CatBoost,Reproductive,Reproductive
+26,2024-03-14,wheat_2023_24,S1_S2_fusion,CatBoost,Reproductive,Vegetative
+27,2024-03-19,wheat_2023_24,S1_S2_fusion,CatBoost,Reproductive,Vegetative
+28,2024-03-24,wheat_2023_24,S1_S2_fusion,CatBoost,Reproductive,Vegetative
+29,2024-03-29,wheat_2023_24,S1_S2_fusion,CatBoost,Reproductive,Reproductive
+30,2024-04-03,wheat_2023_24,S1_S2_fusion,CatBoost,Grain Filling,Reproductive
+31,2024-04-08,wheat_2023_24,S1_S2_fusion,CatBoost,Grain Filling,Grain Filling
+32,2024-04-13,wheat_2023_24,S1_S2_fusion,CatBoost,Grain Filling,Grain Filling
+33,2024-04-18,wheat_2023_24,S1_S2_fusion,CatBoost,Senescence/Harvest,Grain Filling
+34,2024-12-29,wheat_2024_25,S1_S2_fusion,CatBoost,Establishment,Establishment
+35,2025-01-03,wheat_2024_25,S1_S2_fusion,CatBoost,Establishment,Establishment
+36,2025-01-13,wheat_2024_25,S1_S2_fusion,CatBoost,Establishment,Establishment
+37,2025-01-18,wheat_2024_25,S1_S2_fusion,CatBoost,Establishment,Establishment
+38,2025-01-23,wheat_2024_25,S1_S2_fusion,CatBoost,Vegetative,Establishment
+39,2025-01-28,wheat_2024_25,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+40,2025-02-02,wheat_2024_25,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+41,2025-02-07,wheat_2024_25,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+42,2025-02-12,wheat_2024_25,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+43,2025-02-17,wheat_2024_25,S1_S2_fusion,CatBoost,Vegetative,Reproductive
+44,2025-02-22,wheat_2024_25,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+45,2025-02-27,wheat_2024_25,S1_S2_fusion,CatBoost,Vegetative,Vegetative
+46,2025-03-04,wheat_2024_25,S1_S2_fusion,CatBoost,Vegetative,Reproductive
+47,2025-03-09,wheat_2024_25,S1_S2_fusion,CatBoost,Reproductive,Reproductive
+48,2025-03-14,wheat_2024_25,S1_S2_fusion,CatBoost,Reproductive,Reproductive
+49,2025-03-19,wheat_2024_25,S1_S2_fusion,CatBoost,Reproductive,Reproductive
+50,2025-03-24,wheat_2024_25,S1_S2_fusion,CatBoost,Reproductive,Vegetative
+51,2025-03-29,wheat_2024_25,S1_S2_fusion,CatBoost,Reproductive,Vegetative
+52,2025-03-31,wheat_2024_25,S1_S2_fusion,CatBoost,Reproductive,Reproductive
+53,2025-04-03,wheat_2024_25,S1_S2_fusion,CatBoost,Reproductive,Reproductive
+54,2025-04-08,wheat_2024_25,S1_S2_fusion,CatBoost,Reproductive,Reproductive
+55,2025-04-13,wheat_2024_25,S1_S2_fusion,CatBoost,Grain Filling,Senescence/Harvest
+56,2025-04-18,wheat_2024_25,S1_S2_fusion,CatBoost,Grain Filling,Senescence/Harvest
+57,2025-04-20,wheat_2024_25,S1_S2_fusion,CatBoost,Grain Filling,Senescence/Harvest
+58,2025-04-23,wheat_2024_25,S1_S2_fusion,CatBoost,Grain Filling,Senescence/Harvest

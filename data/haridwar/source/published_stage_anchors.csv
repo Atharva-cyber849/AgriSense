@@ -1,0 +1,21 @@
+season,observed_stage,observed_date,stage_group_5
+wheat_2023_24,Germination,2023-11-04,Establishment
+wheat_2023_24,Leaf Development,2023-11-25,Establishment
+wheat_2023_24,Tillering,2023-12-30,Vegetative
+wheat_2023_24,Stem Elongation,2024-02-10,Vegetative
+wheat_2023_24,Booting,2024-03-03,Reproductive
+wheat_2023_24,Heading,2024-03-20,Reproductive
+wheat_2023_24,Flowering,2024-03-31,Reproductive
+wheat_2023_24,Development of Fruit,2024-04-06,Grain Filling
+wheat_2023_24,Ripening,2024-04-12,Grain Filling
+wheat_2023_24,Senescence/Harvest,2024-04-18,Senescence/Harvest
+wheat_2024_25,Germination,2024-12-26,Establishment
+wheat_2024_25,Leaf Development,2025-01-09,Establishment
+wheat_2024_25,Tillering,2025-01-29,Vegetative
+wheat_2024_25,Stem Elongation,2025-02-22,Vegetative
+wheat_2024_25,Booting,2025-03-16,Reproductive
+wheat_2024_25,Heading,2025-03-30,Reproductive
+wheat_2024_25,Flowering,2025-04-09,Reproductive
+wheat_2024_25,Development of Fruit,2025-04-16,Grain Filling
+wheat_2024_25,Ripening,2025-04-22,Grain Filling
+wheat_2024_25,Senescence/Harvest,2025-04-26,Senescence/Harvest

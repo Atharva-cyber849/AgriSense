@@ -1,0 +1,13 @@
+season,method,transition,predicted_date,reference_start,reference_end,interval_error_days,within_7d,within_14d
+wheat_2023_24,Whittaker,SOS,2023-11-26,2023-11-04,2023-12-30,0.0,True,True
+wheat_2023_24,Whittaker,POS,2024-02-21,2024-03-20,2024-03-31,28.0,False,False
+wheat_2023_24,Whittaker,EOS,2024-04-12,2024-04-12,2024-04-18,0.0,True,True
+wheat_2023_24,DoubleLogistic,SOS,2023-11-22,2023-11-04,2023-12-30,0.0,True,True
+wheat_2023_24,DoubleLogistic,POS,2024-02-19,2024-03-20,2024-03-31,30.0,False,False
+wheat_2023_24,DoubleLogistic,EOS,2024-04-14,2024-04-12,2024-04-18,0.0,True,True
+wheat_2024_25,Whittaker,SOS,2025-01-01,2024-12-26,2025-01-29,0.0,True,True
+wheat_2024_25,Whittaker,POS,2025-03-13,2025-03-30,2025-04-09,17.0,False,False
+wheat_2024_25,Whittaker,EOS,2025-04-15,2025-04-22,2025-04-26,7.0,True,True
+wheat_2024_25,DoubleLogistic,SOS,2025-01-02,2024-12-26,2025-01-29,0.0,True,True
+wheat_2024_25,DoubleLogistic,POS,2025-03-21,2025-03-30,2025-04-09,9.0,False,True
+wheat_2024_25,DoubleLogistic,EOS,2025-04-10,2025-04-22,2025-04-26,12.0,False,True

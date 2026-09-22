@@ -1,0 +1,3 @@
+season,n_calendar_acquisitions,n_usable_optical_dates,usable_fraction,approx_longest_missing_run_days
+wheat_2023_24,38,23,0.6052631578947368,30
+wheat_2024_25,30,22,0.7333333333333333,10

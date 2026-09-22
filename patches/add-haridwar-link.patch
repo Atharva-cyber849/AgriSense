@@ -1,0 +1,13 @@
+diff --git a/index.html b/index.html
+--- a/index.html
++++ b/index.html
+@@ -53,6 +53,10 @@
+
+     <div class="header-right">
++      <a class="btn btn-outline" href="haridwar.html" title="Open Haridwar wheat phenology research dashboard">
++        <i data-lucide="flask-conical"></i> Haridwar Research
++      </a>
++
+       <!-- Persona Switcher -->
+       <div class="persona-selector">
+         <i data-lucide="user-check" class="selector-icon"></i>
