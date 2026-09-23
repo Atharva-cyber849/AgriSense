@@ -1,0 +1,105 @@
+fold,split,class,support
+0,train,Bersem,12
+0,train,Coriander,11
+0,train,Garlic,36
+0,train,Gram,45
+0,train,Green pea,17
+0,train,Lentil,78
+0,train,Maize,219
+0,train,Mustard,743
+0,train,No crop/Fallow,1232
+0,train,Potato,30
+0,train,Rice,97
+0,train,Sugarcane,122
+0,train,Wheat,1523
+0,test,Bersem,4
+0,test,Coriander,3
+0,test,Garlic,12
+0,test,Gram,14
+0,test,Green pea,6
+0,test,Lentil,25
+0,test,Maize,74
+0,test,Mustard,247
+0,test,No crop/Fallow,409
+0,test,Potato,11
+0,test,Rice,32
+0,test,Sugarcane,41
+0,test,Wheat,508
+1,train,Bersem,12
+1,train,Coriander,11
+1,train,Garlic,36
+1,train,Gram,44
+1,train,Green pea,17
+1,train,Lentil,78
+1,train,Maize,221
+1,train,Mustard,743
+1,train,No crop/Fallow,1232
+1,train,Potato,32
+1,train,Rice,96
+1,train,Sugarcane,122
+1,train,Wheat,1523
+1,test,Bersem,4
+1,test,Coriander,3
+1,test,Garlic,12
+1,test,Gram,15
+1,test,Green pea,6
+1,test,Lentil,25
+1,test,Maize,72
+1,test,Mustard,247
+1,test,No crop/Fallow,409
+1,test,Potato,9
+1,test,Rice,33
+1,test,Sugarcane,41
+1,test,Wheat,508
+2,train,Bersem,12
+2,train,Coriander,10
+2,train,Garlic,36
+2,train,Gram,44
+2,train,Green pea,18
+2,train,Lentil,77
+2,train,Maize,221
+2,train,Mustard,742
+2,train,No crop/Fallow,1227
+2,train,Potato,30
+2,train,Rice,97
+2,train,Sugarcane,123
+2,train,Wheat,1523
+2,test,Bersem,4
+2,test,Coriander,4
+2,test,Garlic,12
+2,test,Gram,15
+2,test,Green pea,5
+2,test,Lentil,26
+2,test,Maize,72
+2,test,Mustard,248
+2,test,No crop/Fallow,414
+2,test,Potato,11
+2,test,Rice,32
+2,test,Sugarcane,40
+2,test,Wheat,508
+3,train,Bersem,12
+3,train,Coriander,10
+3,train,Garlic,36
+3,train,Gram,44
+3,train,Green pea,17
+3,train,Lentil,76
+3,train,Maize,218
+3,train,Mustard,742
+3,train,No crop/Fallow,1232
+3,train,Potato,31
+3,train,Rice,97
+3,train,Sugarcane,122
+3,train,Wheat,1524
+3,test,Bersem,4
+3,test,Coriander,4
+3,test,Garlic,12
+3,test,Gram,15
+3,test,Green pea,6
+3,test,Lentil,27
+3,test,Maize,75
+3,test,Mustard,248
+3,test,No crop/Fallow,409
+3,test,Potato,10
+3,test,Rice,32
+3,test,Sugarcane,41
+3,test,Wheat,507

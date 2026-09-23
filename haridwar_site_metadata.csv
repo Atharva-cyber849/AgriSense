@@ -1,0 +1,2 @@
+system:index,centroid_lat,centroid_lon,crop,field_area_m2,note,site_id,source,.geo
+0,29.931795342226508,77.96490248728195,Wheat,5585.13028799316,Calendar date primary; DAS/stage joined later.,haridwar_kvk_phenocam,KVK_PhenoCam_Field_Shapefile,"{""type"":""Point"",""coordinates"":[77.96490248728195,29.931795342226508]}"

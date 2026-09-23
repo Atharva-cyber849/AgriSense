@@ -1,0 +1,20 @@
+Metric,Value
+field_id,GEE-PIXEL-4105
+period_start,2025-06-01
+crop_type,Unclassified
+ndvi,0.094
+ndwi,-0.158
+ndmi,-0.186
+vv_db,-12.74
+vh_db,-25.82
+vv_vh_ratio_db,13.08
+rainfall_mm,0
+crop_kc,0.85
+weekly_etc_demand_mm,36.97
+effective_rain_mm,0
+net_water_deficit_mm,36.97
+priority_score,10
+priority_label,High Priority
+advisory_status,Prototype water-balance advisory using real 8-day weather.
+recommended_depth_mm,42.5
+timing,Within 24 hours
