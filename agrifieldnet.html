@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AgriFieldNet crop classification research: spatial validation, Sentinel sensor comparisons and optical-gap robustness.">
+  <title>AgriFieldNet Research | AgriSense</title>
+  <link rel="stylesheet" href="agrifieldnet.css">
+  <script src="agrifieldnet.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true">◈</span> AgriSense <span class="badge">AgriFieldNet</span></a>
+    <nav aria-label="AgriSense projects"><a href="index.html">Karnal</a><a href="haridwar.html">Haridwar</a><a href="agrifieldnet.html" aria-current="page">AgriFieldNet</a></nav>
+  </header>
+  <main>
+    <div class="page-heading"><div><p class="eyebrow">CROP CLASSIFICATION RESEARCH</p><h1>AgriFieldNet results</h1><p id="scope">Loading the completed experiment…</p></div><span class="badge" id="validation-label">Spatial validation</span></div>
+    <div id="status" role="status">Loading results…</div>
+    <noscript>This dashboard requires JavaScript. Download the <a href="data/agrifieldnet/source/model_leaderboard_oof.csv">model results CSV</a>.</noscript>
+    <div id="dashboard" hidden>
+      <nav class="tabs" aria-label="Research views">
+        <button type="button" data-view="overview" aria-pressed="true">Overview</button>
+        <button type="button" data-view="models" aria-pressed="false">Model explorer</button>
+        <button type="button" data-view="robustness" aria-pressed="false">Robustness & importance</button>
+        <button type="button" data-view="evidence" aria-pressed="false">Sources & figures</button>
+      </nav>
+      <section data-panel="overview" aria-label="Overview">
+        <div class="kpis" id="kpis"></div>
+        <p class="insight" id="finding"></p>
+        <div class="grid two">
+          <article class="card"><h2>Best model by feature set</h2><p>Classical models · pooled out-of-fold macro-F1</p><div id="sensor-bars"></div><a class="source" href="data/agrifieldnet/source/sensor_ablation_leaders.csv" download>Source CSV ↓</a></article>
+          <article class="card"><h2>Crop distribution</h2><p>Unique labeled fields · all 13 classes</p><div id="class-bars"></div><a class="source" href="data/agrifieldnet/source/class_support.csv" download>Source CSV ↓</a></article>
+          <article class="card"><h2>Deep temporal models</h2><p>Same spatial folds · pooled out-of-fold macro-F1</p><div id="deep-bars"></div><p class="note">Macro-F1 gives each crop equal weight. Accuracy is the share of all fields classified correctly.</p><a class="source" href="data/agrifieldnet/source/deep_model_metrics.csv" download>Source CSV ↓</a></article>
+          <article class="card"><h2>Sensor coverage over time</h2><p>Fraction of fields per 10-day period · period index 0–20</p><div id="coverage-chart"></div><details><summary>View coverage values</summary><div class="table-wrap" id="coverage-table"></div></details><a class="source" href="data/agrifieldnet/source/period_sensor_coverage.csv" download>Source CSV ↓</a></article>
+        </div>
+      </section>
+      <section data-panel="models" aria-label="Model explorer" hidden>
+        <article class="card">
+          <div class="section-head"><div><h2>Model leaderboard</h2><p>Pooled out-of-fold scores; selection and ranking are exploratory.</p></div><button type="button" id="export-models">Export visible rows ↓</button></div>
+          <div class="controls"><label>Feature set<select id="feature-filter"></select></label><label>Rank by<select id="metric-filter"><option value="macro_f1">Macro-F1</option><option value="accuracy">Accuracy</option><option value="balanced_accuracy">Balanced accuracy</option><option value="weighted_f1">Weighted F1</option></select></label><label>Find model<input id="model-search" type="search" placeholder="e.g. CatBoost"></label><button type="button" id="reset-models">Reset filters</button></div>
+          <p id="result-count" class="note" aria-live="polite"></p><div class="table-wrap" id="leaderboard"></div>
+        </article>
+        <article class="card" id="model-detail"><h2 id="model-title"></h2><p id="model-description"></p><div class="kpis compact" id="model-kpis"></div><div class="grid two"><div><h3>Performance by crop</h3><div class="table-wrap" id="class-table"></div></div><div><h3>Variation between spatial folds</h3><div id="fold-bars"></div><p class="note">Fold scores use separate held-out spatial groups. Their mean is not the pooled out-of-fold score.</p></div></div><div class="section-head"><div><h3>Confusion matrix</h3><p>Rows: actual crop · columns: predicted crop</p></div><label>Cell values<select id="matrix-mode"><option value="percent">Percent of actual crop</option><option value="count">Field count</option></select></label></div><div class="table-wrap" id="confusion"></div></article>
+      </section>
+      <section data-panel="robustness" aria-label="Robustness and importance" hidden>
+        <article class="card"><div class="section-head"><div><h2>Performance when optical observations are missing</h2><p>Test-time S2 masking · models are fitted once per fold</p></div><label>Masking pattern<select id="scenario-mode"><option value="random">Random periods</option><option value="contiguous">Consecutive periods</option></select></label></div><div id="robustness-chart"></div><p class="note">Comparisons use each feature set’s selected leader, so both model and sensor inputs differ. Error bars show one sample standard deviation across masking repeats, not confidence intervals. The unmasked baseline has one run.</p><div class="table-wrap" id="robustness-table"></div><a class="source" href="data/agrifieldnet/source/optical_gap_robustness.csv" download>All masking runs CSV ↓</a></article>
+        <article class="card"><h2>Fusion feature importance <span class="badge amber">Exploratory</span></h2><p>20 individual features with the largest absolute mean score change</p><div id="importance-bars"></div><p class="note">Quick permutation run: two repeats, up to 400 validation fields per fold. Values are the mean decrease in macro-F1 across four folds; negative values mean shuffling improved the score. Correlated features can share importance. This quick estimate uses a smaller sample than the paper-profile model evaluation.</p><a class="source" href="data/agrifieldnet/source/fusion_permutation_importance_quick.csv" download>Per-fold importance CSV ↓</a></article>
+      </section>
+      <section data-panel="evidence" aria-label="Sources and figures" hidden>
+        <div class="grid two"><article class="card"><h2>Experiment and validation</h2><dl id="manifest"></dl><p class="note">Spatial grid stratified group validation keeps spatial groups separate between training and evaluation. These are benchmark results; the outputs do not include a deployed crop prediction service or irrigation recommendations.</p><p id="reconciliation" class="note"></p><a class="source" href="data/agrifieldnet/dashboard.json" download>Reviewed dashboard data + source hashes ↓</a></article><article class="card"><h2>Missing input features</h2><p>Missing fraction across field-period observations</p><div id="missing-bars"></div><h3>Observation-template consistency</h3><div class="table-wrap" id="consistency"></div></article></div>
+        <article class="card"><h2>Download results</h2><div id="downloads" class="downloads"></div><p class="note">Snapshot built from <code>AgriFieldNet/agrifieldnet_final_outputs</code>. Source hashes in the JSON identify the exact files used; no experiment date is inferred from file modification times.</p></article>
+        <h2 class="gallery-title">Saved research figures</h2><p class="note">Original notebook exports. Open a figure to inspect it at full resolution.</p><div id="gallery" class="gallery"></div>
+      </section>
+    </div>
+  </main>
+  <footer>AgriSense · AgriFieldNet India research · Sentinel-1 / Sentinel-2</footer>
+</body>
+</html>

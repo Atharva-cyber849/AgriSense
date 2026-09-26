@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "pipeline": "python pipeline/run_pipeline.py"
+    "pipeline": "python pipeline/run_pipeline.py",
+    "build:agrifieldnet": "python pipeline/build_agrifieldnet_dashboard.py",
+    "check:agrifieldnet": "node --check agrifieldnet.js && node --test tests/agrifieldnet.test.js"
   },
   "dependencies": {
     "express": "^4.18.2",

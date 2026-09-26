@@ -13,6 +13,7 @@ GEE_Karnal/exports/
 data/*.tif
 data/*.tiff
 data/*.zip
+tmp/
 
 .venv/
 node_modules/
