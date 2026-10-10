@@ -1,3 +1,4 @@
+const t = (...args) => window.AgriSenseI18n.t(...args);
 /**
  * AgriSense Karnal — 19-step 8-day master timeline frontend
  *
@@ -129,6 +130,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   window.addEventListener('resize', syncHeaderHeight);
 
+  window.AgriSenseI18n.apply();
   if (window.lucide) lucide.createIcons();
 
   initMap();
@@ -661,7 +663,7 @@ function injectUi() {
 
   Object.entries(layerNames).forEach(([key, [icon, label]]) => {
     const btn = document.querySelector(`.layer-btn[data-layer="${key}"]`);
-    if (btn) btn.innerHTML = `<i data-lucide="${icon}"></i> ${label}`;
+    if (btn) btn.innerHTML = `<i data-lucide="${icon}"></i> <span data-i18n="${label}">${t(label)}</span>`;
   });
 
   const headerRight = document.querySelector('.header-right');
@@ -681,23 +683,23 @@ function injectUi() {
     timeline.id = 'master-timeline';
     timeline.className = 'master-timeline';
     timeline.innerHTML = `
-      <button id="timeline-prev" class="timeline-btn" title="Previous 8-day period">
+      <button id="timeline-prev" class="timeline-btn" title="Previous 8-day period" data-i18n-title="Previous 8-day period">
         <i data-lucide="chevron-left"></i>
       </button>
-      <button id="timeline-play" class="timeline-btn" title="Play full season">
+      <button id="timeline-play" class="timeline-btn" title="Play full season" data-i18n-title="Play full season">
         <i data-lucide="play"></i>
       </button>
       <div class="timeline-slider-wrap">
-        <input id="timeline-slider" class="timeline-slider" type="range" min="0" max="18" value="0" step="1">
+        <input id="timeline-slider" aria-label="Season period" data-i18n-aria-label="Season period" class="timeline-slider" type="range" min="0" max="18" value="0" step="1">
         <div class="timeline-period-label">
-          <span id="timeline-date" class="timeline-date">Loading season...</span>
+          <span id="timeline-date" class="timeline-date"><span data-i18n="Loading season...">Loading season...</span></span>
           <span id="timeline-sub" class="timeline-sub">19 × 8-day periods</span>
         </div>
       </div>
-      <select id="timeline-select" class="timeline-select"></select>
+      <select id="timeline-select" aria-label="Season period" data-i18n-aria-label="Season period" class="timeline-select"></select>
       <span id="satellite-chip" class="timeline-chip chip-unavailable">SATELLITE</span>
       <span id="weather-chip" class="timeline-chip weather-chip">WEATHER 8-DAY</span>
-      <button id="timeline-next" class="timeline-btn" title="Next 8-day period">
+      <button id="timeline-next" class="timeline-btn" title="Next 8-day period" data-i18n-title="Next 8-day period">
         <i data-lucide="chevron-right"></i>
       </button>
     `;
@@ -710,10 +712,10 @@ function injectUi() {
     banner.id = 'data-provenance-banner';
     banner.className = 'provenance-banner';
     banner.innerHTML = `
-      <span class="prov-pill prov-real">REAL 8-day weather</span>
-      <span class="prov-pill prov-real">REAL old satellite</span>
-      <span class="prov-pill prov-derived">DERIVED stage</span>
-      <span class="prov-pill prov-proto">PROTOTYPE advisory</span>
+      <span class="prov-pill prov-real"><span data-i18n="REAL 8-day weather">REAL 8-day weather</span></span>
+      <span class="prov-pill prov-real"><span data-i18n="REAL old satellite">REAL old satellite</span></span>
+      <span class="prov-pill prov-derived"><span data-i18n="DERIVED stage">DERIVED stage</span></span>
+      <span class="prov-pill prov-proto"><span data-i18n="PROTOTYPE advisory">PROTOTYPE advisory</span></span>
     `;
     sidebar.prepend(banner);
   }
@@ -886,7 +888,7 @@ function updateTimelineUi() {
   setText('timeline-date', `${formatDateLong(p.period_start)} – ${formatDateShort(p.period_end)}`);
   setText(
     'timeline-sub',
-    `Period ${currentPeriodIndex + 1} of ${masterTimeline().length} • 8-day weather/advisory step`
+    t('Period {current} of {total} • 8-day weather/advisory step',{current:currentPeriodIndex+1,total:masterTimeline().length})
   );
 
   const slider = document.getElementById('timeline-slider');
@@ -900,7 +902,7 @@ function updateTimelineUi() {
 
     if (p.satellite_mode === 'fresh') {
       satChip.classList.add('chip-fresh');
-      satChip.textContent = 'OPT + SAR FRESH';
+      satChip.textContent = t('OPT + SAR FRESH');
     } else if (p.satellite_mode === 'mixed') {
       satChip.classList.add('chip-carried');
       const opt = modalityShort('OPT', p.optical_mode, p.optical_age_days);
@@ -913,15 +915,15 @@ function updateTimelineUi() {
       satChip.textContent = `${opt} • ${sar}`;
     } else {
       satChip.classList.add('chip-unavailable');
-      satChip.textContent = 'SATELLITE UNAVAILABLE';
+      satChip.textContent = t('SATELLITE UNAVAILABLE');
     }
   }
 
   const weatherChip = document.getElementById('weather-chip');
   if (weatherChip) {
     weatherChip.textContent = p.weather_available
-      ? 'WEATHER FRESH • 8-DAY'
-      : 'WEATHER MISSING';
+      ? t('WEATHER FRESH • 8-DAY')
+      : t('WEATHER MISSING');
   }
 }
 
@@ -930,6 +932,7 @@ function updateTimelineUi() {
 /* -------------------------------------------------------------------------- */
 
 function renderAll() {
+  window.AgriSenseI18n.apply();
   applyPersonaChrome();
   updateHeader();
   updateLegend();
@@ -938,6 +941,7 @@ function renderAll() {
   renderQaTable();
   updatePersonaView();
   updatePosterCards();
+  window.AgriSenseI18n.apply();
 
   if (activeField && roleAllowsField(activeField.field_id)) {
     updateOpenFieldModal();
@@ -949,6 +953,7 @@ function renderAll() {
 
   syncHeaderHeight();
 
+  window.AgriSenseI18n.apply();
   if (window.lucide) lucide.createIcons();
 }
 
@@ -1073,7 +1078,7 @@ function featureStyle(fieldId) {
 
 function tooltipHtml(fieldId) {
   const row = currentRecord(fieldId);
-  if (!row) return `<strong>${fieldId}</strong>`;
+  if (!row) return `<strong>${escapeHtml(fieldId)}</strong>`;
 
   const sat = row.satellite || {};
   const weather = row.weather || {};
@@ -1082,25 +1087,25 @@ function tooltipHtml(fieldId) {
   return `
     <div style="font-family:Inter;font-size:12px;line-height:1.45;padding:4px">
       <strong>${fieldId}</strong><br>
-      <strong>Period:</strong> ${formatDateShort(row.period_start)}<br>
-      <strong>Satellite:</strong> ${satelliteLabel(sat)}<br>
+      <strong><span data-i18n="Period:">Period:</span></strong> ${formatDateShort(row.period_start)}<br>
+      <strong><span data-i18n="Satellite:">Satellite:</span></strong> ${satelliteLabel(sat)}<br>
       <strong>NDVI:</strong> ${fmt(sat.NDVI, 3)}<br>
       <strong>NDMI:</strong> ${fmt(sat.NDMI, 3)}<br>
-      <strong>Rainfall:</strong> ${fmt(weather.rainfall_mm, 1)} mm<br>
+      <strong><span data-i18n="Rainfall:">Rainfall:</span></strong> ${fmt(weather.rainfall_mm, 1)} mm<br>
       <strong>ET₀:</strong> ${fmt(weather.fao56_eto_est_mm, 1)} mm<br>
-      <strong>Deficit:</strong> ${fmt(wb.deficit_mm, 1)} mm
+      <strong><span data-i18n="Deficit:">Deficit:</span></strong> ${fmt(wb.deficit_mm, 1)} mm
     </div>
   `;
 }
 
 function modalityShort(label, status, ageDays) {
-  if (status === 'fresh') return `${label} FRESH`;
-  if (status === 'carried') return `${label} ${ageDays}d OLD`;
-  return `${label} N/A`;
+  if (status === 'fresh') return t('{sensor} FRESH',{sensor:t(label)});
+  if (status === 'carried') return t('{sensor} {days}d OLD',{sensor:t(label),days:ageDays});
+  return t('{sensor} N/A',{sensor:t(label)});
 }
 
 function satelliteLabel(sat) {
-  if (!sat) return 'Unavailable';
+  if (!sat) return t('Unavailable');
 
   const opt = modalityShort(
     'Optical',
@@ -1126,10 +1131,10 @@ function updateHeader() {
   const scoped = getScopedCurrentRecords();
 
   const setHeaderLabels = (a, b, c, d) => {
-    if (labels[0]) labels[0].textContent = a;
-    if (labels[1]) labels[1].textContent = b;
-    if (labels[2]) labels[2].textContent = c;
-    if (labels[3]) labels[3].textContent = d;
+    if (labels[0]) labels[0].textContent = t(a);
+    if (labels[1]) labels[1].textContent = t(b);
+    if (labels[2]) labels[2].textContent = t(c);
+    if (labels[3]) labels[3].textContent = t(d);
   };
 
   if (currentPersonaRole === 'farmer') {
@@ -1158,7 +1163,7 @@ function updateHeader() {
       : NaN;
 
     setHeaderLabels('My Plots', '8-Day Rainfall', 'Water Deficit', 'Advisory Priority');
-    setText('header-total-area', `${farmerFieldIds.length} plots`);
+    setText('header-total-area', t('{count} plots',{count:farmerFieldIds.length}));
     setText('header-water-deficit', `${fmt(avgRain, 1)} mm`);
     setText('header-irrigation-needed', `${fmt(avgDeficit, 1)} mm`);
     setText('header-weather', Number.isFinite(maxPriority) ? `${maxPriority}/10` : '--');
@@ -1198,7 +1203,7 @@ function updateHeader() {
   const badge = document.querySelector('.badge-live');
   if (badge) {
     badge.innerHTML =
-      `<span class="pulse"></span> ${formatDateShort(p.period_start)} • ${ROLE_CONFIG[currentPersonaRole]?.title || 'User'}`;
+      `<span class="pulse"></span> ${formatDateShort(p.period_start)} • ${t(ROLE_CONFIG[currentPersonaRole]?.title || 'User')}`;
   }
 }
 
@@ -1213,16 +1218,16 @@ function updateLegend() {
   let palette = [];
 
   if (currentLayerMode === 'crop') {
-    title.textContent = `Vegetation • ${formatDateShort(currentPeriodSummary().period_start)}`;
+    title.textContent = `${t('Vegetation')} • ${formatDateShort(currentPeriodSummary().period_start)}`;
     palette = Object.entries(VEG_COLORS);
   } else if (currentLayerMode === 'stage') {
-    title.textContent = 'Derived Seasonal Stage';
+    title.textContent = t('Derived Seasonal Stage');
     palette = Object.entries(STAGE_COLORS);
   } else if (currentLayerMode === 'stress') {
-    title.textContent = 'Real NDMI Moisture Signal';
+    title.textContent = t('Real NDMI Moisture Signal');
     palette = Object.entries(MOISTURE_COLORS);
   } else if (currentLayerMode === 'deficit') {
-    title.textContent = '8-Day Water Deficit';
+    title.textContent = t('8-Day Water Deficit');
     palette = [
       ['0–5 mm', '#10b981'],
       ['5–15 mm', '#eab308'],
@@ -1230,7 +1235,7 @@ function updateLegend() {
       ['>30 mm', '#ef4444']
     ];
   } else {
-    title.textContent = '8-Day Irrigation Priority';
+    title.textContent = t('8-Day Irrigation Priority');
     palette = [
       ['Low / None', '#10b981'],
       ['Low', '#f59e0b'],
@@ -1243,7 +1248,7 @@ function updateLegend() {
     const div = document.createElement('div');
     div.className = 'legend-item';
     div.innerHTML =
-      `<span class="color-box" style="background:${color}"></span><span>${name}</span>`;
+      `<span class="color-box" style="background:${color}"></span><span>${t(name)}</span>`;
     items.appendChild(div);
   }
 }
@@ -1528,25 +1533,25 @@ function updatePersonaView() {
 
     container.innerHTML = `
       <div class="persona-title">
-        <i data-lucide="sprout"></i> Farmer — My Farms
+        <i data-lucide="sprout"></i> <span data-i18n="Farmer — My Farms">Farmer — My Farms</span>
       </div>
       <p class="persona-body">
-        Only your two assigned demo plots are shown on the map. Technical model
-        evaluation and regional pipeline controls are hidden.
+        <span data-i18n="Only your two assigned demo plots are shown on the map. Technical model evaluation and regional pipeline controls are hidden.">Only your two assigned demo plots are shown on the map. Technical model
+        evaluation and regional pipeline controls are hidden.</span>
       </p>
       <div class="farmer-plot-list">
         ${plotRows.map(({ field, row }, index) => `
           <button class="farmer-plot-btn" data-farmer-field="${field.field_id}">
-            <strong>Farm ${index + 1} • ${field.field_id}</strong>
+            <strong>${escapeHtml(t('Farm {number} • {id}',{number:index+1,id:field.field_id}))}</strong>
             <span>
-              Deficit ${fmt(row.water_balance?.deficit_mm,1)} mm •
-              Priority ${row.water_balance?.priority_score ?? '--'}/10
+              ${t('Deficit')} ${fmt(row.water_balance?.deficit_mm,1)} mm •
+              ${t('Priority')} ${row.water_balance?.priority_score ?? '--'}/10
             </span>
           </button>
         `).join('')}
       </div>
       <span class="role-scope-badge">
-        <i data-lucide="map-pin"></i> ${plotRows.length} assigned demo plots
+        <i data-lucide="map-pin"></i> ${t('{count} assigned demo plots',{count:plotRows.length})}
       </span>
     `;
 
@@ -1577,7 +1582,7 @@ function updatePersonaView() {
           <span class="kpi-val text-amber">${fmt(p.median_deficit_mm,1)} mm</span>
         </div>
         <div class="persona-kpi-box">
-          <span class="kpi-title">8-Day Rainfall</span>
+          <span class="kpi-title"><span data-i18n="8-Day Rainfall">8-Day Rainfall</span></span>
           <span class="kpi-val text-cyan">${fmt(p.mean_rainfall_mm,1)} mm</span>
         </div>
       </div>
@@ -1635,7 +1640,7 @@ function updatePersonaView() {
   } else {
     container.innerHTML = `
       <div class="persona-title">
-        <i data-lucide="badge-check"></i> Agriculture Officer
+        <i data-lucide="badge-check"></i> <span data-i18n="Agriculture Officer">Agriculture Officer</span>
       </div>
       <p class="persona-body">
         Full regional crop-intelligence interface with vegetation, derived
@@ -1647,13 +1652,14 @@ function updatePersonaView() {
           <span class="kpi-val text-emerald">${fmt(p.optical_valid_pct,1)}%</span>
         </div>
         <div class="persona-kpi-box">
-          <span class="kpi-title">SAR Valid</span>
+          <span class="kpi-title"><span data-i18n="SAR Valid">SAR Valid</span></span>
           <span class="kpi-val text-cyan">${fmt(p.sar_valid_pct,1)}%</span>
         </div>
       </div>
     `;
   }
 
+  window.AgriSenseI18n.apply();
   if (window.lucide) lucide.createIcons();
 }
 
@@ -1705,7 +1711,7 @@ function updateFieldModalValues() {
 
   setText(
     'field-modal-title',
-    `Observation: ${activeField.field_id} • ${formatDateShort(row.period_start)}`
+    t('Observation: {id} • {date}',{id:activeField.field_id,date:formatDateShort(row.period_start)})
   );
   setText(
     'field-modal-crop',
@@ -1737,7 +1743,7 @@ function updateFieldModalValues() {
   );
   setText(
     'm-canal',
-    `Weather grid • ${fmt(weather.rainfall_mm,1)} mm rain`
+    t('Weather grid • {rain} mm rain',{rain:fmt(weather.rainfall_mm,1)})
   );
 
   setText('m-kc', fmt(water.kc, 2));
@@ -1753,7 +1759,7 @@ function updateFieldModalValues() {
 
   setText(
     'm-advisory-text',
-    `${water.priority_label || 'No Advisory'} — ${water.status || ''}`
+    `${t(water.priority_label || 'No Advisory')} — ${t(water.status || '')}`
   );
   setText(
     'm-rec-depth',
@@ -1768,7 +1774,7 @@ function updateFieldModalValues() {
   if (badge) {
     const priority = Number(water.priority_score || 0);
     badge.textContent =
-      `Priority ${priority}/10 • ${water.priority_label || '--'}`;
+      t('Priority {score}/10 • {label}',{score:priority,label:t(water.priority_label || '--')});
     badge.className =
       `badge ${priority >= 8 ? 'badge-danger' : priority >= 4 ? 'badge-warning' : 'badge-emerald'}`;
   }
@@ -1796,23 +1802,23 @@ function injectPeriodContext(row) {
 
   card.innerHTML = `
     <div class="period-context-item">
-      <span>Master Period</span>
+      <span><span data-i18n="Master Period">Master Period</span></span>
       <strong>${formatDateShort(row.period_start)}–${formatDateShort(row.period_end)}</strong>
     </div>
     <div class="period-context-item">
-      <span>Satellite State</span>
+      <span><span data-i18n="Satellite State">Satellite State</span></span>
       <strong>${satelliteLabel(sat)}</strong>
     </div>
     <div class="period-context-item">
-      <span>8-Day Rainfall</span>
+      <span><span data-i18n="8-Day Rainfall">8-Day Rainfall</span></span>
       <strong>${fmt(weather.rainfall_mm,1)} mm</strong>
     </div>
     <div class="period-context-item">
-      <span>FAO-56 ET₀ Estimate</span>
+      <span><span data-i18n="FAO-56 ET₀ Estimate">FAO-56 ET₀ Estimate</span></span>
       <strong>${fmt(weather.fao56_eto_est_mm,1)} mm</strong>
     </div>
     <div class="period-context-item">
-      <span>Mean Temperature</span>
+      <span><span data-i18n="Mean Temperature">Mean Temperature</span></span>
       <strong>${fmt(weather.tmean_C,1)} °C</strong>
     </div>
     <div class="period-context-item">
@@ -1820,12 +1826,12 @@ function injectPeriodContext(row) {
       <strong>${fmt(weather.ERA5_PEV_mm,1)} mm</strong>
     </div>
     <div class="period-context-item">
-      <span>Derived Stage</span>
-      <strong>${row.derived?.growth_stage || '--'}</strong>
+      <span><span data-i18n="Derived Stage">Derived Stage</span></span>
+      <strong>${escapeHtml(t(row.derived?.growth_stage || '--'))}</strong>
     </div>
     <div class="period-context-item">
-      <span>Moisture Signal</span>
-      <strong>${row.derived?.moisture_signal || '--'}</strong>
+      <span><span data-i18n="Moisture Signal">Moisture Signal</span></span>
+      <strong>${escapeHtml(t(row.derived?.moisture_signal || '--'))}</strong>
     </div>
   `;
 }
@@ -1873,7 +1879,7 @@ async function renderFieldTimeline(fieldId) {
           datasets: [
             {
               type: 'line',
-              label: 'NDVI • latest real satellite state',
+              label: t('NDVI • latest real satellite state'),
               data: ndvi,
               borderColor: '#10b981',
               backgroundColor: 'rgba(16,185,129,.08)',
@@ -1884,7 +1890,7 @@ async function renderFieldTimeline(fieldId) {
             },
             {
               type: 'bar',
-              label: '8-day rainfall (mm)',
+              label: t('8-day rainfall (mm)'),
               data: rainfall,
               backgroundColor: 'rgba(6,182,212,.28)',
               borderColor: '#06b6d4',
@@ -1993,16 +1999,17 @@ async function renderLiveInference(fieldId) {
       <strong>
         <i data-lucide="brain-circuit"></i>
         ${currentPersonaRole === 'farmer'
-          ? 'AI Field Assessment'
-          : 'Live Trained-Model Inference'}
+          ? t('AI Field Assessment')
+          : t('Live Trained-Model Inference')}
       </strong>
-      <span class="live-inference-status">RUNNING</span>
+      <span class="live-inference-status"><span data-i18n="RUNNING">RUNNING</span></span>
     </div>
     <div style="font-size:.68rem;color:#94a3b8">
-      Loading Crop RF, Phenology LSTM and Stress XGBoost...
+      <span data-i18n="Loading Crop RF, Phenology LSTM and Stress XGBoost...">Loading Crop RF, Phenology LSTM and Stress XGBoost...</span>
     </div>
   `;
 
+  window.AgriSenseI18n.apply();
   if (window.lucide) lucide.createIcons();
 
   try {
@@ -2058,21 +2065,21 @@ async function renderLiveInference(fieldId) {
       if (!prediction) {
         return `
           <div class="live-inference-item">
-            <span>${title}</span>
-            <strong>Unavailable</strong>
+            <span>${escapeHtml(t(title))}</span>
+            <strong><span data-i18n="Unavailable">Unavailable</span></strong>
           </div>
         `;
       }
 
       return `
         <div class="live-inference-item">
-          <span>${title}</span>
-          <strong>${escapeHtml(prediction.label || '--')}</strong>
+          <span>${escapeHtml(t(title))}</span>
+          <strong>${escapeHtml(t(prediction.label || '--'))}</strong>
           <div class="live-inference-confidence">
             ${
               prediction.confidence == null
-                ? 'confidence unavailable'
-                : `${(Number(prediction.confidence) * 100).toFixed(1)}% confidence`
+                ? t('confidence unavailable')
+                : t('{percent}% confidence',{percent:(Number(prediction.confidence)*100).toFixed(1)})
             }
           </div>
           ${modelLine(prediction)}
@@ -2085,10 +2092,10 @@ async function renderLiveInference(fieldId) {
         <strong>
           <i data-lucide="brain-circuit"></i>
           ${currentPersonaRole === 'farmer'
-            ? 'AI Field Assessment'
-            : 'Live Trained-Model Inference'}
+            ? t('AI Field Assessment')
+            : t('Live Trained-Model Inference')}
         </strong>
-        <span class="live-inference-status">MODEL OUTPUT</span>
+        <span class="live-inference-status"><span data-i18n="MODEL OUTPUT">MODEL OUTPUT</span></span>
       </div>
 
       <div class="live-inference-grid">
@@ -2098,14 +2105,14 @@ async function renderLiveInference(fieldId) {
       </div>
 
       <div class="live-inference-note">
-        As of <strong>${escapeHtml(payload.as_of || period || '--')}</strong>.
-        Optical source:
+        <span data-i18n="As of">As of</span> <strong>${escapeHtml(payload.as_of || period || '--')}</strong>.
+        ${t('Optical source:')}
         <strong>${escapeHtml(payload.data_sources?.optical_source_date || 'N/A')}</strong>.
-        SAR source:
+        ${t('SAR source:')}
         <strong>${escapeHtml(payload.data_sources?.sar_source_date || 'N/A')}</strong>.
         ${
           currentPersonaRole === 'farmer'
-            ? 'Prototype AI decision-support output.'
+            ? t('Prototype AI decision-support output.')
             : 'These are predictions from the serialized trained models; current training labels are still prototype/derived.'
         }
       </div>
@@ -2119,27 +2126,28 @@ async function renderLiveInference(fieldId) {
       }
     `;
 
-    if (window.lucide) lucide.createIcons();
+    window.AgriSenseI18n.apply();
+  if (window.lucide) lucide.createIcons();
 
   } catch (error) {
     card.innerHTML = `
       <div class="live-inference-head">
         <strong>
           <i data-lucide="brain-circuit"></i>
-          Live Model Inference
+          <span data-i18n="Live Model Inference">Live Model Inference</span>
         </strong>
-        <span class="live-inference-status">OFFLINE</span>
+        <span class="live-inference-status"><span data-i18n="OFFLINE">OFFLINE</span></span>
       </div>
       <div class="live-inference-error">
-        ${escapeHtml(error.message)}
+        ${escapeHtml(currentPersonaRole==='farmer'?t('AI assessment is unavailable. Try again later; existing observations remain accessible.'):error.message)}
       </div>
       <div class="live-inference-note">
-        Verify the selected artifacts in <code>private_models/</code>
-        and check <code>/api/inference/health</code>.
+        ${currentPersonaRole==='farmer'?t('Prototype AI decision-support output.'):'Verify the selected artifacts in <code>private_models/</code> and check <code>/api/inference/health</code>.'}
       </div>
     `;
 
-    if (window.lucide) lucide.createIcons();
+    window.AgriSenseI18n.apply();
+  if (window.lucide) lucide.createIcons();
   }
 }
 
@@ -2448,6 +2456,7 @@ function togglePlayback() {
     playButton.innerHTML = '<i data-lucide="pause"></i>';
   }
 
+  window.AgriSenseI18n.apply();
   if (window.lucide) lucide.createIcons();
 }
 
@@ -2462,6 +2471,7 @@ function stopPlayback() {
     playButton.innerHTML = '<i data-lucide="play"></i>';
   }
 
+  window.AgriSenseI18n.apply();
   if (window.lucide) lucide.createIcons();
 }
 
@@ -2548,7 +2558,8 @@ async function rebuildPipeline() {
     button.innerHTML =
       '<i data-lucide="refresh-cw"></i> Rebuild Demo Data';
 
-    if (window.lucide) lucide.createIcons();
+    window.AgriSenseI18n.apply();
+  if (window.lucide) lucide.createIcons();
   }
 }
 
@@ -2729,6 +2740,7 @@ function applyPersonaRole(rebuildMap = true) {
   renderQaTable();
   updatePersonaView();
 
+  window.AgriSenseI18n.apply();
   if (window.lucide) lucide.createIcons();
   syncHeaderHeight();
 }
@@ -2761,7 +2773,7 @@ function pct(value) {
 
 function setText(id, value) {
   const element = document.getElementById(id);
-  if (element) element.textContent = value;
+  if (element) element.textContent = t(value);
 }
 
 function formatDateShort(value) {
@@ -2776,7 +2788,7 @@ function formatDateShort(value) {
   }
 
   return d.toLocaleDateString(
-    'en-IN',
+    window.AgriSenseI18n.locale(),
     { day: '2-digit', month: 'short' }
   );
 }
@@ -2793,7 +2805,7 @@ function formatDateLong(value) {
   }
 
   return d.toLocaleDateString(
-    'en-IN',
+    window.AgriSenseI18n.locale(),
     {
       day: '2-digit',
       month: 'short',
@@ -2860,5 +2872,13 @@ renderAll = function() {
 
   syncHeaderHeight();
 
+  window.AgriSenseI18n.apply();
   if (window.lucide) lucide.createIcons();
 };
+
+
+// Redraw presentation only: keep the current role, period, field and map viewport.
+window.addEventListener('agrisense:languagechange',()=>{
+  if(pipelineData){applyPersonaChrome();configureTimeline();updateTimelineUi();renderAll();}
+  syncHeaderHeight();
+});

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-study-area="agrifieldnet">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,13 +7,17 @@
   <title>AgriFieldNet Research | AgriSense</title>
   <link rel="stylesheet" href="agrifieldnet.css">
   <script src="agrifieldnet.js" defer></script>
+<link rel="stylesheet" href="i18n.css">
+<script src="i18n-catalog.js"></script>
+<script src="i18n.js"></script>
 </head>
 <body>
   <header class="topbar">
+<label class="language-control"><span data-i18n="Language">Language</span><select id="language-select" aria-describedby="language-help"><option value="auto" data-i18n="Automatic (study area)">Automatic (study area)</option><option value="en" lang="en">English</option><option value="hi" lang="hi">हिन्दी</option><option value="ta" lang="ta">தமிழ்</option></select></label><span id="language-help" class="language-help" data-i18n="Farmer controls are translated. Research reports and source records keep their original language."></span>
     <a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true">◈</span> AgriSense <span class="badge">AgriFieldNet</span></a>
-    <nav aria-label="AgriSense projects"><a href="index.html">Karnal</a><a href="haridwar.html">Haridwar</a><a href="agrifieldnet.html" aria-current="page">AgriFieldNet</a></nav>
+    <nav aria-label="AgriSense projects"><a href="index.html"><span data-i18n="Karnal">Karnal</span></a><a href="haridwar.html"><span data-i18n="Haridwar">Haridwar</span></a><a href="agrifieldnet.html" aria-current="page">AgriFieldNet</a></nav>
   </header>
-  <main>
+  <main lang="en">
     <div class="page-heading"><div><p class="eyebrow">CROP CLASSIFICATION RESEARCH</p><h1>AgriFieldNet results</h1><p id="scope">Loading the completed experiment…</p></div><span class="badge" id="validation-label">Spatial validation</span></div>
     <div id="status" role="status">Loading results…</div>
     <noscript>This dashboard requires JavaScript. Download the <a href="data/agrifieldnet/source/model_leaderboard_oof.csv">model results CSV</a>.</noscript>
@@ -54,5 +58,7 @@
     </div>
   </main>
   <footer>AgriSense · AgriFieldNet India research · Sentinel-1 / Sentinel-2</footer>
+<div id="language-status" role="status" aria-live="polite"></div>
 </body>
 </html>
+

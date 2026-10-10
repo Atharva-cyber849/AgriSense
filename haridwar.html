@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-study-area="haridwar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +14,9 @@
 
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="haridwar.css">
+<link rel="stylesheet" href="i18n.css">
+<script src="i18n-catalog.js"></script>
+<script src="i18n.js"></script>
 </head>
 <body class="dark-theme haridwar-page">
 
@@ -52,19 +55,20 @@
     </div>
 
     <div class="header-right haridwar-header-actions">
+<label class="language-control"><span data-i18n="Language">Language</span><select id="language-select" aria-describedby="language-help"><option value="auto" data-i18n="Automatic (study area)">Automatic (study area)</option><option value="en" lang="en">English</option><option value="hi" lang="hi">हिन्दी</option><option value="ta" lang="ta">தமிழ்</option></select></label><span id="language-help" class="language-help" data-i18n="Farmer controls are translated. Research reports and source records keep their original language."></span>
       <a class="btn btn-outline" href="agrifieldnet.html">
         <i data-lucide="sprout"></i> AgriFieldNet
       </a>
       <a class="btn btn-outline" href="index.html">
-        <i data-lucide="map"></i> Karnal Operational Demo
+        <i data-lucide="map"></i> <span data-i18n="Karnal Operational Demo">Karnal Operational Demo</span>
       </a>
       <button class="btn btn-primary" type="button" disabled>
-        <i data-lucide="microscope"></i> Haridwar Research
+        <i data-lucide="microscope"></i> <span data-i18n="Haridwar Research">Haridwar Research</span>
       </button>
     </div>
   </header>
 
-  <main class="haridwar-shell">
+  <main lang="en" class="haridwar-shell">
     <section class="haridwar-context-card">
       <div>
         <span class="haridwar-eyebrow">HARIDWAR VALIDATION DATASET</span>
@@ -369,5 +373,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="haridwar.js"></script>
+<div id="language-status" role="status" aria-live="polite"></div>
 </body>
 </html>
+

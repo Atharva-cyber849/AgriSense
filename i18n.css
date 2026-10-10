@@ -1,0 +1,27 @@
+.language-control{display:flex;flex-direction:column;gap:3px;min-width:140px;max-width:205px;font:inherit;font-size:12px;color:inherit}
+.language-control select{width:100%;min-width:0;padding:7px 9px;background:#172536;color:#e2e8f0;border:1px solid #52667a;border-radius:6px;font:inherit}
+.language-control select:focus-visible{outline:2px solid #34d399;outline-offset:2px}
+.language-help{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+#language-status:not(:empty){position:fixed;bottom:12px;left:12px;max-width:90vw;padding:12px;background:#172536;color:#fbbf24;z-index:4000}
+html:lang(hi) body,html:lang(ta) body{font-family:Inter,"Nirmala UI","Latha","Mangal",sans-serif;line-height:1.5}
+html:lang(hi) .persona-title,html:lang(ta) .persona-title{line-height:1.6}
+html:lang(hi) .btn,html:lang(ta) .btn{white-space:normal}
+.topbar{flex-wrap:wrap}
+@media(max-width:1200px){.app-header .header-right{flex-wrap:wrap!important}.language-control{flex:0 1 205px}.persona-selector{max-width:100%}.persona-selector select{max-width:100%}}
+@media(max-width:700px){.language-control{max-width:100%;flex:1 1 160px}.header-right{min-width:0}.layer-bar{max-width:calc(100% - 24px);overflow-x:auto}.layer-bar .layer-btn{flex-shrink:0}.farmer-plot-btn{overflow-wrap:anywhere}.modal-card{max-width:calc(100vw - 20px)}.live-inference-grid{grid-template-columns:1fr!important}.timeline-sub{white-space:normal!important}.map-info-badge{max-width:calc(100% - 24px);white-space:normal!important}}
+@media(max-width:700px){
+ body .main-layout{height:auto!important;min-height:0;flex-direction:column}
+ body .map-section{flex:none;height:580px;min-width:0}
+ body .dashboard-sidebar{width:100%;height:auto;min-width:0}
+ body .sidebar-header{flex-wrap:wrap;gap:8px}
+ body .master-timeline{grid-template-columns:34px 34px minmax(0,1fr) 34px!important;gap:6px;top:100px}
+ body .timeline-slider-wrap{grid-template-columns:minmax(0,1fr);grid-column:3;grid-row:1;gap:5px}
+ body .timeline-date{white-space:normal!important;font-size:11px}
+ body .timeline-sub{font-size:10px}
+ body #timeline-next{grid-column:4;grid-row:1}
+ body #satellite-chip{grid-column:1/-1;grid-row:2;justify-self:start;max-width:100%;white-space:normal}
+ body .timeline-period-label{min-width:0;overflow-wrap:anywhere}
+ body .modal-grid{grid-template-columns:minmax(0,1fr)}
+ body .modal-header{flex-wrap:wrap}
+ body .advisory-header{flex-wrap:wrap;gap:8px}
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-study-area="karnal">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +19,9 @@
   
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="i18n.css">
+<script src="i18n-catalog.js"></script>
+<script src="i18n.js"></script>
 </head>
 <body class="dark-theme">
 
@@ -29,7 +32,7 @@
         <i data-lucide="sprout" class="brand-icon"></i>
         <div class="brand-text">
           <span class="brand-title">AgriSense <span class="badge-region">KARNAL, IN</span></span>
-          <span class="brand-subtitle">Satellite Remote Sensing & AI Crop Water Deficit Advisory</span>
+          <span class="brand-subtitle"><span data-i18n="Satellite Remote Sensing &amp; AI Crop Water Deficit Advisory">Satellite Remote Sensing & AI Crop Water Deficit Advisory</span></span>
         </div>
       </div>
     </div>
@@ -55,22 +58,23 @@
     </div>
 
     <div class="header-right">
+<label class="language-control"><span data-i18n="Language">Language</span><select id="language-select" aria-describedby="language-help"><option value="auto" data-i18n="Automatic (study area)">Automatic (study area)</option><option value="en" lang="en">English</option><option value="hi" lang="hi">हिन्दी</option><option value="ta" lang="ta">தமிழ்</option></select></label><span id="language-help" class="language-help" data-i18n="Farmer controls are translated. Research reports and source records keep their original language."></span>
       <a class="btn btn-outline" href="agrifieldnet.html" title="Open AgriFieldNet crop classification research">
         <i data-lucide="sprout"></i> AgriFieldNet
       </a>
       <a class="btn btn-outline" href="haridwar.html" title="Open Haridwar wheat phenology research dashboard">
-        <i data-lucide="flask-conical"></i> Haridwar Research
+        <i data-lucide="flask-conical"></i> <span data-i18n="Haridwar Research">Haridwar Research</span>
       </a>
 
       <!-- Persona Switcher -->
       <div class="persona-selector">
         <i data-lucide="user-check" class="selector-icon"></i>
-        <select id="persona-select" title="Switch User Role Persona">
-          <option value="officer">👨‍💼 Agriculture Officer</option>
-          <option value="irrigation">🌊 Irrigation Officer</option>
-          <option value="wua">🚜 Water User Association (WUA)</option>
-          <option value="farmer">🌾 Farmer View</option>
-          <option value="policy">🏛️ Policy Maker</option>
+        <select id="persona-select" title="Switch User Role Persona" data-i18n-title="Switch User Role Persona">
+          <option value="officer" data-i18n="👨‍💼 Agriculture Officer">👨‍💼 Agriculture Officer</option>
+          <option value="irrigation" data-i18n="🌊 Irrigation Officer">🌊 Irrigation Officer</option>
+          <option value="wua" data-i18n="🚜 Water User Association (WUA)">🚜 Water User Association (WUA)</option>
+          <option value="farmer" data-i18n="🌾 Farmer View">🌾 Farmer View</option>
+          <option value="policy" data-i18n="🏛️ Policy Maker">🏛️ Policy Maker</option>
         </select>
       </div>
 
@@ -92,21 +96,21 @@
       
       <!-- Layer Switcher Bar -->
       <div class="layer-bar">
-        <span class="layer-bar-title"><i data-lucide="layers"></i> Output Layers:</span>
+        <span class="layer-bar-title"><i data-lucide="layers"></i> <span data-i18n="Output Layers:">Output Layers:</span></span>
         <button class="layer-btn active" data-layer="crop">
-          <i data-lucide="grid"></i> Crop Type
+          <i data-lucide="grid"></i> <span data-i18n="Crop Type">Crop Type</span>
         </button>
         <button class="layer-btn" data-layer="stage">
-          <i data-lucide="trending-up"></i> Growth Stage
+          <i data-lucide="trending-up"></i> <span data-i18n="Growth Stage">Growth Stage</span>
         </button>
         <button class="layer-btn" data-layer="stress">
-          <i data-lucide="activity"></i> Moisture Stress
+          <i data-lucide="activity"></i> <span data-i18n="Moisture Stress">Moisture Stress</span>
         </button>
         <button class="layer-btn" data-layer="deficit">
-          <i data-lucide="droplets"></i> Water Deficit
+          <i data-lucide="droplets"></i> <span data-i18n="Water Deficit">Water Deficit</span>
         </button>
         <button class="layer-btn" data-layer="advisory">
-          <i data-lucide="compass"></i> Irrigation Advisory
+          <i data-lucide="compass"></i> <span data-i18n="Irrigation Advisory">Irrigation Advisory</span>
         </button>
       </div>
 
@@ -172,7 +176,7 @@
                   <th>Tehsil</th>
                   <th>Canal Branch</th>
                   <th>Deficit (m³)</th>
-                  <th>Priority</th>
+                  <th><span data-i18n="Priority">Priority</span></th>
                 </tr>
               </thead>
               <tbody id="tehsil-table-body">
@@ -293,7 +297,7 @@
             <strong data-poster-field="farmer-health">Good</strong>
           </div>
           <div class="mini-card warning">
-            <span>Moisture Stress</span>
+            <span><span data-i18n="Moisture Stress">Moisture Stress</span></span>
             <strong data-poster-field="farmer-stress">Moderate</strong>
           </div>
           <div class="mini-card alert">
@@ -330,9 +334,9 @@
           <span class="panel-title">3. AGRICULTURE / EXTENSION OFFICER</span>
         </div>
         <div class="mini-grid">
-          <div class="mini-card"><span>Crop</span><strong data-poster-field="officer-crop">Wheat</strong></div>
-          <div class="mini-card"><span>Growth</span><strong data-poster-field="officer-stage">Flowering</strong></div>
-          <div class="mini-card alert"><span>Alerts</span><strong data-poster-field="officer-alerts">High</strong></div>
+          <div class="mini-card"><span><span data-i18n="Crop">Crop</span></span><strong data-poster-field="officer-crop">Wheat</strong></div>
+          <div class="mini-card"><span>Growth</span><strong data-poster-field="officer-stage"><span data-i18n="Flowering">Flowering</span></strong></div>
+          <div class="mini-card alert"><span>Alerts</span><strong data-poster-field="officer-alerts"><span data-i18n="High">High</span></strong></div>
         </div>
         <ul class="feature-list">
           <li>Field visits</li>
@@ -380,7 +384,7 @@
         <div class="mini-grid">
           <div class="mini-card"><span>Water Risk</span><strong data-poster-field="policy-risk">Moderate</strong></div>
           <div class="mini-card"><span>Coverage</span><strong data-poster-field="policy-coverage">34%</strong></div>
-          <div class="mini-card"><span>Priority</span><strong data-poster-field="policy-priority">High</strong></div>
+          <div class="mini-card"><span><span data-i18n="Priority">Priority</span></span><strong data-poster-field="policy-priority"><span data-i18n="High">High</span></strong></div>
         </div>
         <ul class="feature-list">
           <li>Regional analytics</li>
@@ -396,7 +400,7 @@
         <div class="mini-grid">
           <div class="mini-card"><span>Users</span><strong data-poster-field="admin-users">1245</strong></div>
           <div class="mini-card"><span>Health</span><strong data-poster-field="admin-health">99%</strong></div>
-          <div class="mini-card"><span>Alerts</span><strong data-poster-field="admin-alerts">Low</strong></div>
+          <div class="mini-card"><span>Alerts</span><strong data-poster-field="admin-alerts"><span data-i18n="Low">Low</span></strong></div>
         </div>
         <ul class="feature-list">
           <li>System monitoring</li>
@@ -475,7 +479,7 @@
           <span class="badge badge-emerald" id="field-modal-crop">Paddy (Rice)</span>
           <span class="badge badge-info" id="field-modal-tehsil">Nilokheri Tehsil</span>
         </div>
-        <button class="modal-close" id="btn-close-field-modal">&times;</button>
+        <button class="modal-close" id="btn-close-field-modal" aria-label="Close" data-i18n-aria-label="Close">&times;</button>
       </div>
 
       <div class="modal-body">
@@ -484,49 +488,49 @@
           <!-- Column 1: Indices & Satellite Metrics -->
           <div class="modal-col">
             <div class="metric-group">
-              <h4>Optical Spectral Indices (Sentinel-2 10m)</h4>
+              <h4><span data-i18n="Optical Spectral Indices (Sentinel-2 10m)">Optical Spectral Indices (Sentinel-2 10m)</span></h4>
               <div class="metric-row">
-                <span class="metric-label">NDVI (Vegetation Index)</span>
+                <span class="metric-label"><span data-i18n="NDVI (Vegetation Index)">NDVI (Vegetation Index)</span></span>
                 <span class="metric-val text-emerald" id="m-ndvi">0.74</span>
               </div>
               <div class="metric-row">
-                <span class="metric-label">NDWI (Water Index)</span>
+                <span class="metric-label"><span data-i18n="NDWI (Water Index)">NDWI (Water Index)</span></span>
                 <span class="metric-val text-cyan" id="m-ndwi">0.22</span>
               </div>
               <div class="metric-row">
-                <span class="metric-label">NDMI (Moisture Index)</span>
+                <span class="metric-label"><span data-i18n="NDMI (Moisture Index)">NDMI (Moisture Index)</span></span>
                 <span class="metric-val text-blue" id="m-ndmi">0.31</span>
               </div>
             </div>
 
             <div class="metric-group mt-3">
-              <h4>SAR Radar Features (Sentinel-1 C-Band)</h4>
+              <h4><span data-i18n="SAR Radar Features (Sentinel-1 C-Band)">SAR Radar Features (Sentinel-1 C-Band)</span></h4>
               <div class="metric-row">
-                <span class="metric-label">VV Backscatter (dB)</span>
+                <span class="metric-label"><span data-i18n="VV Backscatter (dB)">VV Backscatter (dB)</span></span>
                 <span class="metric-val" id="m-vv">-11.4 dB</span>
               </div>
               <div class="metric-row">
-                <span class="metric-label">VH Backscatter (dB)</span>
+                <span class="metric-label"><span data-i18n="VH Backscatter (dB)">VH Backscatter (dB)</span></span>
                 <span class="metric-val" id="m-vh">-16.8 dB</span>
               </div>
               <div class="metric-row">
-                <span class="metric-label">VV/VH Ratio</span>
+                <span class="metric-label"><span data-i18n="VV/VH Ratio">VV/VH Ratio</span></span>
                 <span class="metric-val" id="m-ratio">5.4 dB</span>
               </div>
             </div>
 
             <div class="metric-group mt-3">
-              <h4>Soil & Field Info</h4>
+              <h4><span data-i18n="Soil &amp; Field Info">Soil & Field Info</span></h4>
               <div class="metric-row">
-                <span class="metric-label">Area (Acres / Ha)</span>
+                <span class="metric-label"><span data-i18n="Area (Acres / Ha)">Area (Acres / Ha)</span></span>
                 <span class="metric-val" id="m-area">4.5 acres (1.82 ha)</span>
               </div>
               <div class="metric-row">
-                <span class="metric-label">Soil Profile</span>
+                <span class="metric-label"><span data-i18n="Soil Profile">Soil Profile</span></span>
                 <span class="metric-val" id="m-soil">Alluvial Loam</span>
               </div>
               <div class="metric-row">
-                <span class="metric-label">Canal Feeder</span>
+                <span class="metric-label"><span data-i18n="Canal Feeder">Canal Feeder</span></span>
                 <span class="metric-val text-amber" id="m-canal">Indri Distributary</span>
               </div>
             </div>
@@ -535,7 +539,7 @@
           <!-- Column 2: Temporal Curve & FAO-56 Irrigation Engine -->
           <div class="modal-col">
             <div class="chart-card">
-              <h4><i data-lucide="line-chart"></i> Multi-Temporal Profile (NDVI & SAR VV)</h4>
+              <h4><i data-lucide="line-chart"></i> <span data-i18n="Multi-Temporal Profile (NDVI &amp; SAR VV)">Multi-Temporal Profile (NDVI & SAR VV)</span></h4>
               <div class="chart-container-modal">
                 <canvas id="fieldTemporalChart"></canvas>
               </div>
@@ -544,35 +548,35 @@
             <!-- Advisory Box -->
             <div class="advisory-card mt-3">
               <div class="advisory-header">
-                <h4><i data-lucide="droplet"></i> FAO-56 Crop Water Balance & Advisory</h4>
+                <h4><i data-lucide="droplet"></i> <span data-i18n="FAO-56 Crop Water Balance &amp; Advisory">FAO-56 Crop Water Balance & Advisory</span></h4>
                 <span class="badge badge-danger" id="m-priority-badge">Priority 8/10</span>
               </div>
               <div class="advisory-body">
                 <div class="water-calc-grid">
                   <div class="calc-item">
-                    <span class="c-label">Crop Kc Factor</span>
+                    <span class="c-label"><span data-i18n="Crop Kc Factor">Crop Kc Factor</span></span>
                     <span class="c-val" id="m-kc">1.05</span>
                   </div>
                   <div class="calc-item">
-                    <span class="c-label">Weekly ETc Demand</span>
+                    <span class="c-label"><span data-i18n="Weekly ETc Demand">Weekly ETc Demand</span></span>
                     <span class="c-val" id="m-etc">33.2 mm</span>
                   </div>
                   <div class="calc-item">
-                    <span class="c-label">Effective Rain (Peff)</span>
+                    <span class="c-label"><span data-i18n="Effective Rain (Peff)">Effective Rain (Peff)</span></span>
                     <span class="c-val text-cyan" id="m-peff">0.0 mm</span>
                   </div>
                   <div class="calc-item">
-                    <span class="c-label">Net Water Deficit</span>
+                    <span class="c-label"><span data-i18n="Net Water Deficit">Net Water Deficit</span></span>
                     <span class="c-val text-amber" id="m-deficit">33.2 mm</span>
                   </div>
                 </div>
 
                 <div class="recommendation-box mt-2">
-                  <span class="rec-title">Irrigation Recommendation:</span>
+                  <span class="rec-title"><span data-i18n="Irrigation Recommendation:">Irrigation Recommendation:</span></span>
                   <p class="rec-text" id="m-advisory-text">Apply standard irrigation (50 mm) within 48 hours. Canal supply release requested.</p>
                   <div class="rec-meta mt-1">
-                    <span><strong>Recommended Depth:</strong> <span id="m-rec-depth">50 mm</span></span>
-                    <span><strong>Timing:</strong> <span id="m-rec-timing">Within 2-3 days</span></span>
+                    <span><strong><span data-i18n="Recommended Depth:">Recommended Depth:</span></strong> <span id="m-rec-depth">50 mm</span></span>
+                    <span><strong><span data-i18n="Timing:">Timing:</span></strong> <span id="m-rec-timing"><span data-i18n="Within 2-3 days">Within 2-3 days</span></span></span>
                   </div>
                 </div>
               </div>
@@ -677,6 +681,8 @@
 
   <!-- Application Logic -->
   <script src="app.js"></script>
+<div id="language-status" role="status" aria-live="polite"></div>
 </body>
 </html>
+
 
