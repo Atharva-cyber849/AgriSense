@@ -10,7 +10,10 @@
     "check:agrifieldnet": "node --check agrifieldnet.js && node --test tests/agrifieldnet.test.js",
     "test:languages": "node --test tests/i18n.test.js",
     "check:languages": "node --check app.js && node --check i18n.js && node --check i18n-catalog.js && node --test tests/i18n.test.js",
-    "test:languages:browser": "node tests/browser-i18n.cjs"
+    "test:languages:browser": "node tests/browser-i18n.cjs",
+    "build:soil-moisture": "python pipeline/build_soil_moisture_dashboard.py",
+    "check:soil-moisture": "node --check soil-moisture.js && node --test tests/soil-moisture.test.js",
+    "test:soil-moisture:browser": "node tests/browser-soil-moisture.cjs"
   },
   "dependencies": {
     "express": "^4.18.2",

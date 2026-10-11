@@ -1,0 +1,43 @@
+{
+  "checks": [
+    {
+      "dataset": "NOAA",
+      "prediction_rows": 64170,
+      "groups": 180,
+      "metric_reconciliation": "passed",
+      "target_reconciliation": "passed"
+    },
+    {
+      "dataset": "SCAN",
+      "prediction_rows": 127260,
+      "groups": 360,
+      "metric_reconciliation": "passed",
+      "target_reconciliation": "passed"
+    },
+    {
+      "dataset": "Climate transfer",
+      "prediction_rows": 127260,
+      "groups": 360,
+      "metric_reconciliation": "passed",
+      "target_reconciliation": "passed"
+    },
+    {
+      "dataset": "Soil-normalized events",
+      "prediction_rows": 105550,
+      "groups": 300,
+      "metric_reconciliation": "passed",
+      "target_reconciliation": "passed"
+    },
+    {
+      "dataset": "Sunflower",
+      "prediction_rows": 2512,
+      "groups": 96,
+      "metric_reconciliation": "passed",
+      "target_reconciliation": "Not independently reconciled to raw depth measurements"
+    }
+  ],
+  "total_prediction_rows": 426752,
+  "verified_evidence_tables": 38,
+  "model_refits": "Not rerun during web integration. Supplied notebook records representative daily refits and full sunflower refits.",
+  "robustness": "Reaggregated archived fold scores; corrupted predictions are not archived."
+}

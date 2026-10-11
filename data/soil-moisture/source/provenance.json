@@ -1,0 +1,250 @@
+{
+  "inputs": [
+    {
+      "file": "Soil_Moisture_PGM_Final_Evidence.zip",
+      "sha256": "508c7330a78ee0a29c4e0d0ac6500ab338d9fa3dbac2246b9febdef094d96bb3"
+    },
+    {
+      "file": "Soil_Moisture_PGM_Submission_Outputs.zip",
+      "sha256": "709e3711b84945bf2d321fbfbcfa370b38f6bd68a9fb55fccb8f1204c9458ce1"
+    },
+    {
+      "file": "Soil_Moisture_PGM_Final_Submission_FAST_EVIDENCE_LOAD_FIXED (1).ipynb",
+      "sha256": "71342d8bd99e38fa1d5da5e293d4b5f3c8efb31b7cf4cfd770c46924b242d808"
+    }
+  ],
+  "evidence_tables": [
+    {
+      "file": "noaa/canonical_observations.csv",
+      "sha256": "dc26c6d49cc016f2f3d37ac13e7f1259dba26ac30231c0a8f3c6d10b50f307b8"
+    },
+    {
+      "file": "noaa/bootstrap_sensitivity.csv",
+      "sha256": "79c67cd70ba1a1b0d675b825fde69ab0bda96e8f124442f67e167a0ca81a593d"
+    },
+    {
+      "file": "noaa/predictions.csv",
+      "sha256": "e8c465a1acc8609d00e24b2232f13baf96f20507f984fafd2696067e916f6952"
+    },
+    {
+      "file": "noaa/metrics.csv",
+      "sha256": "8599c4d182684649ecd1648116b0d7dbaeb08215113184b34b9041e8b8e9ee14"
+    },
+    {
+      "file": "noaa/choices.csv",
+      "sha256": "9c7c30c216a92cf26bfcc553663abaea75d8e8c484d5408aba27f3ea1cd5fde5"
+    },
+    {
+      "file": "noaa/tuning.csv",
+      "sha256": "7d47463436b1be1d985ce42c2f112b522ea6241a316c5ded0933b701cc347bf7"
+    },
+    {
+      "file": "noaa/diagnostics.csv",
+      "sha256": "f104949e9f1f07192f1d7815cee7d95eed428d2c8edd476cb84f7e554edab9f8"
+    },
+    {
+      "file": "noaa/robustness.csv",
+      "sha256": "78535376f0086dddf967ca075d74843ef2bfe1765536ed78f9c35b40b3f1e6e0"
+    },
+    {
+      "file": "noaa/ablations.csv",
+      "sha256": "a5ca1c06b9a317d0ae6828a1d004acb06d7fd7ba50da2afcf04fec3a9a768373"
+    },
+    {
+      "file": "noaa/calibration.csv",
+      "sha256": "e255eb7d2cbade1735db6717ed01a7041b438a3841ed20da7c3e52adef300d42"
+    },
+    {
+      "file": "scan_benchmark/predictions.csv",
+      "sha256": "8e90b466bbed8c515e40ff420d793db3ddda86c2b7ea1af1b9ee3eca1dddfaac"
+    },
+    {
+      "file": "scan_benchmark/metrics.csv",
+      "sha256": "1cb35e2af22c8253f304902ff4fb8af54571f16771149fa57b480fbd4e66e417"
+    },
+    {
+      "file": "scan_benchmark/choices.csv",
+      "sha256": "8e36ac078a9ac624050816e8edc855be3f1a178f6d296122a1630d0453187ab3"
+    },
+    {
+      "file": "scan_benchmark/tuning.csv",
+      "sha256": "5333eef49d4ce3a412985e5d0c2459bce8edba466ef4e987b23bd28c4b172e04"
+    },
+    {
+      "file": "scan_benchmark/diagnostics.csv",
+      "sha256": "dbbb7e37d7fc99f0ca755a347bc2c9e9a6f7dd9d3d7b8a0fc24d934b0b35b5b1"
+    },
+    {
+      "file": "scan_benchmark/calibration.csv",
+      "sha256": "2a4599a46dd74a96e6e1235b4ba29e08b4774483ed3e5e79f9d14761e5a41f35"
+    },
+    {
+      "file": "scan_climate_cluster_transfer/predictions.csv",
+      "sha256": "ea8dfff87685176e1cb09604a774079fee7363ed767e8bcab9329537644041df"
+    },
+    {
+      "file": "scan_climate_cluster_transfer/metrics.csv",
+      "sha256": "366daa07146f4a1cc8deca4fbd95a1f4a465627505d24803d703c0312a805621"
+    },
+    {
+      "file": "scan_climate_cluster_transfer/choices.csv",
+      "sha256": "69389f52308c3d6ed142e2e74706c49a88caeecba76ec7e8f70c2eec153424c5"
+    },
+    {
+      "file": "scan_climate_cluster_transfer/tuning.csv",
+      "sha256": "79c359beb43f85b9f5cfd7de9f0e033e9b32a8edce9d01c0bd10771b2f7f8325"
+    },
+    {
+      "file": "scan_climate_cluster_transfer/diagnostics.csv",
+      "sha256": "58352a80efe1b49c5fd00f6e0855d0134d1b73a8eb894a9ba928e9988bc66fa4"
+    },
+    {
+      "file": "scan_climate_cluster_transfer/calibration.csv",
+      "sha256": "d946f97fc2fbecf6b435396ef2946e4684e0efb658164b2c009fb89da284238b"
+    },
+    {
+      "file": "scan_benchmark/canonical_scan_observations.csv",
+      "sha256": "e7e57bc34f43805b3840a90e9a57260341ea531c1d0a955e943890df44191b24"
+    },
+    {
+      "file": "scan_benchmark/robustness.csv",
+      "sha256": "0952c66d667eff983016e6f2482cf35ec1974ee46e64b8ce0d1a75c791d887db"
+    },
+    {
+      "file": "scan_benchmark/ablations.csv",
+      "sha256": "bc962b14dc0e8933f3543aed6f9c562b85b5d66d7b543bfb559d1f61e283f35c"
+    },
+    {
+      "file": "scan_benchmark/station_selection.csv",
+      "sha256": "d5aab8f263f57236829933460e81736f71d3943ce3912fb47186cb492b2053bd"
+    },
+    {
+      "file": "scan_climate_cluster_transfer/pretest_climate_clusters.csv",
+      "sha256": "43dc0a9852277632bd124155fb6396adf8f467e7b87fa9f414fc859541861a2a"
+    },
+    {
+      "file": "scan_benchmark/awdb_source_manifest.csv",
+      "sha256": "00eceeba4c24175bcf0abc931a309a3b76a9c7618dac6e44141ee8ed311d5390"
+    },
+    {
+      "file": "sunflower_irregular_pgm/predictions.csv",
+      "sha256": "7a4b512b4f9cbbae34fd00d30bdd082a96464ecfaaa0f5674bea07e44c6fd1db"
+    },
+    {
+      "file": "sunflower_irregular_pgm/metrics.csv",
+      "sha256": "5203e02cd304b946099b90a1adc9a862dbd219c2b5f212854e3976c79ce691f9"
+    },
+    {
+      "file": "sunflower_irregular_pgm/choices.csv",
+      "sha256": "11b5839c3de4313b762e0643ece681051456380ebe16165beb991c6e28548803"
+    },
+    {
+      "file": "sunflower_irregular_pgm/interval_dataset.csv",
+      "sha256": "66b3b4d3e73f8fb43d0b205a2bcc530caed208679877fabb97304286041249f1"
+    },
+    {
+      "file": "sunflower_external/rootzone_observations_0_135cm.csv",
+      "sha256": "1ac34fe047d0bf4707a0958ce09adc9d3f0231233c4a20f0619cc4ec3e3b9a22"
+    },
+    {
+      "file": "sunflower_external/measured_irrigation_daily.csv",
+      "sha256": "a44b3b92cbc9215ede8a5b74f04a3a971e2fd2f40c292b6e7d772461164cfbfd"
+    },
+    {
+      "file": "scan_paw_normalized/predictions.csv",
+      "sha256": "beb0092e0adfb729f536f388a835758a63dedcede0b26dbaf57efd8e269832f0"
+    },
+    {
+      "file": "scan_paw_normalized/metrics.csv",
+      "sha256": "0531af5136f3f46eaf15a355591678ceeac10b9c65f39e1fd8a92978c78b40c2"
+    },
+    {
+      "file": "scan_paw_normalized/scan_soil_hydraulics.csv",
+      "sha256": "aa376dc5566872c1e6cff29078aa8eec0eab6baf6f0de7dbeca71a5f9f7b2c8d"
+    },
+    {
+      "file": "scan_paw_normalized/event_support_sensitivity.csv",
+      "sha256": "7e76feef55988f89b0cfdea13fa7f3f411959b4cf76ec31848765a01735cc614"
+    }
+  ],
+  "published_sources": [
+    {
+      "file": "climate_macro.csv",
+      "rows": 30,
+      "sha256": "7abfe29484b961c1d2e5299e4f7a2c07b3f35caf12d702bd80d50a79421d092c",
+      "origin": "scan_climate_cluster_transfer/predictions.csv"
+    },
+    {
+      "file": "daily_macro.csv",
+      "rows": 60,
+      "sha256": "7cbc21bd3290678d01e37f1864c0f7903ca923f86a628c6569df97ce96f8f676",
+      "origin": "NOAA and SCAN predictions; equal station-year means"
+    },
+    {
+      "file": "daily_event_support.csv",
+      "rows": 54,
+      "sha256": "0c4c3473c786615e83d54f08b8f25cacde3b8e65eb64bf1b80456e297d695d79",
+      "origin": "Recomputed original training-threshold event counts; Persistence rows only"
+    },
+    {
+      "file": "bootstrap.csv",
+      "rows": 8,
+      "sha256": "4257e0b53bb4d4fc56bb33082a7bbee200e77529d4a1674ff3cb79207c9468f8",
+      "origin": "Recomputed selected-pipeline minus persistence MAE; station resampling and circular day blocks; 300 replicates; seed 42 + block length"
+    },
+    {
+      "file": "selected_models.csv",
+      "rows": 18,
+      "sha256": "a0b194f998d6631e6d2139f1b504001fa6dae9e27b048c3262556cc693dd1459",
+      "origin": "Archived inner-validation choices"
+    },
+    {
+      "file": "robustness.csv",
+      "rows": 100,
+      "sha256": "02d7a92e6de61c59f7f903d2071ea7afb8a4f243995d2e40e1e926ba8a58a613",
+      "origin": "Archived per-fold scores, equal station-year means; corrupted row-level predictions not supplied"
+    },
+    {
+      "file": "ablations.csv",
+      "rows": 8,
+      "sha256": "7a336146f63a3fea6ae518b36fa183ce428fd8a000fd6e0b65c403c6b192d960",
+      "origin": "Archived per-fold scores, equal station-year means; corrupted row-level predictions not supplied"
+    },
+    {
+      "file": "soil_event_metrics.csv",
+      "rows": 300,
+      "sha256": "cd835cd2cab7f10d95bdb4cccf3f43cb1a0fb1fba2e50699ae6f280d364efaed",
+      "origin": "Five direct-soil sites; raw probabilities only; event r < 0.30; AP null for single-class folds"
+    },
+    {
+      "file": "soil_thresholds.csv",
+      "rows": 5,
+      "sha256": "390bce290ac024b284a9885a6a896854ba39e4e8be0d3a4280721d585c043e02",
+      "origin": "USDA SSURGO 0-30 cm retention estimates from supplied evidence"
+    },
+    {
+      "file": "sunflower_metrics.csv",
+      "rows": 96,
+      "sha256": "cf483b4bfe1edfd40d812db5dfc5be9aa7a53b673e833c6f845be24c00a2ae6f",
+      "origin": "Recomputed archived endpoint predictions; equal treatment-year macro means in UI"
+    },
+    {
+      "file": "dbn_A.csv",
+      "sha256": "21c1b8854205e2ebc31209ae495ef7115176ddc27d3316e82fcb00ddff768234",
+      "origin": "Supplied fitted representative NOAA model output; not refitted here"
+    },
+    {
+      "file": "dbn_Q.csv",
+      "sha256": "7be505bf1e1e7539055b74c002193d134d06873cd74c6c9abb1427255d4567d1",
+      "origin": "Supplied fitted representative NOAA model output; not refitted here"
+    },
+    {
+      "file": "worked_probabilities.csv",
+      "sha256": "2bda49d89b9a47de4d2d93b2cc26a6752990f0dc218313336df5d5241eccf393",
+      "origin": "Supplied fitted representative NOAA model output; not refitted here"
+    }
+  ],
+  "method": "Build script recomputes metrics and bootstrap from supplied predictions. No model fitting or external data retrieval.",
+  "units": "Volumetric soil moisture in m\u00b3/m\u00b3; probabilities and coverage in [0,1].",
+  "classification": "Historical measured observations and archived model predictions; no synthetic observations."
+}

@@ -1,5 +1,7 @@
 // Authored interface translations. Source records and API values are never rewritten.
 (function(root){const rows=[
+  ["Soil moisture", "मिट्टी की नमी", "மண் ஈரப்பதம்"],
+  ["These are historical US research results, not live measurements or irrigation advice for your farm.", "ये अमेरिका के ऐतिहासिक शोध परिणाम हैं, आपके खेत के वर्तमान माप या सिंचाई की सलाह नहीं हैं।", "இவை அமெரிக்காவின் கடந்தகால ஆய்வு முடிவுகள். உங்கள் பண்ணைக்கான நேரடி அளவீடுகளோ பாசன ஆலோசனையோ அல்ல."],
   [
     "Farmer",
     "किसान",
