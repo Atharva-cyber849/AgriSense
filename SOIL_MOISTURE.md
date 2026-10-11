@@ -2,7 +2,7 @@
 
 Open `soil-moisture.html` from any dashboard. It is a static research explorer,
 using AgriSense's existing styles and saved language preference. Navigation and
-the historical-research notice support Hindi, Tamil and English. Technical study
+the historical-research notice support ten Indian languages and English. Technical study
 results retain English, as on the existing research pages. Automatic language is
 English for this US study. No farmer inference or advisory API is changed.
 

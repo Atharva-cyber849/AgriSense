@@ -3,9 +3,18 @@
 .language-control select:focus-visible{outline:2px solid #34d399;outline-offset:2px}
 .language-help{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
 #language-status:not(:empty){position:fixed;bottom:12px;left:12px;max-width:90vw;padding:12px;background:#172536;color:#fbbf24;z-index:4000}
-html:lang(hi) body,html:lang(ta) body{font-family:Inter,"Nirmala UI","Latha","Mangal",sans-serif;line-height:1.5}
-html:lang(hi) .persona-title,html:lang(ta) .persona-title{line-height:1.6}
-html:lang(hi) .btn,html:lang(ta) .btn{white-space:normal}
+html:not(:lang(en)) body{font-family:Inter,"Nirmala UI","Noto Sans Bengali","Noto Sans Telugu","Noto Sans Tamil","Noto Sans Gujarati","Noto Sans Kannada","Noto Sans Oriya","Noto Sans Malayalam","Mangal",sans-serif;line-height:1.5}
+html:not(:lang(en)) .persona-title{line-height:1.6}
+html:not(:lang(en)) .brand-subtitle{line-height:1.6}
+html:not(:lang(en)) .stat-label{line-height:1.5;margin-bottom:3px;letter-spacing:normal}
+html:not(:lang(en)) .stat-value{line-height:1.4}
+html:not(:lang(en)) .btn{white-space:normal}
+html:lang(ur) body{font-family:"Noto Naskh Arabic","Nirmala UI",Tahoma,sans-serif}
+/* Scope RTL to translated text. Maps, timelines, charts and English research keep their coordinates/order. */
+html:lang(ur) :is([data-i18n],.persona-title,.persona-note,.farmer-plot-btn,.stat-label,.legend-title,.legend-item,#panel-title,#timeline-sub,#satellite-chip,#weather-chip,#m-advisory-text,.live-inference-error){direction:rtl;unicode-bidi:plaintext;text-align:start}
+html:lang(ur) :is(.modal-card,.period-context-card){text-align:start}
+html:lang(ur) :is(.map-section,.leaflet-container,canvas,svg,[lang="en"]){direction:ltr}
+.language-control option{unicode-bidi:plaintext}
 .topbar{flex-wrap:wrap}
 @media(max-width:1200px){.app-header .header-right{flex-wrap:wrap!important}.language-control{flex:0 1 205px}.persona-selector{max-width:100%}.persona-selector select{max-width:100%}}
 @media(max-width:700px){.language-control{max-width:100%;flex:1 1 160px}.header-right{min-width:0}.layer-bar{max-width:calc(100% - 24px);overflow-x:auto}.layer-bar .layer-btn{flex-shrink:0}.farmer-plot-btn{overflow-wrap:anywhere}.modal-card{max-width:calc(100vw - 20px)}.live-inference-grid{grid-template-columns:1fr!important}.timeline-sub{white-space:normal!important}.map-info-badge{max-width:calc(100% - 24px);white-space:normal!important}}

@@ -5,6 +5,7 @@ const http=require('node:http');
 const fs=require('node:fs/promises');
 const path=require('node:path');
 const assert=require('node:assert/strict');
+const i18n=require('../i18n.js');
 const root=path.resolve(__dirname,'..');
 const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json'};
 const server=http.createServer(async(req,res)=>{
@@ -23,7 +24,7 @@ const server=http.createServer(async(req,res)=>{
  let browser;
  try{
   await new Promise(r=>server.listen(0,'127.0.0.1',r));
-  const base=`http://127.0.0.1:${server.address().port}`;
+  const base=process.env.LANGUAGE_TEST_BASE_URL||`http://127.0.0.1:${server.address().port}`;
   browser=await chromium.launch({channel:'msedge',headless:true});
   const page=await browser.newPage({viewport:{width:1440,height:1000}});
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -33,6 +34,7 @@ const server=http.createServer(async(req,res)=>{
   assert.equal(await page.locator('html').getAttribute('lang'),'hi');
   assert.match(await page.locator('#persona-view-container').textContent(),/मेरे खेत/);
   assert.equal(await page.locator('[data-farmer-field]').count(),2);
+  assert.equal(await page.locator('#language-select option').count(),12);
   assert.match(await page.locator('[data-layer=advisory]').textContent(),/सिंचाई सलाह/);
   await page.locator('[data-farmer-field]').first().click();
   await page.locator('#live-inference-card .live-inference-error').waitFor();
@@ -53,14 +55,25 @@ const server=http.createServer(async(req,res)=>{
   assert.deepEqual(after,snapshot,'language switch must preserve records, period, role and viewport');
   await page.locator('#btn-close-field-modal').click();
   await fs.mkdir(path.join(root,'test-output'),{recursive:true});
-  for(const lang of ['ta','hi','en']){
+  for(const lang of Object.keys(i18n.names)){
+   i18n.setPreference(lang);
    await page.locator('#language-select').selectOption(lang);
+   assert.equal(await page.locator('html').getAttribute('lang'),lang);
+   assert.equal((await page.locator('[data-layer=advisory]').textContent()).trim(),i18n.t('Irrigation Advisory'));
+   assert.equal(await page.locator('#persona-select').inputValue(),'farmer');
+   assert.equal(await page.locator('[data-farmer-field]').count(),2);
+   assert.deepEqual(await page.evaluate(()=>({role:currentPersonaRole,index:currentPeriodIndex,id:activeField.field_id,water:JSON.stringify(currentRecord(activeField.field_id).water_balance)})),snapshot);
    await page.setViewportSize({width:390,height:844});
    await page.screenshot({path:path.join(root,`test-output/farmer-${lang}.png`),fullPage:true});
    if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))console.log(await page.locator('body *').evaluateAll(nodes=>nodes.filter(n=>n.getBoundingClientRect().right>390&&getComputedStyle(n).display!=='none').slice(0,18).map(n=>({tag:n.tagName,cls:n.className,right:n.getBoundingClientRect().right,width:n.getBoundingClientRect().width}))));
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`${lang} mobile width`);
    await page.screenshot({path:path.join(root,`test-output/farmer-${lang}.png`),fullPage:true});
+   if(lang==='ur'){
+    assert.equal(await page.locator('.farmer-plot-btn').first().evaluate(el=>getComputedStyle(el).direction),'rtl');
+    assert.equal(await page.locator('#map').evaluate(el=>getComputedStyle(el).direction),'ltr');
+   }
   }
+  await page.locator('#language-select').selectOption('en');
   assert.match(await page.locator('#persona-view-container').textContent(),/My Farms/);
   assert.match(await page.locator('[data-layer=advisory]').textContent(),/Irrigation Advisory/);
   await page.reload({waitUntil:'domcontentloaded'});
@@ -74,12 +87,24 @@ const server=http.createServer(async(req,res)=>{
   assert.equal(await page.locator('html').getAttribute('lang'),'en');
   await page.locator('#language-select').selectOption('hi');
   assert.equal(await page.locator('#language-select').inputValue(),'hi');
+  for(const file of ['haridwar.html','agrifieldnet.html','soil-moisture.html']){
+   await page.goto(base+'/'+file,{waitUntil:'domcontentloaded'});
+   assert.equal(await page.locator('#language-select option').count(),12,file);
+   for(const lang of Object.keys(i18n.names)){
+    i18n.setPreference(lang);
+    await page.locator('#language-select').selectOption(lang);
+    assert.equal(await page.locator('[data-i18n="Soil moisture"]').first().textContent(),i18n.t('Soil moisture'));
+   }
+   assert.equal(await page.locator('main').getAttribute('lang'),'en');
+  }
+  await page.reload({waitUntil:'domcontentloaded'});
+  assert.equal(await page.locator('#language-select').inputValue(),'ml');
   const blocked=await browser.newPage();
   await blocked.addInitScript(()=>{Storage.prototype.getItem=function(){throw Error('blocked');};Storage.prototype.setItem=function(){throw Error('blocked');};});
   await blocked.goto(base+'/agrifieldnet.html',{waitUntil:'domcontentloaded'});
   await blocked.locator('#language-select').selectOption('hi');
   assert.match(await blocked.locator('#language-status').textContent(),/सहेजी नहीं/);
   assert.deepEqual(errors,[]);
-  console.log('Passed: real farmer records, Hindi/Tamil/English, legends, prototype advisories, offline messages, unchanged records/viewport/role, cross-page persistence, mobile and blocked storage.');
+  console.log('Passed: ten Indian languages plus English, complete selectors on four pages, real farmer records, advisories, unchanged records/role/period, Urdu RTL text/LTR maps, cross-page persistence, mobile and blocked storage.');
  }finally{await browser?.close();await new Promise(r=>server.close(r));}
 })().catch(error=>{console.error(error);process.exitCode=1;});
