@@ -4,7 +4,7 @@
   "description": "Satellite Remote Sensing & AI/ML Crop Intelligence and Irrigation Advisory Platform for Karnal Region, Haryana, India",
   "main": "server.js",
   "scripts": {
-    "test": "node --test tests/advisory-data.test.js tests/agrifieldnet.test.js tests/i18n.test.js tests/soil-moisture.test.js",
+    "test": "node --test tests/advisory-data.test.js tests/agrifieldnet.test.js tests/i18n.test.js tests/kaggriculture.test.js tests/soil-moisture.test.js",
     "start": "node server.js",
     "pipeline": "python pipeline/run_pipeline.py",
     "build:agrifieldnet": "python pipeline/build_agrifieldnet_dashboard.py",
@@ -16,7 +16,9 @@
     "check:soil-moisture": "node --check js/soil-moisture.js && node --test tests/soil-moisture.test.js",
     "test:soil-moisture:browser": "node tests/browser-soil-moisture.cjs",
     "build:crop-engine": "python pipeline/train_crop_engine.py",
-    "build:policy-sim": "python pipeline/policy_sim.py"
+    "build:policy-sim": "python pipeline/policy_sim.py",
+    "check:kaggriculture": "node --check js/kaggriculture.js && node --check js/kaggriculture-worker.js && node --test tests/kaggriculture.test.js",
+    "test:kaggriculture:engine": "python tests/test_kaggriculture_engine.py"
   },
   "dependencies": {
     "express": "^4.18.2",

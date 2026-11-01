@@ -19,6 +19,8 @@ Canal water in Karnal reaches farmers on a fixed rotation, whatever each crop ne
 
 Appendix: [US soil-moisture research](soil-moisture.html), a separate historical study. It is not part of the Karnal advisory.
 
+Separate from that argument: [Kaggriculture Lab](kaggriculture.html) runs the Kaggle competition's real game engine in the browser, so you can compare farming strategies live. It is a game, not evidence about real farms. See [`docs/KAGGRICULTURE.md`](docs/KAGGRICULTURE.md).
+
 ## Architecture
 
 ```mermaid
@@ -86,6 +88,7 @@ curl https://agrisenseirrigation.netlify.app/api/inference/health
 | Root | The four site pages (`index`, `haridwar`, `agrifieldnet`, `soil-moisture`), `server.js` and deploy config |
 | `css/`, `js/` | Site styles and scripts. The site is served as-is from the root by Netlify |
 | `scripts/` | Windows launcher for the web app and inference service |
+| `kaggriculture/` | Kaggle game engine, match runner and strategies for the Kaggriculture Lab |
 | `pipeline/` | Data builds, model training, simulator, inference API |
 | `data/` | Site data, source tables and study outputs |
 | `models/` | Phenology LSTM. `models/rule_consistency/` keeps the retired circular-label models |

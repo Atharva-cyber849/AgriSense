@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" data-study-area="kaggriculture">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Run Kaggle's Kaggriculture game engine in your browser and compare farming strategies head to head.">
+  <title>Kaggriculture Lab | AgriSense</title>
+  <link rel="stylesheet" href="css/agrifieldnet.css">
+  <link rel="stylesheet" href="css/kaggriculture.css">
+  <link rel="stylesheet" href="css/i18n.css">
+  <script src="js/i18n-catalog.js"></script>
+  <script src="js/i18n-regional.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/kaggriculture.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <label class="language-control"><span data-i18n="Language">Language</span><select id="language-select" aria-describedby="language-help"><option value="auto" data-i18n="Automatic (study area)">Automatic (study area)</option><option value="en" lang="en">English</option></select></label><span id="language-help" class="language-help" data-i18n="Farmer controls are translated. Research reports and source records keep their original language."></span>
+    <a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true">◈</span> AgriSense <span class="badge">Kaggriculture Lab</span></a>
+    <nav aria-label="AgriSense projects"><a href="index.html"><span data-i18n="Karnal">Karnal</span></a><a href="haridwar.html"><span data-i18n="Haridwar">Haridwar</span></a><a href="agrifieldnet.html">AgriFieldNet</a><a href="kaggriculture.html" aria-current="page">Kaggriculture</a></nav>
+  </header>
+  <main lang="en">
+    <div class="page-heading">
+      <div>
+        <p class="eyebrow">STRATEGY LAB</p>
+        <h1>Kaggriculture Lab</h1>
+        <p>Run the Kaggriculture competition's real game engine in your browser and compare farming strategies. Every result below is played live, not replayed from a file.</p>
+      </div>
+      <span class="badge amber">Game simulation, not field data</span>
+    </div>
+
+    <div class="engine-bar">
+      <p id="engine-status" role="status" data-state="loading">Loading the Python game engine…</p>
+      <button type="button" id="engine-retry" hidden>Retry</button>
+    </div>
+    <noscript><p class="error">The lab needs JavaScript and WebAssembly to run the game engine.</p></noscript>
+
+    <nav class="tabs" aria-label="Lab views">
+      <button type="button" data-view="match" aria-pressed="true">Live match</button>
+      <button type="button" data-view="tournament" aria-pressed="false">Tournament</button>
+      <button type="button" data-view="about" aria-pressed="false">Strategies &amp; engine</button>
+    </nav>
+
+    <section data-panel="match" aria-label="Live match">
+      <article class="card">
+        <div class="controls match-controls">
+          <label>Player A<select id="player-a"></select></label>
+          <label>Player B<select id="player-b"></select></label>
+          <label>Seed<input id="match-seed" type="number" min="1" step="1" value="1" inputmode="numeric"></label>
+          <button type="button" id="run-match" class="primary" disabled>Run match</button>
+        </div>
+        <p class="note seed-note">The seed sets weeds and which town shops open. The same pairing and seed always gives the same result, except for the Random strategy.</p>
+      </article>
+
+      <div id="match-output" hidden>
+        <p class="insight" id="match-summary" role="status"></p>
+        <p class="error-box" id="match-error" role="alert" hidden></p>
+        <div class="kpis" id="match-kpis"></div>
+        <article class="card">
+          <div class="section-head">
+            <div><h2>Season replay</h2><p>End of each day. Move the slider to any day.</p></div>
+            <div class="replay-controls">
+              <button type="button" id="replay-play">Play season</button>
+              <input id="replay-slider" type="range" min="0" max="0" value="0" aria-label="Season day">
+              <span id="replay-label"></span>
+            </div>
+          </div>
+          <div class="farms"><div id="farm-a"></div><div id="farm-b"></div></div>
+          <div class="tile-key" id="tile-key"></div>
+        </article>
+        <div class="grid two">
+          <article class="card">
+            <h2>Coins in the bank</h2>
+            <p>Both players, end of each day</p>
+            <div class="legend" id="money-legend"></div>
+            <div id="money-chart"></div>
+            <details><summary>View daily values</summary><div class="table-wrap" id="match-table"></div></details>
+          </article>
+          <article class="card">
+            <div class="section-head">
+              <div><h2>Market sale price</h2><p>Shared by both players, end of each day</p></div>
+              <label>Product<select id="price-product"></select></label>
+            </div>
+            <div id="price-chart"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section data-panel="tournament" aria-label="Tournament" hidden>
+      <article class="card">
+        <h2>Choose the field</h2>
+        <p>Each strategy plays every other one from both seats, so neither gets a seat advantage.</p>
+        <div class="roster" id="roster"></div>
+        <div class="controls tournament-controls">
+          <label>Seeds per pairing<select id="tournament-seeds"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="5">5</option></select></label>
+          <button type="button" id="run-tournament" class="primary" disabled>Run tournament</button>
+          <button type="button" id="stop-tournament" hidden>Stop</button>
+          <span class="note" id="tournament-size"></span>
+        </div>
+      </article>
+      <div id="tournament-output" hidden>
+        <p id="tournament-progress" role="status"></p>
+        <div class="progress-track"><div class="progress-fill" id="tournament-bar"></div></div>
+        <p class="error-box" id="tournament-error" role="alert" hidden></p>
+        <p class="insight" id="tournament-finding"></p>
+        <article class="card">
+          <div class="section-head">
+            <div><h2>Standings</h2><p>Ranked by win rate, counting a draw as half a win</p></div>
+            <button type="button" id="export-tournament" hidden>Export results ↓</button>
+          </div>
+          <div class="table-wrap" id="standings"></div>
+        </article>
+        <article class="card">
+          <h2>Head to head</h2>
+          <p>Average coin margin of the row strategy over the column strategy, with wins out of matches played. Blue means the row won by more on average; orange means it lost.</p>
+          <div class="table-wrap" id="matrix"></div>
+        </article>
+      </div>
+    </section>
+
+    <section data-panel="about" aria-label="Strategies and engine" hidden>
+      <div class="grid two">
+        <article class="card">
+          <h2>What the strategies share</h2>
+          <p>All planner strategies use the same logistics in <a href="kaggriculture/main.py">main.py</a>. They differ only in what they may grow, how many animals and hands they use, and whether they react to market prices.</p>
+          <ul class="plain-list">
+            <li>Workers take the nearest job, with watering and feeding first, because a plant or animal is lost after two missed days.</li>
+            <li>Hands are hired each day to match the workload, up to a limit.</li>
+            <li>Land is bought only when the current land is full and cash is available.</li>
+            <li>Nothing is planted that cannot finish before the season ends, and all stock is sold on the last day.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Is this the real engine?</h2>
+          <p>Yes. <a href="kaggriculture/engine/kaggriculture.py">kaggriculture.py</a> is copied unmodified from Kaggle's <code>kaggle-environments</code> 1.33.3 (Apache 2.0) and runs through Pyodide, which is Python compiled to WebAssembly.</p>
+          <p>A small runner replaces the parts of Kaggle's framework that cannot run in a browser. A <a href="tests/test_kaggriculture_engine.py">test</a> checks it against the official package, turn by turn.</p>
+          <p class="note">These are local matches between the strategies in this app. They are not Kaggle leaderboard scores, and strong results here may not hold against other competitors' agents.</p>
+        </article>
+      </div>
+      <article class="card">
+        <h2>How this relates to AgriSense</h2>
+        <p>Kaggriculture is a game with invented prices and crops that grow in days. It shares one idea with the <a href="index.html">Karnal policy simulator</a>: score a decision rule over a whole season under limited resources. Its results say nothing about real farms or irrigation savings.</p>
+      </article>
+    </section>
+  </main>
+  <div id="viz-tip" class="viz-tip" hidden></div>
+</body>
+</html>
