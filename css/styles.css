@@ -1572,3 +1572,68 @@ body:not(.data-ready) .data-table-card {
   .app-header--console .stat-pill:nth-child(3) { border-inline-start: 0; }
   .app-header--console .stat-pill:nth-child(n + 3) { border-top: 1px solid var(--bg-card-border); }
 }
+
+/* Collapsible analytics sidebar */
+.sidebar-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 570;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 64px;
+  transform: translateY(-50%);
+  background: rgba(12, 20, 32, 0.95);
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-right: 0;
+  border-radius: 8px 0 0 8px;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease;
+}
+
+.sidebar-toggle:hover {
+  background: #17324a;
+  color: var(--primary-emerald);
+}
+
+.sidebar-toggle:focus-visible {
+  outline: 2px solid #34d399;
+  outline-offset: -2px;
+}
+
+.sidebar-toggle svg {
+  width: 18px;
+  height: 18px;
+  transition: transform .25s ease;
+}
+
+.sidebar-toggle.collapsed svg { transform: rotate(180deg); }
+
+@media (min-width: 761px) {
+  .dashboard-sidebar {
+    flex: none;
+    overflow: hidden;
+    transition: width .25s ease;
+  }
+
+  /* Content keeps its width while the panel slides, so charts do not reflow. */
+  .dashboard-sidebar > * { min-width: var(--sidebar-width); }
+
+  .dashboard-sidebar.collapsed {
+    width: 0;
+    border-left: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  /* The sidebar sits below the map here, so there is nothing to collapse. */
+  .sidebar-toggle { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-sidebar,
+  .sidebar-toggle svg { transition: none; }
+}

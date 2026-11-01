@@ -156,6 +156,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (window.lucide) lucide.createIcons();
 
   initMap();
+  initSidebarToggle();
   initEventListeners();
   await fetchMasterData();
 });
@@ -179,9 +180,8 @@ function injectUi() {
       z-index:560;
       top:5.1rem;
       left:1rem;
-      width:min(1040px,calc(100% - 2rem));
-      display:grid;
-      grid-template-columns:auto auto minmax(220px,1fr) auto auto auto;
+      width:min(1120px,calc(100% - 2rem));
+      display:flex;
       align-items:center;
       gap:.55rem;
       padding:.62rem .72rem;
@@ -193,6 +193,7 @@ function injectUi() {
     }
 
     .timeline-btn {
+      flex:none;
       width:34px;
       height:34px;
       border:1px solid rgba(255,255,255,.10);
@@ -211,8 +212,9 @@ function injectUi() {
     }
 
     .timeline-slider-wrap {
+      flex:1 1 0;
       display:grid;
-      grid-template-columns:minmax(120px,1fr) minmax(160px,auto);
+      grid-template-columns:minmax(90px,1fr) auto;
       gap:.65rem;
       align-items:center;
       min-width:0;
@@ -286,7 +288,37 @@ function injectUi() {
       color:#67e8f9;
     }
 
-    .map-info-badge { top:11.25rem !important; }
+    .map-info-badge { top:9.5rem !important; }
+
+    /* Sized by the map, not the window, so it also adapts when the sidebar toggles. */
+    .map-section {
+      container-type:inline-size;
+      min-width:0;
+    }
+
+    @container (max-width:1120px) {
+      .weather-chip { display:none; }
+    }
+
+    @container (max-width:930px) {
+      .timeline-select { display:none; }
+    }
+
+    @container (max-width:620px) {
+      .master-timeline {
+        display:grid;
+        grid-template-columns:34px 34px minmax(0,1fr) 34px;
+      }
+      .timeline-slider-wrap {
+        grid-template-columns:minmax(0,1fr);
+        grid-column:3;
+        grid-row:1;
+        gap:.3rem;
+      }
+      #timeline-next { grid-column:4; grid-row:1; }
+      #satellite-chip { grid-column:1/-1; grid-row:2; justify-self:start; }
+      .map-info-badge { top:13.5rem !important; }
+    }
 
     .provenance-banner {
       display:flex;
@@ -566,12 +598,6 @@ function injectUi() {
     }
 
     @media(max-width:1000px) {
-      .master-timeline {
-        top:8.3rem;
-        grid-template-columns:auto auto 1fr auto;
-      }
-      .timeline-select,.weather-chip { display:none; }
-      .map-info-badge { top:16.5rem !important; }
       .period-context-card { grid-template-columns:repeat(2,1fr); }
       .model-eval-grid { grid-template-columns:1fr; }
     }
@@ -681,6 +707,46 @@ function injectUi() {
     `;
     document.body.appendChild(modal);
   }
+}
+
+function initSidebarToggle() {
+  const sidebar = document.querySelector('.dashboard-sidebar');
+  const toggle = document.getElementById('sidebar-toggle');
+  if (!sidebar || !toggle) return;
+
+  const storageKey = 'agrisense-sidebar-collapsed';
+
+  const setCollapsed = (collapsed, persist = true) => {
+    sidebar.classList.toggle('collapsed', collapsed);
+    sidebar.inert = collapsed;
+    toggle.classList.toggle('collapsed', collapsed);
+    toggle.setAttribute('aria-expanded', String(!collapsed));
+    const label = t(collapsed ? 'Show panel' : 'Hide panel');
+    toggle.title = label;
+    toggle.setAttribute('aria-label', label);
+    if (persist) {
+      try {
+        localStorage.setItem(storageKey, collapsed ? '1' : '0');
+      } catch {}
+    }
+  };
+
+  let saved = false;
+  try {
+    saved = localStorage.getItem(storageKey) === '1';
+  } catch {}
+  setCollapsed(saved, false);
+
+  toggle.addEventListener('click', () => {
+    setCollapsed(!sidebar.classList.contains('collapsed'));
+  });
+  window.addEventListener('agrisense:languagechange', () => {
+    setCollapsed(sidebar.classList.contains('collapsed'), false);
+  });
+
+  // Keep Leaflet's tiles and points aligned while the map changes width.
+  new ResizeObserver(() => map?.invalidateSize({ pan: false }))
+    .observe(document.getElementById('map'));
 }
 
 function initHeaderMenus() {

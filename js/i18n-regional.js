@@ -1,6 +1,6 @@
 // Authored farmer-interface translations. Keys are fixed, independent of catalogue order.
 (function(root){
-const keys=["Soil moisture","These are historical US research results, not live measurements or irrigation advice for your farm.","Farmer","Agriculture Officer","Field","Date","none","Language","Automatic (study area)","Farmer controls are translated. Research reports and source records keep their original language.","Language preference could not be saved.","Karnal","Haridwar","Karnal Operational Demo","Haridwar Research","Satellite Remote Sensing & AI Crop Water Deficit Advisory","Switch User Role Persona","👨‍💼 Agriculture Officer","🌊 Irrigation Officer","🚜 Water User Association (WUA)","🌾 Farmer View","🏛️ Policy Maker","Farmer — My Assigned Demo Plots","Farmer — My Farms","Only your two assigned demo plots are shown on the map. Technical model evaluation and regional pipeline controls are hidden.","Farm {number} • {id}","{count} assigned demo plots","{count} plots","My Plots","8-Day Rainfall","Satellite State","SAR Valid","Water Deficit","Deficit","Deficit:","Priority","Advisory Priority","Output Layers:","Vegetation","Derived Stage","Moisture Signal","Irrigation Advisory","Crop Type","Growth Stage","Moisture Stress","Crop","Previous 8-day period","Next 8-day period","Play full season","Season period","Loading season...","Period {current} of {total} • 8-day weather/advisory step","OPT + SAR FRESH","OPT+SAR FRESH","SATELLITE UNAVAILABLE","WEATHER FRESH • 8-DAY","WEATHER MISSING","{sensor} FRESH","{sensor} {days}d OLD","{sensor} N/A","Optical","Unavailable","REAL 8-day weather","REAL old satellite","DERIVED stage","PROTOTYPE advisory","Derived Seasonal Stage","Real NDMI Moisture Signal","8-Day Water Deficit","8-Day Irrigation Priority","Dense / Healthy Vegetation","Moderate Vegetation","Low Vegetation","Sparse / Early Vegetation","No Optical Observation","Sowing/Planting","Vegetative","Flowering","Grain Filling","Maturity","Derived Stage Unavailable","No Satellite Observation","Moist / High","Moderate Moisture","Low Moisture","Very Low Moisture","Low / None","Low","Medium","High","No Advisory","No / Low Priority","Low Priority","Medium Priority","High Priority","No irrigation indicated","Within 4-5 days","Within 2-3 days","Within 24 hours","Prototype water-balance advisory using real 8-day weather.","Period:","Satellite:","Rainfall:","Observation: {id} • {date}","Point observation","Weather grid • {rain} mm rain","Priority {score}/10 • {label}","Master Period","FAO-56 ET₀ Estimate","Mean Temperature","Optical Indices (Sentinel-2)","SAR Backscatter (Sentinel-1)","Field Properties","Multi-Temporal Profile (NDVI & SAR VV)","FAO-56 Crop Water Balance & Advisory","Irrigation Recommendation:","Recommended Depth:","Timing:","AI Field Assessment","Live Trained-Model Inference","Live Model Inference","RUNNING","MODEL OUTPUT","OFFLINE","Loading Crop RF, Phenology LSTM and Stress XGBoost...","confidence unavailable","{percent}% confidence","Prototype AI decision-support output.","AI assessment is unavailable. Try again later; existing observations remain accessible.","As of","Optical source:","SAR source:","NDVI • latest real satellite state","8-day rainfall (mm)","Static pipeline data unavailable","Run the local pipeline or check the deployment assets.","Close","Optical Spectral Indices (Sentinel-2 10m)","NDVI (Vegetation Index)","NDWI (Water Index)","NDMI (Moisture Index)","SAR Radar Features (Sentinel-1 C-Band)","VV Backscatter (dB)","VH Backscatter (dB)","VV/VH Ratio","Soil & Field Info","Area (Acres / Ha)","Soil Profile","Canal Feeder","Crop Kc Factor","Weekly ETc Demand","Effective Rain (Peff)","Net Water Deficit","Download CSV","Print / Save PDF","8-Day ETc Demand","No crop / fallow","No advisory — no crop detected at this point.","No advisory","No Stress","Mild Stress","Moderate Stress","Severe Stress","Moisture stress for growth stage","Sample point: {id} • {date}","Loading growth-stage model...","Kharif crop (type unverified)","No seasonal crop detected","Research"];
+const keys=["Soil moisture","These are historical US research results, not live measurements or irrigation advice for your farm.","Farmer","Agriculture Officer","Field","Date","none","Language","Automatic (study area)","Farmer controls are translated. Research reports and source records keep their original language.","Language preference could not be saved.","Karnal","Haridwar","Karnal Operational Demo","Haridwar Research","Satellite Remote Sensing & AI Crop Water Deficit Advisory","Switch User Role Persona","👨‍💼 Agriculture Officer","🌊 Irrigation Officer","🚜 Water User Association (WUA)","🌾 Farmer View","🏛️ Policy Maker","Farmer — My Assigned Demo Plots","Farmer — My Farms","Only your two assigned demo plots are shown on the map. Technical model evaluation and regional pipeline controls are hidden.","Farm {number} • {id}","{count} assigned demo plots","{count} plots","My Plots","8-Day Rainfall","Satellite State","SAR Valid","Water Deficit","Deficit","Deficit:","Priority","Advisory Priority","Output Layers:","Vegetation","Derived Stage","Moisture Signal","Irrigation Advisory","Crop Type","Growth Stage","Moisture Stress","Crop","Previous 8-day period","Next 8-day period","Play full season","Season period","Loading season...","Period {current} of {total} • 8-day weather/advisory step","OPT + SAR FRESH","OPT+SAR FRESH","SATELLITE UNAVAILABLE","WEATHER FRESH • 8-DAY","WEATHER MISSING","{sensor} FRESH","{sensor} {days}d OLD","{sensor} N/A","Optical","Unavailable","REAL 8-day weather","REAL old satellite","DERIVED stage","PROTOTYPE advisory","Derived Seasonal Stage","Real NDMI Moisture Signal","8-Day Water Deficit","8-Day Irrigation Priority","Dense / Healthy Vegetation","Moderate Vegetation","Low Vegetation","Sparse / Early Vegetation","No Optical Observation","Sowing/Planting","Vegetative","Flowering","Grain Filling","Maturity","Derived Stage Unavailable","No Satellite Observation","Moist / High","Moderate Moisture","Low Moisture","Very Low Moisture","Low / None","Low","Medium","High","No Advisory","No / Low Priority","Low Priority","Medium Priority","High Priority","No irrigation indicated","Within 4-5 days","Within 2-3 days","Within 24 hours","Prototype water-balance advisory using real 8-day weather.","Period:","Satellite:","Rainfall:","Observation: {id} • {date}","Point observation","Weather grid • {rain} mm rain","Priority {score}/10 • {label}","Master Period","FAO-56 ET₀ Estimate","Mean Temperature","Optical Indices (Sentinel-2)","SAR Backscatter (Sentinel-1)","Field Properties","Multi-Temporal Profile (NDVI & SAR VV)","FAO-56 Crop Water Balance & Advisory","Irrigation Recommendation:","Recommended Depth:","Timing:","AI Field Assessment","Live Trained-Model Inference","Live Model Inference","RUNNING","MODEL OUTPUT","OFFLINE","Loading Crop RF, Phenology LSTM and Stress XGBoost...","confidence unavailable","{percent}% confidence","Prototype AI decision-support output.","AI assessment is unavailable. Try again later; existing observations remain accessible.","As of","Optical source:","SAR source:","NDVI • latest real satellite state","8-day rainfall (mm)","Static pipeline data unavailable","Run the local pipeline or check the deployment assets.","Close","Optical Spectral Indices (Sentinel-2 10m)","NDVI (Vegetation Index)","NDWI (Water Index)","NDMI (Moisture Index)","SAR Radar Features (Sentinel-1 C-Band)","VV Backscatter (dB)","VH Backscatter (dB)","VV/VH Ratio","Soil & Field Info","Area (Acres / Ha)","Soil Profile","Canal Feeder","Crop Kc Factor","Weekly ETc Demand","Effective Rain (Peff)","Net Water Deficit","Download CSV","Print / Save PDF","8-Day ETc Demand","No crop / fallow","No advisory — no crop detected at this point.","No advisory","No Stress","Mild Stress","Moderate Stress","Severe Stress","Moisture stress for growth stage","Sample point: {id} • {date}","Loading growth-stage model...","Kharif crop (type unverified)","No seasonal crop detected","Research","Hide panel","Show panel"];
 const translations={
 or:`ମାଟିର ଆର୍ଦ୍ରତା
 ଏଗୁଡ଼ିକ ଆମେରିକାର ପୂର୍ବ ଗବେଷଣା ଫଳାଫଳ, ଆପଣଙ୍କ ଜମିର ସିଧାସଳଖ ମାପ କିମ୍ବା ଜଳସେଚନ ପରାମର୍ଶ ନୁହେଁ।
@@ -170,7 +170,9 @@ CSV ଡାଉନଲୋଡ୍ କରନ୍ତୁ
 ବୃଦ୍ଧି ଅବସ୍ଥା ମଡେଲ୍ ଲୋଡ୍ ହେଉଛି...
 ଖରିଫ ଫସଲ (ପ୍ରକାର ଯାଞ୍ଚ ହୋଇନାହିଁ)
 ଏହି ଋତୁରେ ଫସଲ ମିଳିଲା ନାହିଁ
-ଗବେଷଣା`,
+ଗବେଷଣା
+ପ୍ୟାନେଲ୍ ଲୁଚାନ୍ତୁ
+ପ୍ୟାନେଲ୍ ଦେଖାନ୍ତୁ`,
 ml:`മണ്ണിലെ ഈർപ്പം
 ഇവ അമേരിക്കയിലെ മുൻകാല ഗവേഷണ ഫലങ്ങളാണ്, നിങ്ങളുടെ കൃഷിയിടത്തിലെ തത്സമയ അളവുകളോ ജലസേചന ഉപദേശമോ അല്ല.
 കർഷകൻ
@@ -339,7 +341,9 @@ CSV ഡൗൺലോഡ് ചെയ്യുക
 വളർച്ചാഘട്ട മോഡൽ ലോഡ് ചെയ്യുന്നു...
 ഖരീഫ് വിള (ഇനം സ്ഥിരീകരിച്ചിട്ടില്ല)
 ഈ സീസണിൽ വിള കണ്ടെത്തിയില്ല
-ഗവേഷണം`,
+ഗവേഷണം
+പാനൽ മറയ്ക്കുക
+പാനൽ കാണിക്കുക`,
 ur:`مٹی کی نمی
 یہ امریکہ کی تاریخی تحقیق کے نتائج ہیں، آپ کے کھیت کی براہِ راست پیمائش یا آبپاشی کا مشورہ نہیں۔
 کسان
@@ -508,7 +512,9 @@ CSV ڈاؤن لوڈ کریں
 نشوونما کے مرحلے کا ماڈل لوڈ ہو رہا ہے...
 خریف کی فصل (قسم غیر تصدیق شدہ)
 اس موسم میں فصل نہیں ملی
-تحقیق`,
+تحقیق
+پینل چھپائیں
+پینل دکھائیں`,
 kn:`ಮಣ್ಣಿನ ತೇವಾಂಶ
 ಇವು ಅಮೆರಿಕದ ಹಿಂದಿನ ಸಂಶೋಧನಾ ಫಲಿತಾಂಶಗಳು, ನಿಮ್ಮ ಹೊಲದ ನೇರ ಅಳತೆಗಳು ಅಥವಾ ನೀರಾವರಿ ಸಲಹೆಗಳಲ್ಲ.
 ರೈತ
@@ -677,7 +683,9 @@ CSV ಡೌನ್‌ಲೋಡ್
 ಬೆಳವಣಿಗೆ ಹಂತದ ಮಾದರಿ ಲೋಡ್ ಆಗುತ್ತಿದೆ...
 ಖಾರಿಫ್ ಬೆಳೆ (ಪ್ರಕಾರ ದೃಢಪಟ್ಟಿಲ್ಲ)
 ಈ ಹಂಗಾಮಿನಲ್ಲಿ ಬೆಳೆ ಪತ್ತೆಯಾಗಿಲ್ಲ
-ಸಂಶೋಧನೆ`,
+ಸಂಶೋಧನೆ
+ಪ್ಯಾನೆಲ್ ಮರೆಮಾಡಿ
+ಪ್ಯಾನೆಲ್ ತೋರಿಸಿ`,
 te:`నేల తేమ
 ఇవి అమెరికాకు చెందిన గత పరిశోధన ఫలితాలు, మీ పొలానికి ప్రత్యక్ష కొలతలు లేదా నీటిపారుదల సలహాలు కావు.
 రైతు
@@ -846,7 +854,9 @@ CSV డౌన్‌లోడ్
 పెరుగుదల దశ మోడల్ లోడ్ అవుతోంది...
 ఖరీఫ్ పంట (రకం నిర్ధారించలేదు)
 ఈ సీజన్‌లో పంట కనిపించలేదు
-పరిశోధన`,
+పరిశోధన
+ప్యానెల్ దాచు
+ప్యానెల్ చూపించు`,
 gu:`જમીનનો ભેજ
 આ અમેરિકાના ઐતિહાસિક સંશોધનનાં પરિણામો છે, તમારા ખેતરના જીવંત માપ કે સિંચાઈની સલાહ નથી.
 ખેડૂત
@@ -1015,7 +1025,9 @@ CSV ડાઉનલોડ કરો
 વૃદ્ધિ અવસ્થા મોડેલ લોડ થાય છે...
 ખરીફ પાક (પ્રકાર ચકાસાયેલ નથી)
 આ ઋતુમાં પાક મળ્યો નથી
-સંશોધન`,
+સંશોધન
+પેનલ છુપાવો
+પેનલ બતાવો`,
 bn:`মাটির আর্দ্রতা
 এগুলি যুক্তরাষ্ট্রের ঐতিহাসিক গবেষণার ফলাফল, আপনার খামারের সরাসরি পরিমাপ বা সেচের পরামর্শ নয়।
 কৃষক
@@ -1184,7 +1196,9 @@ CSV ডাউনলোড করুন
 বৃদ্ধির ধাপের মডেল লোড হচ্ছে...
 খরিফ ফসল (ধরন যাচাই হয়নি)
 এই মরসুমে ফসল শনাক্ত হয়নি
-গবেষণা`,
+গবেষণা
+প্যানেল লুকান
+প্যানেল দেখান`,
 mr:`मातीतील ओलावा
 हे अमेरिकेतील ऐतिहासिक संशोधनाचे निष्कर्ष आहेत, तुमच्या शेताची थेट मोजमापे किंवा सिंचनाचा सल्ला नाही.
 शेतकरी
@@ -1353,7 +1367,9 @@ CSV डाउनलोड करा
 वाढीच्या अवस्थेचे मॉडेल लोड होत आहे...
 खरीप पीक (प्रकार पडताळलेला नाही)
 या हंगामात पीक आढळले नाही
-संशोधन`,
+संशोधन
+पॅनेल लपवा
+पॅनेल दाखवा`,
 };
 const catalogs=Object.fromEntries(Object.entries(translations).map(([code,text])=>{
   const values=text.split('\n');

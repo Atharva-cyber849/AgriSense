@@ -781,4 +781,6 @@
   ["Kharif crop (type unverified)", "खरीफ फसल (प्रकार असत्यापित)", "காரிஃப் பயிர் (வகை சரிபார்க்கப்படவில்லை)"],
   ["No seasonal crop detected", "इस मौसम में फसल नहीं मिली", "இந்தப் பருவத்தில் பயிர் கண்டறியப்படவில்லை"],
   ["Research", "अनुसंधान", "ஆராய்ச்சி"],
+  ["Hide panel", "पैनल छिपाएँ", "பேனலை மறை"],
+  ["Show panel", "पैनल दिखाएँ", "பேனலைக் காட்டு"],
 ];if(typeof module==='object'&&module.exports)module.exports=rows;else root.AgriSenseTranslations=rows;})(typeof window==='object'?window:globalThis);
