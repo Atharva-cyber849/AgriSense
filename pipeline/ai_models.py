@@ -207,26 +207,26 @@ def calculate_water_balance_and_advisory(crop_type: str, growth_stage: str, eto_
     peff_weekly = rainfall_7day_mm * 0.75 if rainfall_7day_mm > 5.0 else 0.0
     water_deficit_mm = max(0.0, etc_weekly - peff_weekly)
 
+    # Gross depth = net deficit plus 15% application losses, so it follows the deficit.
+    rec_depth = round(water_deficit_mm * 1.15, 1)
+
     if water_deficit_mm < 10.0 or stress_category == "No Stress":
         rec_depth = 0.0
         rec_timing = "No irrigation required this week"
         priority = 1
         advisory = "Soil moisture adequate. Rain / current moisture meets crop evapotranspiration demand."
     elif water_deficit_mm < 25.0:
-        rec_depth = 30.0
         rec_timing = "Within 4-5 days"
         priority = 4
-        advisory = "Apply light irrigation (30 mm) within 5 days to prevent moderate crop stress."
+        advisory = f"Apply light irrigation ({rec_depth} mm) within 4-5 days to prevent moderate crop stress."
     elif water_deficit_mm < 45.0:
-        rec_depth = 50.0
         rec_timing = "Within 2-3 days"
         priority = 7
-        advisory = "Apply standard irrigation (50 mm) within 48 hours. Canal supply release requested."
+        advisory = f"Apply standard irrigation ({rec_depth} mm) within 2-3 days. Canal supply release requested."
     else:
-        rec_depth = 65.0
-        rec_timing = "Immediate (Within 24 hours)"
+        rec_timing = "Within 24 hours"
         priority = 10
-        advisory = "URGENT: High water deficit detected! Apply immediate irrigation (65 mm) to avoid yield loss."
+        advisory = f"URGENT: High water deficit detected! Apply immediate irrigation ({rec_depth} mm) to avoid yield loss."
 
     return {
         "kc_factor": round(kc, 2),

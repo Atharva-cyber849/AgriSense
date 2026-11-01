@@ -1,5 +1,6 @@
 data/**/*.tif
-data/**/*.parquetnode_modules/
+data/**/*.parquet
+node_modules/
 __pycache__/
 *.py[cod]
 .venv/
@@ -9,11 +10,19 @@ __pycache__/
 Thumbs.db
 npm-debug.log*
 *.log
-GEE_Karnal/exports/
+data/GEE_Karnal/exports/
 data/*.tif
 data/*.tiff
 data/*.zip
 tmp/
+test-output/
+.ipynb_checkpoints/
 
 .venv/
 node_modules/
+
+# Attach these to a GitHub Release instead of committing them.
+release-assets/
+*.zip
+# Rebuilt by pipeline/train_crop_engine.py.
+models/crop_engine_agrifieldnet.joblib

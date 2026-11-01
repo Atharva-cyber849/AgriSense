@@ -15,7 +15,7 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
 ROOT = Path(__file__).resolve().parent.parent
-MODEL_DIR = Path(os.getenv("AGRISENSE_MODEL_DIR", str(ROOT / "private_models")))
+MODEL_DIR = Path(os.getenv("AGRISENSE_MODEL_DIR", str(ROOT / "models")))
 TEMPORAL_CSV = Path(
     os.getenv(
         "AGRISENSE_TEMPORAL_CSV",
@@ -25,11 +25,6 @@ TEMPORAL_CSV = Path(
 
 HOST = os.getenv("AGRISENSE_INFERENCE_HOST", "127.0.0.1")
 PORT = int(os.getenv("AGRISENSE_INFERENCE_PORT", "8001"))
-
-SNAPSHOT_FEATURES = [
-    "EVI", "NDMI", "NDVI", "NDWI", "SAVI",
-    "VV", "VH", "VV_VH_ratio_dB",
-]
 
 DEFAULT_LSTM_FEATURES = [
     "NDVI", "NDMI", "NDWI", "EVI", "SAVI",
@@ -48,11 +43,6 @@ def finite_or_none(value: Any):
 
 class ModelRegistry:
     def __init__(self):
-        self.crop_model = None
-        self.crop_encoder = None
-        self.stress_model = None
-        self.stress_model_name = None
-        self.stress_encoder = None
         self.lstm_model = None
         self.lstm_imputer = None
         self.lstm_scaler = None
@@ -94,30 +84,6 @@ class ModelRegistry:
 
     def load(self):
         MODEL_DIR.mkdir(parents=True, exist_ok=True)
-
-        self.crop_model = self._joblib(
-            "crop_model", "crop_engine__random_forest.joblib"
-        )
-        self.crop_encoder = self._joblib(
-            "crop_encoder", "crop_type_label_encoder.joblib"
-        )
-
-        self.stress_model = self._joblib(
-            "stress_model",
-            "stress_engine__xgboost.joblib",
-            "stress_engine__random_forest.joblib",
-            "stress_engine__logistic_regression.joblib",
-        )
-        stress_path = self.loaded_paths.get("stress_model", "")
-        if "random_forest" in stress_path:
-            self.stress_model_name = "Random Forest"
-        elif "logistic_regression" in stress_path:
-            self.stress_model_name = "Logistic Regression"
-        elif "xgboost" in stress_path:
-            self.stress_model_name = "XGBoost"
-        self.stress_encoder = self._joblib(
-            "stress_encoder", "moisture_stress_label_encoder.joblib"
-        )
 
         self.lstm_imputer = self._joblib(
             "lstm_imputer", "phenology_lstm_imputer.joblib"
@@ -212,22 +178,6 @@ class ModelRegistry:
         self.loaded_paths["temporal_csv"] = str(TEMPORAL_CSV)
 
     @property
-    def crop_ready(self):
-        return (
-            self.crop_model is not None
-            and self.crop_encoder is not None
-            and self.temporal is not None
-        )
-
-    @property
-    def stress_ready(self):
-        return (
-            self.stress_model is not None
-            and self.stress_encoder is not None
-            and self.temporal is not None
-        )
-
-    @property
     def phenology_ready(self):
         return all([
             self.lstm_model is not None,
@@ -239,10 +189,8 @@ class ModelRegistry:
 
     def status(self):
         return {
-            "ready": self.crop_ready and self.stress_ready and self.phenology_ready,
-            "crop_ready": self.crop_ready,
+            "ready": self.phenology_ready,
             "phenology_ready": self.phenology_ready,
-            "stress_ready": self.stress_ready,
             "model_dir": str(MODEL_DIR),
             "temporal_csv": str(TEMPORAL_CSV),
             "loaded_paths": self.loaded_paths,
@@ -323,30 +271,6 @@ class ModelRegistry:
 
         return values, optical_date, sar_date
 
-    def _predict_tabular(self, model, encoder, values):
-        X = pd.DataFrame(
-            [[values.get(c) for c in SNAPSHOT_FEATURES]],
-            columns=SNAPSHOT_FEATURES,
-        )
-        code = int(np.asarray(model.predict(X)).reshape(-1)[0])
-        label = str(encoder.inverse_transform([code])[0])
-
-        probabilities = {}
-        confidence = None
-        if hasattr(model, "predict_proba"):
-            prob = np.asarray(model.predict_proba(X))[0]
-            probabilities = {
-                str(name): float(p)
-                for name, p in zip(encoder.classes_, prob)
-            }
-            confidence = float(np.max(prob))
-
-        return {
-            "label": label,
-            "confidence": confidence,
-            "probabilities": probabilities,
-        }
-
     def _lstm_sequence(self, history):
         work = history.copy()
 
@@ -400,34 +324,6 @@ class ModelRegistry:
             "predictions": {},
             "warnings": [],
         }
-
-        if self.crop_ready:
-            try:
-                p = self._predict_tabular(
-                    self.crop_model, self.crop_encoder, snapshot
-                )
-                p.update({
-                    "engine": "Crop Engine",
-                    "model": "Random Forest",
-                    "evaluation_status": "prototype / derived-label model",
-                })
-                result["predictions"]["crop"] = p
-            except Exception as exc:
-                result["warnings"].append(f"Crop inference failed: {exc}")
-
-        if self.stress_ready:
-            try:
-                p = self._predict_tabular(
-                    self.stress_model, self.stress_encoder, snapshot
-                )
-                p.update({
-                    "engine": "Stress Engine",
-                    "model": self.stress_model_name,
-                    "evaluation_status": "prototype / derived-label model",
-                })
-                result["predictions"]["stress"] = p
-            except Exception as exc:
-                result["warnings"].append(f"Stress inference failed: {exc}")
 
         if self.phenology_ready:
             try:
@@ -512,9 +408,7 @@ def health():
 def models():
     return {
         "selected_deployment_models": {
-            "crop": "Random Forest",
             "phenology": "LSTM",
-            "stress": "XGBoost",
         },
         "status": registry.status(),
     }

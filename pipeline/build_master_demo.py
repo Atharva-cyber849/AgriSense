@@ -23,6 +23,22 @@ WEATHER_DIR = DATA_DIR / "weather"
 PERIOD_DIR = DATA_DIR / "periods"
 OUTPUT_JSON = DATA_DIR / "karnal_master_demo_output.json"
 
+# The app opens on a date with a real canopy, fresh optical data and a real deficit.
+DEMO_DEFAULT_PERIOD = "2025-09-21"
+
+# Below this NDVI a pixel is treated as bare soil, water or built-up: no advisory.
+NO_CROP_NDVI = 0.20
+# A point that never reaches this NDVI in the season never carried a crop canopy.
+SEASON_CROP_PEAK_NDVI = 0.40
+
+CROP_LABEL = "Kharif crop (type unverified)"
+NO_CROP_LABEL = "No seasonal crop detected"
+# Point-level crop type is not verified, so Kc assumes the district's dominant kharif crop.
+KC_CROP = "Paddy (Rice)"
+
+NO_CROP_STATUS = "No crop / fallow"
+STRESS_CLASSES = ["No Stress", "Mild Stress", "Moderate Stress", "Severe Stress"]
+
 LATITUDE_RAD = math.radians(29.6857)
 ELEVATION_M = 250.0
 
@@ -129,6 +145,58 @@ def moisture_signal(ndmi):
 def kc_for(crop, stage):
     return CROP_KC.get(str(crop), {}).get(str(stage), 0.85)
 
+def is_no_crop(ndvi):
+    x = finite_or_none(ndvi)
+    return x is not None and x < NO_CROP_NDVI
+
+def stage_ndmi_ranges(temporal, stage_maps):
+    """
+    Expected NDMI range per growth stage: p10-p90 of real cropped observations.
+
+    NDMI falls naturally as a crop matures, so stress is read against what is
+    normal for the stage rather than against one absolute scale.
+    """
+    samples = {}
+    if temporal is None:
+        return {}
+    for row in temporal[["field_id", "period_start", "NDVI", "NDMI"]].itertuples(index=False):
+        ndvi = finite_or_none(row.NDVI)
+        ndmi = finite_or_none(row.NDMI)
+        if ndvi is None or ndmi is None or ndvi < NO_CROP_NDVI:
+            continue
+        date = pd.Timestamp(row.period_start).date().isoformat()
+        stage = stage_maps.get(str(row.field_id), {}).get(date)
+        if stage:
+            samples.setdefault(stage, []).append(ndmi)
+    return {
+        stage: {
+            "low": round(float(np.percentile(values, 10)), 3),
+            "high": round(float(np.percentile(values, 90)), 3),
+            "n": len(values),
+        }
+        for stage, values in samples.items()
+    }
+
+def moisture_stress(ndvi, ndmi, stage, ranges):
+    """Stress on cropped pixels only, scaled within the stage's expected NDMI range."""
+    if is_no_crop(ndvi):
+        return NO_CROP_STATUS, None
+    x = finite_or_none(ndmi)
+    expected = ranges.get(stage)
+    if x is None or not expected or expected["high"] <= expected["low"]:
+        return "No Optical Observation", None
+    score = (expected["high"] - x) / (expected["high"] - expected["low"])
+    score = min(1.0, max(0.0, score))
+    if score < 0.25:
+        label = STRESS_CLASSES[0]
+    elif score < 0.50:
+        label = STRESS_CLASSES[1]
+    elif score < 0.75:
+        label = STRESS_CLASSES[2]
+    else:
+        label = STRESS_CLASSES[3]
+    return label, round(score, 3)
+
 def saturation_vapour_pressure(temp_c):
     return 0.6108 * math.exp(17.27 * temp_c / (temp_c + 237.3))
 
@@ -231,7 +299,22 @@ def estimate_fao56_eto_period(weather, period_start, day_count):
     eto_daily = max(0.0, numerator / denominator)
     return eto_daily * max(int(day_count), 1)
 
-def irrigation_rule(crop, stage, moisture, weather, eto_period):
+def no_crop_advisory(weather, eto_period):
+    rainfall = finite_or_none(weather.get("rainfall_mm")) or 0.0
+    return {
+        "kc": None,
+        "eto_mm": round_or_none(eto_period, 2),
+        "etc_mm": None,
+        "effective_rain_mm": round(max(0.0, 0.80 * rainfall), 2),
+        "deficit_mm": None,
+        "recommended_depth_mm": 0.0,
+        "priority_score": 0,
+        "priority_label": NO_CROP_STATUS,
+        "timing": "No advisory",
+        "status": "No advisory — no crop detected at this point.",
+    }
+
+def irrigation_rule(crop, stage, stress, weather, eto_period):
     rainfall = finite_or_none(weather.get("rainfall_mm")) or 0.0
     kc = kc_for(crop, stage)
 
@@ -266,9 +349,12 @@ def irrigation_rule(crop, stage, moisture, weather, eto_period):
         depth = round(min(60.0, deficit * 1.15), 1)
         label = "High Priority"
 
-    # Escalate one band when the current real NDMI signal is very low.
-    if moisture == "Very Low Moisture" and priority in {1, 4, 7}:
-        priority = min(10, priority + 2)
+    # A crop already severely stressed for its stage moves up one whole band, so
+    # the score, label and timing agree. Depth keeps following the deficit.
+    if stress == "Severe Stress" and depth > 0 and priority < 10:
+        priority, label = (
+            (7, "Medium Priority") if priority == 4 else (10, "High Priority")
+        )
 
     timing = (
         "No irrigation indicated"
@@ -707,9 +793,22 @@ def build(
 
     # Stage lookup per field.
     stage_maps = {}
+    season_peak_ndvi = {}
     if temporal is not None:
         for fid, g in temporal.groupby("field_id"):
             stage_maps[str(fid)] = derive_stage_curve(g)
+            season_peak_ndvi[str(fid)] = finite_or_none(
+                pd.to_numeric(g["NDVI"], errors="coerce").max()
+            )
+    stress_ranges = stage_ndmi_ranges(temporal, stage_maps)
+
+    def seasonal_crop(field_id):
+        peak = season_peak_ndvi.get(str(field_id))
+        return (
+            CROP_LABEL
+            if peak is not None and peak >= SEASON_CROP_PEAK_NDVI
+            else NO_CROP_LABEL
+        )
 
     # Base field objects and base GeoJSON.
     fields = []
@@ -723,9 +822,7 @@ def build(
             "field_id": str(row["field_id"]),
             "lat": float(row["latitude"]),
             "lon": float(row["longitude"]),
-            "crop_type": str(row.get("crop_type", "Unclassified")),
-            "prototype_growth_stage": str(row.get("growth_stage", "Unknown")),
-            "prototype_moisture_stress": str(row.get("moisture_stress", "Unknown")),
+            "crop_type": seasonal_crop(row["field_id"]),
             "snapshot_indices": {
                 "NDVI": round_or_none(row.get("NDVI")),
                 "NDMI": round_or_none(row.get("NDMI")),
@@ -746,7 +843,10 @@ def build(
                 "satellite": "REAL old 16-day downloaded Sentinel-2/Sentinel-1 when temporal table is present",
                 "weather": "REAL new-script 8-day weather raster",
                 "soil": "REAL new-script 24-band static soil stack",
+                "crop_type": "DERIVED from season peak NDVI; crop species is not verified at this point",
                 "growth_stage": "DERIVED from real NDVI seasonal trajectory",
+                "moisture_stress": "DERIVED: NDMI scaled within the stage's p10-p90 range on cropped pixels",
+                "kc": "ASSUMED paddy Kc, the dominant kharif crop in Karnal",
                 "irrigation": "PROTOTYPE water-balance decision support",
             }
         }
@@ -792,6 +892,7 @@ def build(
 
         vegetation_counter = Counter()
         moisture_counter = Counter()
+        stress_counter = Counter()
         stage_counter = Counter()
         priority_counter = Counter()
 
@@ -842,9 +943,10 @@ def build(
                 feature_row
             )
 
+            # Stages exist only on optical dates, so SAR-only dates must not select one.
             stage = carried_stage(
                 stage_maps.get(fid, {}),
-                sat.get("source_date")
+                sat.get("optical_source_date")
             )
             veg = vegetation_condition(sat.get("NDVI"))
             moisture = moisture_signal(sat.get("NDMI"))
@@ -855,13 +957,18 @@ def build(
                 day_count
             )
 
-            water = irrigation_rule(
-                str(feature_row.get("crop_type", "Unclassified")),
+            stress, stress_score = moisture_stress(
+                sat.get("NDVI"),
+                sat.get("NDMI"),
                 stage,
-                moisture,
-                weather,
-                eto
+                stress_ranges
             )
+
+            if is_no_crop(sat.get("NDVI")):
+                stage = NO_CROP_STATUS
+                water = no_crop_advisory(weather, eto)
+            else:
+                water = irrigation_rule(KC_CROP, stage, stress, weather, eto)
 
             rainfall = finite_or_none(weather.get("rainfall_mm"))
             if rainfall is not None:
@@ -876,6 +983,7 @@ def build(
 
             vegetation_counter[veg] += 1
             moisture_counter[moisture] += 1
+            stress_counter[stress] += 1
             stage_counter[stage] += 1
             priority_counter[water["priority_label"]] += 1
 
@@ -901,6 +1009,8 @@ def build(
                     "vegetation_condition": veg,
                     "growth_stage": stage,
                     "moisture_signal": moisture,
+                    "moisture_stress": stress,
+                    "stress_score": stress_score,
                 },
                 "water_balance": water,
             })
@@ -931,6 +1041,7 @@ def build(
                 if deficit_values else None,
             "vegetation_distribution": dict(vegetation_counter),
             "moisture_distribution": dict(moisture_counter),
+            "stress_distribution": dict(stress_counter),
             "growth_stage_distribution": dict(stage_counter),
             "irrigation_priority_distribution": dict(priority_counter),
             # Informational only: these refer to the NEW 8-day script that was
@@ -955,9 +1066,10 @@ def build(
 
         master_timeline.append(period_summary)
 
-    crop_counts = Counter(str(x) for x in features["crop_type"])
-    prototype_stage_counts = Counter(str(x) for x in features["growth_stage"])
-    prototype_stress_counts = Counter(str(x) for x in features["moisture_stress"])
+    crop_counts = Counter(f["crop_type"] for f in fields)
+    timeline_dates = [x["period_start"] for x in master_timeline]
+    if DEMO_DEFAULT_PERIOD not in timeline_dates:
+        raise ValueError(f"{DEMO_DEFAULT_PERIOD} is not a master period")
 
     summary = {
         "region_name": "Karnal District, Haryana, India",
@@ -966,6 +1078,8 @@ def build(
         "master_period_count": len(master_timeline),
         "master_interval_days": 8,
         "master_timeline": master_timeline,
+        "demo_default_period": DEMO_DEFAULT_PERIOD,
+        "stress_stage_ndmi_ranges": stress_ranges,
         "satellite_periods": satellite_dates,
         "optical_periods": optical_dates,
         "sar_periods": sar_dates,
@@ -976,8 +1090,6 @@ def build(
         "soil_stack_available": soil_tif.exists(),
         "observation_count": len(fields),
         "crop_distribution": dict(crop_counts),
-        "prototype_growth_stage_distribution": dict(prototype_stage_counts),
-        "prototype_moisture_stress_distribution": dict(prototype_stress_counts),
         "source_note": (
             "8-day master timeline = real new weather + real static soil + "
             "latest available real old 16-day satellite observation."

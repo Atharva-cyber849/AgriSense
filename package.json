@@ -4,16 +4,19 @@
   "description": "Satellite Remote Sensing & AI/ML Crop Intelligence and Irrigation Advisory Platform for Karnal Region, Haryana, India",
   "main": "server.js",
   "scripts": {
+    "test": "node --test tests/advisory-data.test.js tests/agrifieldnet.test.js tests/i18n.test.js tests/soil-moisture.test.js",
     "start": "node server.js",
     "pipeline": "python pipeline/run_pipeline.py",
     "build:agrifieldnet": "python pipeline/build_agrifieldnet_dashboard.py",
-    "check:agrifieldnet": "node --check agrifieldnet.js && node --test tests/agrifieldnet.test.js",
+    "check:agrifieldnet": "node --check js/agrifieldnet.js && node --test tests/agrifieldnet.test.js",
     "test:languages": "node --test tests/i18n.test.js",
-    "check:languages": "node --check app.js && node --check i18n.js && node --check i18n-catalog.js && node --check i18n-regional.js && node --test tests/i18n.test.js",
+    "check:languages": "node --check js/app.js && node --check js/i18n.js && node --check js/i18n-catalog.js && node --check js/i18n-regional.js && node --test tests/i18n.test.js",
     "test:languages:browser": "node tests/browser-i18n.cjs",
     "build:soil-moisture": "python pipeline/build_soil_moisture_dashboard.py",
-    "check:soil-moisture": "node --check soil-moisture.js && node --test tests/soil-moisture.test.js",
-    "test:soil-moisture:browser": "node tests/browser-soil-moisture.cjs"
+    "check:soil-moisture": "node --check js/soil-moisture.js && node --test tests/soil-moisture.test.js",
+    "test:soil-moisture:browser": "node tests/browser-soil-moisture.cjs",
+    "build:crop-engine": "python pipeline/train_crop_engine.py",
+    "build:policy-sim": "python pipeline/policy_sim.py"
   },
   "dependencies": {
     "express": "^4.18.2",

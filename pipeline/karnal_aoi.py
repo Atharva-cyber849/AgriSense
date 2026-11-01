@@ -11,7 +11,7 @@ import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DISTRICT_BOUNDARY_PATH = ROOT / "Karnal_District_Boundary.geojson"
+DISTRICT_BOUNDARY_PATH = ROOT / "data" / "Karnal_District_Boundary.geojson"
 
 # Karnal District Center & Bounding Box
 KARNAL_CENTER = {"lat": 29.6857, "lon": 76.9905}

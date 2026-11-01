@@ -6,7 +6,7 @@ const vm = require('node:vm');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const snapshot = JSON.parse(fs.readFileSync(path.join(root, 'data/agrifieldnet/dashboard.json'), 'utf8'));
-const source = fs.readFileSync(path.join(root, 'agrifieldnet.js'), 'utf8');
+const source = fs.readFileSync(path.join(root, 'js/agrifieldnet.js'), 'utf8');
 
 async function controller(failed = false) {
   const nodes = new Map();

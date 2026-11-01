@@ -9,7 +9,7 @@ services:
       - key: PYTHON_VERSION
         value: 3.11.11
       - key: AGRISENSE_MODEL_DIR
-        value: /opt/render/project/src/private_models
+        value: /opt/render/project/src/models
       - key: AGRISENSE_TEMPORAL_CSV
         value: /opt/render/project/src/data/karnal_real_temporal_table.csv
 

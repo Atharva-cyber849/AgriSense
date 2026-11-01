@@ -1,7 +1,7 @@
 """Build AgriSense's bounded soil-moisture snapshot from supplied research archives.
 
 Never executes the notebook or extracts archive paths. Requires numpy and pandas.
-See SOIL_MOISTURE.md for invocation and validation boundaries.
+See docs/SOIL_MOISTURE.md for invocation and validation boundaries.
 """
 import argparse
 import hashlib

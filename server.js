@@ -2,14 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
-const { execFile, spawn } = require('child_process');
+const { spawn } = require('child_process');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use('/private_models', (req, res) => {
+app.use('/models', (req, res) => {
   res.status(404).end();
 });
 
@@ -247,46 +247,6 @@ app.get('/api/health', (req, res) => {
       Boolean(master?.summary?.satellite_temporal_available),
     period_cache_size: periodCache.size
   });
-});
-
-app.post('/api/run-pipeline', (req, res) => {
-  const script = path.join(__dirname, 'pipeline', 'run_pipeline.py');
-  const args = [script];
-
-  if (req.body?.satellite_dir) {
-    args.push('--satellite-dir', String(req.body.satellite_dir));
-  }
-
-  execFile(
-    'python',
-    args,
-    { cwd: __dirname },
-    (error, stdout, stderr) => {
-      if (error) {
-        return res.status(500).json({
-          error: '8-day master pipeline failed',
-          details: stderr || error.message,
-          stdout
-        });
-      }
-
-      periodCache.clear();
-
-      const payload = loadMaster();
-      if (!payload) {
-        return res.status(500).json({
-          error: 'Pipeline completed but master JSON was not created.',
-          stdout
-        });
-      }
-
-      res.json({
-        success: true,
-        stdout,
-        data: payload
-      });
-    }
-  );
 });
 
 startInferenceService();

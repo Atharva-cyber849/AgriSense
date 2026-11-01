@@ -766,5 +766,19 @@
     "Print / Save PDF",
     "प्रिंट / PDF सहेजें",
     "அச்சிடு / PDF சேமி"
-  ]
+  ],
+  ["8-Day ETc Demand", "8-दिन ETc मांग", "8-நாள் ETc தேவை"],
+  ["No crop / fallow", "फसल नहीं / परती", "பயிர் இல்லை / தரிசு"],
+  ["No advisory — no crop detected at this point.", "कोई सलाह नहीं — इस बिंदु पर फसल नहीं मिली।", "ஆலோசனை இல்லை — இந்த இடத்தில் பயிர் கண்டறியப்படவில்லை."],
+  ["No advisory", "कोई सलाह नहीं", "ஆலோசனை இல்லை"],
+  ["No Stress", "कोई तनाव नहीं", "அழுத்தம் இல்லை"],
+  ["Mild Stress", "हल्का तनाव", "லேசான அழுத்தம்"],
+  ["Moderate Stress", "मध्यम तनाव", "மிதமான அழுத்தம்"],
+  ["Severe Stress", "गंभीर तनाव", "கடுமையான அழுத்தம்"],
+  ["Moisture stress for growth stage", "फसल अवस्था के अनुसार नमी तनाव", "வளர்ச்சி நிலைக்கேற்ற ஈரப்பத அழுத்தம்"],
+  ["Sample point: {id} • {date}", "नमूना बिंदु: {id} • {date}", "மாதிரி இடம்: {id} • {date}"],
+  ["Loading growth-stage model...", "वृद्धि-अवस्था मॉडल लोड हो रहा है...", "வளர்ச்சி நிலை மாதிரி ஏற்றப்படுகிறது..."],
+  ["Kharif crop (type unverified)", "खरीफ फसल (प्रकार असत्यापित)", "காரிஃப் பயிர் (வகை சரிபார்க்கப்படவில்லை)"],
+  ["No seasonal crop detected", "इस मौसम में फसल नहीं मिली", "இந்தப் பருவத்தில் பயிர் கண்டறியப்படவில்லை"],
+  ["Research", "अनुसंधान", "ஆராய்ச்சி"],
 ];if(typeof module==='object'&&module.exports)module.exports=rows;else root.AgriSenseTranslations=rows;})(typeof window==='object'?window:globalThis);

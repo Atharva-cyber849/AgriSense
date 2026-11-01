@@ -3,7 +3,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
 const crypto=require('node:crypto');
-const soil=require('../soil-moisture.js');
+const soil=require('../js/soil-moisture.js');
 const data=require('../data/soil-moisture/dashboard.json');
 test('complete evidence, prediction counts and downloadable source integrity',()=>{
   soil.validate(data);

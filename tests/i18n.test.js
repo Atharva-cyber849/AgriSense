@@ -1,8 +1,8 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
-const i18n=require('../i18n.js');
-const rows=require('../i18n-catalog.js');
-const regional=require('../i18n-regional.js');
+const i18n=require('../js/i18n.js');
+const rows=require('../js/i18n-catalog.js');
+const regional=require('../js/i18n-regional.js');
 
 test('ten Indian languages plus English have complete, aligned, safe catalogues',()=>{
   assert.deepEqual(Object.keys(i18n.names),['en','hi','bn','mr','te','ta','gu','ur','kn','or','ml']);

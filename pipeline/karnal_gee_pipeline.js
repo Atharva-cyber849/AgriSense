@@ -266,21 +266,14 @@ if (EXPORT_APP_FEATURES) {
     .map(function (feature) {
       var coordinates = feature.geometry().coordinates();
       var ndvi = ee.Number(feature.get('NDVI'));
-      var ndmi = ee.Number(feature.get('NDMI'));
-      var stressScore = ee.Number(1).subtract(ndmi.max(0)).max(0).min(1);
       return feature.set({
         field_id: ee.String('GEE-PIXEL-').cat(feature.id()),
         longitude: coordinates.get(0),
         latitude: coordinates.get(1),
-        crop_type: ee.Algorithms.If(ndvi.gt(0.65), 'Paddy (Rice)', 'Unclassified'),
-        growth_stage: ee.Algorithms.If(ndvi.lt(0.25), 'Sowing/Planting',
-          ee.Algorithms.If(ndvi.lt(0.55), 'Vegetative', 'Flowering')),
-        moisture_stress: ee.Algorithms.If(stressScore.gt(0.7), 'Severe Stress',
-          ee.Algorithms.If(stressScore.gt(0.45), 'Moderate Stress', 'Mild Stress')),
-        stress_score: stressScore,
-        water_deficit_mm: stressScore.multiply(40),
-        recommended_depth_mm: stressScore.multiply(50),
-        canal_priority_score: stressScore.multiply(9).add(1),
+        // Crop, stage and stress are not derived here: thresholds on these same
+        // features would make any model trained on them circular. Stage and
+        // stress come from pipeline/build_master_demo.py; NDVI below 0.2 is no crop.
+        no_crop: ndvi.lt(0.2),
         sar_available: appFeatureImage.get('sar_available')
       });
     });

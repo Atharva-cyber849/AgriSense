@@ -98,6 +98,8 @@ let cropChartInstance = null;
 let stressChartInstance = null;
 let fieldTemporalChartInstance = null;
 
+const NO_CROP_COLOR = "#475569";
+
 const VEG_COLORS = {
   "Dense / Healthy Vegetation": "#16a34a",
   "Moderate Vegetation": "#84cc16",
@@ -112,8 +114,27 @@ const STAGE_COLORS = {
   "Flowering": "#84cc16",
   "Grain Filling": "#f97316",
   "Maturity": "#a16207",
+  "No crop / fallow": NO_CROP_COLOR,
   "Derived Stage Unavailable": "#64748b",
   "No Satellite Observation": "#64748b"
+};
+
+const STRESS_COLORS = {
+  "No Stress": "#06b6d4",
+  "Mild Stress": "#84cc16",
+  "Moderate Stress": "#f59e0b",
+  "Severe Stress": "#ef4444",
+  "No crop / fallow": NO_CROP_COLOR,
+  "No Optical Observation": "#64748b"
+};
+
+const PRIORITY_COLORS = {
+  'No / Low Priority': '#10b981',
+  'Low Priority': '#eab308',
+  'Medium Priority': '#f97316',
+  'High Priority': '#ef4444',
+  'No crop / fallow': NO_CROP_COLOR,
+  'No Advisory': '#64748b'
 };
 
 const MOISTURE_COLORS = {
@@ -126,6 +147,7 @@ const MOISTURE_COLORS = {
 
 document.addEventListener('DOMContentLoaded', async () => {
   injectUi();
+  initHeaderMenus();
   syncHeaderHeight();
 
   window.addEventListener('resize', syncHeaderHeight);
@@ -146,97 +168,6 @@ function injectUi() {
   const style = document.createElement('style');
   style.textContent = `
     :root { --actual-header-height: 92px; }
-
-    .app-header {
-      display:grid !important;
-      grid-template-columns:minmax(250px,310px) minmax(400px,1fr) auto !important;
-      align-items:center !important;
-      gap:.7rem !important;
-      padding:.55rem 1rem !important;
-      min-height:76px !important;
-      height:auto !important;
-    }
-
-    .header-left,.header-center,.header-right,.brand-logo,.brand-text {
-      min-width:0 !important;
-    }
-
-    .brand-title { white-space:nowrap; }
-    .brand-subtitle {
-      white-space:normal !important;
-      line-height:1.2;
-      max-width:260px;
-    }
-
-    .header-center {
-      display:grid !important;
-      grid-template-columns:repeat(4,minmax(100px,1fr)) !important;
-      gap:.5rem !important;
-      width:100%;
-    }
-
-    .stat-pill {
-      min-width:0 !important;
-      max-width:none !important;
-      width:100% !important;
-      padding:.42rem .5rem !important;
-      overflow:hidden;
-    }
-
-    .stat-label {
-      white-space:normal !important;
-      text-align:center;
-      line-height:1.05;
-      min-height:1.35rem;
-    }
-
-    .stat-value {
-      white-space:nowrap;
-      line-height:1.1;
-    }
-
-    .header-right {
-      display:flex;
-      gap:.5rem !important;
-      align-items:center;
-      flex-wrap:nowrap;
-    }
-
-    .header-right .btn { white-space:nowrap; }
-    .persona-selector { min-width:210px; }
-
-    @media (max-width:1820px) {
-      .app-header {
-        grid-template-columns:minmax(260px,1fr) auto !important;
-        grid-template-areas:
-          "brand actions"
-          "stats stats";
-      }
-      .header-left { grid-area:brand; }
-      .header-right { grid-area:actions; justify-content:flex-end; }
-      .header-center {
-        grid-area:stats;
-        grid-template-columns:repeat(4,minmax(0,1fr)) !important;
-      }
-      .stat-label { min-height:0; }
-    }
-
-    @media (max-width:1250px) {
-      .app-header {
-        grid-template-columns:1fr !important;
-        grid-template-areas:
-          "brand"
-          "actions"
-          "stats";
-      }
-      .header-right {
-        justify-content:flex-start;
-        flex-wrap:wrap;
-      }
-      .header-center {
-        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-      }
-    }
 
     .main-layout {
       height:calc(100vh - var(--actual-header-height)) !important;
@@ -656,7 +587,7 @@ function injectUi() {
   const layerNames = {
     crop: ['leaf', 'Vegetation'],
     stage: ['trending-up', 'Derived Stage'],
-    stress: ['waves', 'Moisture Signal'],
+    stress: ['waves', 'Moisture Stress'],
     deficit: ['droplets', 'Water Deficit'],
     advisory: ['compass', 'Irrigation Advisory']
   };
@@ -665,17 +596,6 @@ function injectUi() {
     const btn = document.querySelector(`.layer-btn[data-layer="${key}"]`);
     if (btn) btn.innerHTML = `<i data-lucide="${icon}"></i> <span data-i18n="${label}">${t(label)}</span>`;
   });
-
-  const headerRight = document.querySelector('.header-right');
-  if (headerRight && !document.getElementById('btn-model-eval')) {
-    const button = document.createElement('button');
-    button.className = 'btn btn-outline';
-    button.id = 'btn-model-eval';
-    button.innerHTML =
-      '<i data-lucide="brain-circuit"></i> AI Model Evaluation';
-    const runButton = document.getElementById('btn-run-pipeline');
-    headerRight.insertBefore(button, runButton || null);
-  }
 
   const mapSection = document.querySelector('.map-section');
   if (mapSection && !document.getElementById('master-timeline')) {
@@ -729,20 +649,73 @@ function injectUi() {
         <div class="modal-header">
           <div class="modal-title-group">
             <h3>AI Model Evaluation</h3>
-            <span class="badge badge-info">Derived-label demo</span>
+            <span class="badge badge-info">Held-out metrics</span>
           </div>
           <button class="modal-close" id="btn-close-model-eval">&times;</button>
         </div>
         <div class="modal-body">
-          <div class="eval-warning">
-            Current confusion matrices use derived/pseudo labels, not independent agronomic field validation.
-          </div>
           <div id="model-eval-content">Loading...</div>
         </div>
       </div>
     `;
     document.body.appendChild(modal);
   }
+
+  if (!document.getElementById('policy-sim-backdrop')) {
+    const modal = document.createElement('div');
+    modal.className = 'modal-backdrop';
+    modal.id = 'policy-sim-backdrop';
+    modal.innerHTML = `
+      <div class="modal-card modal-xlarge">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <h3>Irrigation Policy Comparison</h3>
+            <span class="badge badge-warning">Simulation, not field-measured</span>
+          </div>
+          <button class="modal-close" id="btn-close-policy-sim" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div id="policy-sim-content">Loading...</div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+}
+
+function initHeaderMenus() {
+  const menus = [...document.querySelectorAll('.nav-menu')];
+
+  const setOpen = (menu, open) => {
+    menu.querySelector('.nav-trigger').setAttribute('aria-expanded', String(open));
+    menu.querySelector('.nav-panel').hidden = !open;
+  };
+  const closeAll = () => menus.forEach(menu => setOpen(menu, false));
+
+  menus.forEach(menu => {
+    const trigger = menu.querySelector('.nav-trigger');
+    trigger.addEventListener('click', () => {
+      const open = trigger.getAttribute('aria-expanded') !== 'true';
+      closeAll();
+      setOpen(menu, open);
+    });
+    menu.querySelector('.nav-panel').addEventListener('click', event => {
+      if (event.target.closest('.nav-item')) closeAll();
+    });
+    menu.addEventListener('focusout', event => {
+      if (event.relatedTarget && !menu.contains(event.relatedTarget)) setOpen(menu, false);
+    });
+    menu.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        setOpen(menu, false);
+        trigger.focus();
+      }
+    });
+  });
+
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.nav-menu')) closeAll();
+  });
 }
 
 function syncHeaderHeight() {
@@ -801,8 +774,10 @@ async function fetchMasterData() {
 
       pipelineData = payload;
       initializePersonaScopes();
+      currentPeriodIndex = demoStartIndex();
       configureTimeline();
-      await loadPeriod(0, false);
+      await loadPeriod(currentPeriodIndex, false);
+      document.body.classList.add('data-ready');
       renderBaseMap();
       applyPersonaRole(false);
       renderAll();
@@ -818,6 +793,14 @@ async function fetchMasterData() {
 
 function masterTimeline() {
   return pipelineData?.summary?.master_timeline || [];
+}
+
+// Opens on a real canopy instead of pre-sowing bare soil.
+function demoStartIndex() {
+  const index = masterTimeline().findIndex(
+    p => p.period_start === pipelineData?.summary?.demo_default_period
+  );
+  return index >= 0 ? index : 0;
 }
 
 function configureTimeline() {
@@ -1041,11 +1024,13 @@ function featureStyle(fieldId) {
     } else if (currentLayerMode === 'stage') {
       color = STAGE_COLORS[row.derived?.growth_stage] || '#64748b';
     } else if (currentLayerMode === 'stress') {
-      color = MOISTURE_COLORS[row.derived?.moisture_signal] || '#64748b';
+      color = STRESS_COLORS[row.derived?.moisture_stress] || '#64748b';
     } else if (currentLayerMode === 'deficit') {
-      const d = Number(row.water_balance?.deficit_mm);
+      const d = row.water_balance?.deficit_mm == null
+        ? NaN
+        : Number(row.water_balance.deficit_mm);
       color = !Number.isFinite(d)
-        ? '#64748b'
+        ? NO_CROP_COLOR
         : d > 30
           ? '#ef4444'
           : d > 15
@@ -1056,6 +1041,7 @@ function featureStyle(fieldId) {
     } else if (currentLayerMode === 'advisory') {
       const p = Number(row.water_balance?.priority_score || 0);
       color =
+        p === 0 ? NO_CROP_COLOR :
         p >= 8 ? '#ef4444' :
         p >= 5 ? '#f97316' :
         p >= 3 ? '#f59e0b' :
@@ -1224,15 +1210,16 @@ function updateLegend() {
     title.textContent = t('Derived Seasonal Stage');
     palette = Object.entries(STAGE_COLORS);
   } else if (currentLayerMode === 'stress') {
-    title.textContent = t('Real NDMI Moisture Signal');
-    palette = Object.entries(MOISTURE_COLORS);
+    title.textContent = t('Moisture stress for growth stage');
+    palette = Object.entries(STRESS_COLORS);
   } else if (currentLayerMode === 'deficit') {
     title.textContent = t('8-Day Water Deficit');
     palette = [
       ['0–5 mm', '#10b981'],
       ['5–15 mm', '#eab308'],
       ['15–30 mm', '#f97316'],
-      ['>30 mm', '#ef4444']
+      ['>30 mm', '#ef4444'],
+      ['No crop / fallow', NO_CROP_COLOR]
     ];
   } else {
     title.textContent = t('8-Day Irrigation Priority');
@@ -1240,7 +1227,8 @@ function updateLegend() {
       ['Low / None', '#10b981'],
       ['Low', '#f59e0b'],
       ['Medium', '#f97316'],
-      ['High', '#ef4444']
+      ['High', '#ef4444'],
+      ['No crop / fallow', NO_CROP_COLOR]
     ];
   }
 
@@ -1295,14 +1283,6 @@ function renderCharts() {
 
     const dist = summary.irrigation_priority_distribution || {};
     const labels = Object.keys(dist);
-    const priorityColors = {
-      'No / Low Priority': '#10b981',
-      'Low Priority': '#eab308',
-      'Medium Priority': '#f97316',
-      'High Priority': '#ef4444',
-      'No Advisory': '#64748b'
-    };
-
     if (stressCtx) {
       stressChartInstance = new Chart(stressCtx, {
         type: 'bar',
@@ -1311,7 +1291,7 @@ function renderCharts() {
           datasets: [{
             data: Object.values(dist),
             backgroundColor: labels.map(
-              x => priorityColors[x] || '#64748b'
+              x => PRIORITY_COLORS[x] || '#64748b'
             ),
             borderRadius: 4
           }]
@@ -1349,7 +1329,7 @@ function renderCharts() {
     stressTitle.innerHTML =
       currentPersonaRole === 'policy'
         ? '<i data-lucide="droplets"></i> Irrigation Priority Distribution'
-        : '<i data-lucide="waves"></i> Current Moisture Signal';
+        : `<i data-lucide="waves"></i> ${t('Moisture stress for growth stage')}`;
   }
 
   if (cropCtx) {
@@ -1385,18 +1365,12 @@ function renderCharts() {
   if (stressCtx) {
     const dist = currentPersonaRole === 'policy'
       ? (summary.irrigation_priority_distribution || {})
-      : (summary.moisture_distribution || {});
+      : (summary.stress_distribution || {});
 
     const labels = Object.keys(dist);
     const colors = currentPersonaRole === 'policy'
-      ? {
-          'No / Low Priority': '#10b981',
-          'Low Priority': '#eab308',
-          'Medium Priority': '#f97316',
-          'High Priority': '#ef4444',
-          'No Advisory': '#64748b'
-        }
-      : MOISTURE_COLORS;
+      ? PRIORITY_COLORS
+      : STRESS_COLORS;
 
     stressChartInstance = new Chart(stressCtx, {
       type: 'bar',
@@ -1644,7 +1618,8 @@ function updatePersonaView() {
       </div>
       <p class="persona-body">
         Full regional crop-intelligence interface with vegetation, derived
-        phenology, moisture signal, deficit, advisory, QA and model evaluation.
+        phenology, moisture stress, deficit, advisory, QA and model evaluation.
+        Each map point is a random Earth Engine sample pixel, not a farm parcel.
       </p>
       <div class="persona-kpi-grid">
         <div class="persona-kpi-box">
@@ -1711,11 +1686,11 @@ function updateFieldModalValues() {
 
   setText(
     'field-modal-title',
-    t('Observation: {id} • {date}',{id:activeField.field_id,date:formatDateShort(row.period_start)})
+    t('Sample point: {id} • {date}',{id:activeField.field_id,date:formatDateShort(row.period_start)})
   );
   setText(
     'field-modal-crop',
-    activeField.crop_type || 'Unclassified'
+    t(activeField.crop_type || '--')
   );
   setText(
     'field-modal-tehsil',
@@ -1767,7 +1742,7 @@ function updateFieldModalValues() {
   );
   setText(
     'm-rec-timing',
-    water.timing || '--'
+    t(water.timing || '--')
   );
 
   const badge = document.getElementById('m-priority-badge');
@@ -1830,8 +1805,8 @@ function injectPeriodContext(row) {
       <strong>${escapeHtml(t(row.derived?.growth_stage || '--'))}</strong>
     </div>
     <div class="period-context-item">
-      <span><span data-i18n="Moisture Signal">Moisture Signal</span></span>
-      <strong>${escapeHtml(t(row.derived?.moisture_signal || '--'))}</strong>
+      <span><span data-i18n="Moisture Stress">Moisture Stress</span></span>
+      <strong>${escapeHtml(t(row.derived?.moisture_stress || '--'))}</strong>
     </div>
   `;
 }
@@ -2005,7 +1980,7 @@ async function renderLiveInference(fieldId) {
       <span class="live-inference-status"><span data-i18n="RUNNING">RUNNING</span></span>
     </div>
     <div style="font-size:.68rem;color:#94a3b8">
-      <span data-i18n="Loading Crop RF, Phenology LSTM and Stress XGBoost...">Loading Crop RF, Phenology LSTM and Stress XGBoost...</span>
+      <span data-i18n="Loading growth-stage model...">Loading growth-stage model...</span>
     </div>
   `;
 
@@ -2046,9 +2021,7 @@ async function renderLiveInference(fieldId) {
       return;
     }
 
-    const crop = payload.predictions?.crop;
     const phenology = payload.predictions?.phenology;
-    const stress = payload.predictions?.stress;
 
     const modelLine = prediction => {
       if (!prediction || currentPersonaRole === 'farmer') {
@@ -2099,9 +2072,7 @@ async function renderLiveInference(fieldId) {
       </div>
 
       <div class="live-inference-grid">
-        ${itemHtml('Crop', crop)}
         ${itemHtml('Growth Stage', phenology)}
-        ${itemHtml('Moisture Stress', stress)}
       </div>
 
       <div class="live-inference-note">
@@ -2113,7 +2084,7 @@ async function renderLiveInference(fieldId) {
         ${
           currentPersonaRole === 'farmer'
             ? t('Prototype AI decision-support output.')
-            : 'These are predictions from the serialized trained models; current training labels are still prototype/derived.'
+            : 'Phenology LSTM prediction. Its labels come from NDVI trajectories, not field observations.'
         }
       </div>
 
@@ -2142,7 +2113,7 @@ async function renderLiveInference(fieldId) {
         ${escapeHtml(currentPersonaRole==='farmer'?t('AI assessment is unavailable. Try again later; existing observations remain accessible.'):error.message)}
       </div>
       <div class="live-inference-note">
-        ${currentPersonaRole==='farmer'?t('Prototype AI decision-support output.'):'Verify the selected artifacts in <code>private_models/</code> and check <code>/api/inference/health</code>.'}
+        ${currentPersonaRole==='farmer'?t('Prototype AI decision-support output.'):'Verify the selected artifacts in <code>models/</code> and check <code>/api/inference/health</code>.'}
       </div>
     `;
 
@@ -2172,54 +2143,91 @@ async function renderModelEvaluation() {
   target.innerHTML = 'Loading model evaluation...';
 
   try {
-    const [evalRes, metaRes] = await Promise.all([
-      fetch('/api/model-evaluation', { cache: 'no-store' }),
-      fetch('/api/model-metadata', { cache: 'no-store' })
+    const [evalRes, cropRes] = await Promise.all([
+      fetch('/data/model_evaluation.json', { cache: 'no-store' }),
+      fetch('/data/crop_engine_metrics.json', { cache: 'no-store' })
     ]);
 
-    const staticEvalRes = evalRes.ok
-      ? evalRes
-      : await fetch('/data/model_evaluation.json', { cache: 'no-store' });
-    const staticMetaRes = metaRes.ok
-      ? metaRes
-      : await fetch('/data/model_metadata.json', { cache: 'no-store' });
-
-    if (!staticEvalRes.ok) {
-      throw new Error('model_evaluation.json is unavailable');
+    if (!evalRes.ok || !cropRes.ok) {
+      throw new Error('Model evaluation files are unavailable');
     }
 
-    const rows = await staticEvalRes.json();
-    const meta = staticMetaRes.ok ? await staticMetaRes.json() : {};
+    const rows = await evalRes.json();
+    const crop = await cropRes.json();
+    const lstm = rows.find(
+      row => row.engine === 'Phenology Engine' && row.model === 'LSTM'
+    );
+    const ruleChecks = rows.filter(row => row !== lstm);
 
-    const grouped = {};
+    target.innerHTML = `
+      <section class="eval-section">
+        <h3>Crop engine: real field labels, spatially held out</h3>
+        <p class="eval-note">
+          AgriFieldNet, ${crop.fields.toLocaleString()} labelled fields, 13 classes, 4 spatial folds.
+          A majority-class baseline scores macro-F1 ${fmt(crop.research_leader.baseline_macro_f1, 3)}.
+        </p>
+        <div class="model-eval-grid">
+          ${scoreCardHtml(`${crop.research_leader.model} (study leader)`, crop.research_leader.macro_f1, crop.research_leader.accuracy, 'Radar + optical time series')}
+          ${scoreCardHtml(`${crop.deployable_model.model} (bands shared with Karnal)`, crop.deployable_model.macro_f1, crop.deployable_model.accuracy, 'The saved crop engine')}
+        </div>
+        <div class="eval-warning">
+          Not yet run on the Karnal map. ${escapeHtml(crop.not_applied_reason)}
+        </div>
+      </section>
 
-    rows.forEach(row => {
-      if (!grouped[row.engine]) grouped[row.engine] = [];
-      grouped[row.engine].push(row);
-    });
-
-    target.innerHTML =
-      Object.entries(grouped).map(([engine, models]) => `
-        <section style="margin-bottom:1.3rem">
-          <h3 style="margin-bottom:.7rem">${engine}</h3>
-          <div class="model-eval-grid">
-            ${models.map(modelCardHtml).join('')}
-          </div>
+      ${lstm ? `
+        <section class="eval-section">
+          <h3>Phenology LSTM: unseen fields, derived labels</h3>
+          <p class="eval-note">
+            ${lstm.field_split ? 'Tested on 647 fields held out from training. ' : ''}
+            Labels come from each point's NDVI trajectory, so this measures temporal
+            consistency, not agreement with field observations.
+          </p>
+          <div class="model-eval-grid">${modelCardHtml(lstm)}</div>
         </section>
-      `).join('') +
-      `<div class="eval-warning">
-        ${meta.evaluation_warning || 'Prototype evaluation on derived/pseudo labels.'}
-      </div>`;
+      ` : ''}
+
+      <details class="rule-check">
+        <summary>Rule-consistency check (not a performance score)</summary>
+        <p class="eval-note">
+          These models were trained on labels that are thresholds on their own input
+          features. High scores only confirm that the rules were learned, so they are
+          no longer served by the inference API.
+        </p>
+        <div class="model-eval-grid">
+          ${ruleChecks.map(modelCardHtml).join('')}
+        </div>
+      </details>
+    `;
   } catch (err) {
     target.innerHTML =
-      `<div class="eval-warning">${err.message}</div>`;
+      `<div class="eval-warning">${escapeHtml(err.message)}</div>`;
   }
+}
+
+function scoreCardHtml(title, macroF1, accuracy, note) {
+  return `
+    <article class="model-card">
+      <h4>${escapeHtml(title)}</h4>
+      <div style="font-size:.68rem;color:#94a3b8">${escapeHtml(note)}</div>
+      <div class="model-metrics">
+        <div class="model-metric">
+          <span>Macro F1</span>
+          <strong>${fmt(macroF1, 3)}</strong>
+        </div>
+        <div class="model-metric">
+          <span>Accuracy</span>
+          <strong>${pct(accuracy)}</strong>
+        </div>
+      </div>
+    </article>
+  `;
 }
 
 function modelCardHtml(m) {
   return `
     <article class="model-card">
-      <h4>${m.model}</h4>
+      <h4>${m.engine === 'Phenology Engine' && m.model === 'LSTM' ? m.model : `${m.engine}: ${m.model}`}</h4>
       <div style="font-size:.68rem;color:#94a3b8">
         ${(m.classes || []).join(' • ')}
       </div>
@@ -2258,6 +2266,169 @@ function confusionMatrixHtml(classes, matrix) {
   ).join('');
 
   return `<table class="cm-table">${head}${body}</table>`;
+}
+
+/* -------------------------------------------------------------------------- */
+/* POLICY SIMULATOR                                                            */
+/* -------------------------------------------------------------------------- */
+
+const POLICY_LABELS = {
+  fixed: 'Fixed schedule',
+  fao56: 'FAO-56 rule',
+  budget: 'Budget allocation'
+};
+
+// One hue, dark to light: more of the root zone depleted reads brighter.
+function depletionColor(ratio) {
+  const x = Math.max(0, Math.min(1, ratio));
+  const mix = (a, b) => Math.round(a + (b - a) * x);
+  return `rgb(${mix(30, 251)},${mix(41, 191)},${mix(59, 36)})`;
+}
+
+let policySimData = null;
+
+async function renderPolicySim() {
+  const target = document.getElementById('policy-sim-content');
+  if (!target) return;
+
+  try {
+    if (!policySimData) {
+      const res = await fetch('/data/policy_sim/results.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('Policy simulation results are unavailable');
+      policySimData = await res.json();
+    }
+  } catch (err) {
+    target.innerHTML = `<div class="eval-warning">${escapeHtml(err.message)}</div>`;
+    return;
+  }
+
+  const d = policySimData;
+  const single = d.single_field;
+  const shares = Object.keys(d.shared_water.scenarios);
+
+  target.innerHTML = `
+    <p class="eval-note">
+      ${escapeHtml(d.crop)}, ${d.seasons} seasons of Karnal weather (${escapeHtml(d.season_range)}).
+      ${escapeHtml(d.weather_source)}. Every policy runs on the same seasons and none sees future weather.
+    </p>
+
+    <section class="eval-section">
+      <div class="policy-head">
+        <h3>Shared canal water</h3>
+        <label class="policy-control">Seasonal release
+          <select id="policy-share">
+            ${shares.map(share => `<option value="${share}" ${share === '0.7' ? 'selected' : ''}>
+              ${Math.round(Number(share) * 100)}% of demand (${fmt(d.shared_water.scenarios[share].release_mm_per_season, 0)} mm)
+            </option>`).join('')}
+          </select>
+        </label>
+      </div>
+      <div id="policy-tiles" class="policy-tiles"></div>
+      <div class="table-responsive">
+        <table class="custom-table policy-table" id="policy-table"></table>
+      </div>
+      <p class="eval-note">
+        ${d.assumptions.shared.fields} fields on one distributary with ${Math.round(d.assumptions.shared.conveyance_loss_at_tail * 100)}% conveyance loss at the tail.
+        Fixed schedule and FAO-56 rule draw head-first, the status quo. Budget allocation splits water across three reaches, then sends it where it saves the most yield per mm.
+      </p>
+    </section>
+
+    <section class="eval-section">
+      <h3>Season replay: driest season, ${escapeHtml(d.replay.season)} (${fmt(d.replay.rain_mm, 0)} mm rain)</h3>
+      <div class="policy-replay-controls">
+        <label for="policy-replay-slider">Day of season: <strong id="policy-replay-day"></strong></label>
+        <input id="policy-replay-slider" type="range" min="0" max="${d.replay.policies.fixed.length - 1}" value="${Math.floor(d.replay.policies.fixed.length * 0.7)}">
+      </div>
+      <div id="policy-replay" class="policy-replay"></div>
+      <div class="policy-ramp">
+        <span>Root zone full</span><span class="policy-ramp-bar"></span><span>Empty</span>
+      </div>
+    </section>
+
+    <section class="eval-section">
+      <h3>One field with unlimited water: how much depends on the baseline</h3>
+      <p class="eval-note">
+        Against ${d.assumptions.fixed_schedule.das.length} irrigations of ${d.assumptions.fixed_schedule.depth_mm} mm, the FAO-56 rule uses
+        <strong>${fmt(single.water_saving_pct, 1)}% less water</strong> (95% CI ${single.water_saving_ci95[0]} to ${single.water_saving_ci95[1]}),
+        with yield ${fmt(single.yield_change_pts, 1)} points higher. The saving is sensitive to what farmers actually do and to soil:
+      </p>
+      <div class="table-responsive">
+        <table class="custom-table policy-table">
+          <thead><tr><th>Soil water capacity</th><th>Farmer irrigations assumed</th><th>Water saved by rule</th><th>Yield change</th></tr></thead>
+          <tbody>
+            ${d.sensitivity.map(r => `<tr>
+              <td>${r.awc_mm_per_m} mm/m</td>
+              <td>${r.fixed_irrigations}</td>
+              <td>${r.water_saving_pct}%</td>
+              <td>${r.yield_change_pts >= 0 ? '+' : ''}${r.yield_change_pts} pts</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="eval-warning">${escapeHtml(d.status)} Crop model: FAO-56 water balance with FAO-33 yield response (Ky ${d.assumptions.ky}). No field trial has validated these numbers.</div>
+  `;
+
+  const drawScenario = () => {
+    const share = document.getElementById('policy-share').value;
+    const scenario = d.shared_water.scenarios[share];
+    const { fixed, budget } = scenario.policies;
+    const waterCut = 100 * (1 - budget.water_mm / fixed.water_mm);
+
+    document.getElementById('policy-tiles').innerHTML = [
+      [`${fmt(waterCut, 0)}%`, 'less water than fixed schedule'],
+      [`${budget.yield > fixed.yield ? '+' : ''}${fmt(100 * (budget.yield - fixed.yield), 1)} pts`, 'relative yield vs fixed schedule'],
+      [`${fmt(scenario.tail_stress_days_cut_vs_fixed_pct, 0)}%`, 'fewer tail-end stress days']
+    ].map(([value, label]) => `
+      <div class="persona-kpi-box">
+        <span class="kpi-val">${value}</span>
+        <span class="kpi-title">${label}</span>
+      </div>
+    `).join('');
+
+    document.getElementById('policy-table').innerHTML = `
+      <thead><tr>
+        <th>Policy</th><th>Water released</th><th>Relative yield</th><th>Tail-end yield</th>
+        <th>Fields with any stress</th><th>Tail-end stress days</th><th>Head-end stress days</th>
+      </tr></thead>
+      <tbody>
+        ${Object.entries(scenario.policies).map(([key, v]) => `<tr>
+          <td><strong>${POLICY_LABELS[key]}</strong></td>
+          <td>${fmt(v.water_mm, 0)} mm</td>
+          <td>${pct(v.yield)}</td>
+          <td>${pct(v.tail_yield)}</td>
+          <td>${pct(v.stressed_fields)}</td>
+          <td>${fmt(v.tail_stress_days, 0)}</td>
+          <td>${fmt(v.head_stress_days, 0)}</td>
+        </tr>`).join('')}
+      </tbody>
+    `;
+  };
+
+  const drawReplay = () => {
+    const index = Number(document.getElementById('policy-replay-slider').value);
+    const day = d.replay.policies.fixed[index].day;
+    setText('policy-replay-day', `${day} of 135`);
+
+    document.getElementById('policy-replay').innerHTML =
+      ['fixed', 'budget'].map(key => `
+        <div class="policy-replay-row">
+          <strong>${POLICY_LABELS[key]}</strong>
+          <div class="policy-strip" role="img" aria-label="${POLICY_LABELS[key]}: root-zone depletion per field, head to tail">
+            ${d.replay.policies[key][index].depletion_ratio.map((ratio, i) =>
+              `<span style="background:${depletionColor(ratio)}" title="Field ${i + 1} of ${d.assumptions.shared.fields}: ${Math.round(ratio * 100)}% of root-zone water used"></span>`
+            ).join('')}
+          </div>
+        </div>
+      `).join('') +
+      '<div class="policy-strip-axis"><span>Head of canal</span><span>Tail</span></div>';
+  };
+
+  document.getElementById('policy-share').addEventListener('change', drawScenario);
+  document.getElementById('policy-replay-slider').addEventListener('input', drawReplay);
+  drawScenario();
+  drawReplay();
 }
 
 /* -------------------------------------------------------------------------- */
@@ -2319,6 +2490,19 @@ function initEventListeners() {
       await renderModelEvaluation();
     });
 
+  document.getElementById('btn-policy-sim')
+    ?.addEventListener('click', async () => {
+      document.getElementById('policy-sim-backdrop')
+        ?.classList.add('active');
+      await renderPolicySim();
+    });
+
+  document.getElementById('btn-close-policy-sim')
+    ?.addEventListener('click', () => {
+      document.getElementById('policy-sim-backdrop')
+        ?.classList.remove('active');
+    });
+
   document.getElementById('btn-close-model-eval')
     ?.addEventListener('click', () => {
       document.getElementById('model-eval-backdrop')
@@ -2344,7 +2528,7 @@ function initEventListeners() {
     });
 
   document.getElementById('btn-run-pipeline')
-    ?.addEventListener('click', rebuildPipeline);
+    ?.addEventListener('click', replaySeason);
 
   document.getElementById('persona-select')
     ?.addEventListener('change', async event => {
@@ -2424,9 +2608,9 @@ function printFieldAdvisory() {
   const printWindow = window.open('', '_blank', 'width=900,height=700');
   if (!printWindow) return;
 
-  printWindow.document.write(`<!doctype html><html><head><title>AgriSense Field Advisory</title>
+  printWindow.document.write(`<!doctype html><html><head><title>AgriSense Sample-Point Advisory</title>
     <style>body{font:14px Arial,sans-serif;color:#17202b;padding:32px}h1{color:#087f5b}table{border-collapse:collapse;width:100%;max-width:760px}th,td{border:1px solid #ccd5df;padding:8px;text-align:left}th{background:#edf5f2;text-transform:capitalize;width:36%}@media print{button{display:none}}</style>
-    </head><body><h1>AgriSense Field Advisory</h1><p>${escapeHtml(data.field_id)} • ${escapeHtml(data.period_start)}</p><table>${rows}</table><button onclick="window.print()">Print / Save PDF</button></body></html>`);
+    </head><body><h1>AgriSense Sample-Point Advisory</h1><p>${escapeHtml(data.field_id)} • ${escapeHtml(data.period_start)}</p><table>${rows}</table><button onclick="window.print()">Print / Save PDF</button></body></html>`);
   printWindow.document.close();
   printWindow.focus();
 }
@@ -2475,92 +2659,11 @@ function stopPlayback() {
   if (window.lucide) lucide.createIcons();
 }
 
-async function rebuildPipeline() {
+// Replays the precomputed 2025 season from its first period.
+async function replaySeason() {
   stopPlayback();
-
-  const button = document.getElementById('btn-run-pipeline');
-  if (!button) return;
-
-  button.disabled = true;
-  button.innerHTML =
-    '<i data-lucide="loader" class="spin"></i> Rebuilding 19 Steps...';
-
-  const consoleBody = document.getElementById('console-body');
-  const consoleStatus = document.getElementById('console-status');
-
-  document.getElementById('pipeline-modal-backdrop')
-    ?.classList.add('active');
-
-  if (consoleStatus) {
-    consoleStatus.textContent =
-      'Combining 19 weather periods with the latest real old satellite state...';
-  }
-
-  if (consoleBody) {
-    consoleBody.innerHTML = `
-      <div class="log-line log-info">[1] Reading 19-period master manifest...</div>
-      <div class="log-line log-info">[2] Sampling real 8-day weather rasters...</div>
-      <div class="log-line log-info">[3] Sampling static 24-band soil stack...</div>
-      <div class="log-line log-info">[4] Matching old real satellite observations...</div>
-      <div class="log-line log-info">[5] Marking FRESH vs CARRIED satellite states...</div>
-      <div class="log-line log-info">[6] Calculating FAO-56 ET₀ estimates + prototype advisory...</div>
-    `;
-  }
-
-  try {
-    const res = await fetch(
-      '/api/run-pipeline',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({})
-      }
-    );
-
-    const result = await res.json();
-
-    if (!res.ok) {
-      throw new Error(result.details || result.error || 'Pipeline failed');
-    }
-
-    pipelineData = result.data;
-    initializePersonaScopes();
-    currentPeriodIndex = 0;
-    configureTimeline();
-    await loadPeriod(0, false);
-
-    if (!geojsonLayer) {
-      renderBaseMap();
-    }
-
-    renderAll();
-
-    if (consoleStatus) {
-      consoleStatus.textContent = '19-step master timeline ready';
-    }
-
-    if (consoleBody) {
-      consoleBody.innerHTML += `
-        <div class="log-line log-success">
-          [SUCCESS] ${pipelineData.summary.master_period_count} master periods ready.
-          Satellite temporal table:
-          ${pipelineData.summary.satellite_temporal_available ? 'available' : 'missing'}.
-        </div>
-      `;
-    }
-  } catch (err) {
-    if (consoleBody) {
-      consoleBody.innerHTML +=
-        `<div class="log-line log-err">[ERROR] ${err.message}</div>`;
-    }
-  } finally {
-    button.disabled = false;
-    button.innerHTML =
-      '<i data-lucide="refresh-cw"></i> Rebuild Demo Data';
-
-    window.AgriSenseI18n.apply();
-  if (window.lucide) lucide.createIcons();
-  }
+  await loadPeriod(0);
+  togglePlayback();
 }
 
 /* -------------------------------------------------------------------------- */
@@ -2627,8 +2730,10 @@ function initializePersonaScopes() {
   const centerLat = 29.6857;
   const centerLon = 76.9905;
 
+  // Demo plots must carry a crop, or the farmer view has nothing to advise on.
   const candidates = (pipelineData?.fields || [])
     .filter(field =>
+      field.crop_type !== 'No seasonal crop detected' &&
       Number.isFinite(Number(field.lat)) &&
       Number.isFinite(Number(field.lon))
     )
@@ -2703,6 +2808,10 @@ function applyPersonaChrome() {
     cfg.showModelEvaluation
   );
   setElementVisible(
+    document.getElementById('btn-policy-sim'),
+    currentPersonaRole !== 'farmer'
+  );
+  setElementVisible(
     document.getElementById('btn-pipeline-modal'),
     cfg.showPipelineArchitecture
   );
@@ -2773,7 +2882,25 @@ function pct(value) {
 
 function setText(id, value) {
   const element = document.getElementById(id);
-  if (element) element.textContent = t(value);
+  if (!element) return;
+
+  const text = t(value);
+  const changed = element.textContent !== text;
+  element.textContent = text;
+
+  if (
+    changed &&
+    element.classList.contains('stat-value') &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ) {
+    element.animate(
+      [
+        { opacity: 0.3, transform: 'translateY(4px)' },
+        { opacity: 1, transform: 'none' }
+      ],
+      { duration: 260, easing: 'ease-out' }
+    );
+  }
 }
 
 function formatDateShort(value) {
